@@ -1,1 +1,1 @@
-\label{ref:mapsearch} Viewing results for a search for "switcgrass yield": a map of sites for which data is available, including the option to download.
+\label{fig:mapsearch} Viewing results for a search for "switcgrass yield": a map of sites for which data is available, including the option to download.
