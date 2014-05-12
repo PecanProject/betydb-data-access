@@ -6,7 +6,7 @@ Data is made available for analysis after it is submitted and reviewed by a data
 
 On the welcome page of BETYdb there is a search option for trait and yield data. This tool allows users to search the entire database for specific sites, species, and traits.
 
-![alt text](figures/searchbox1/searchbox1.png)
+
 
 ## Advanced Search
 
