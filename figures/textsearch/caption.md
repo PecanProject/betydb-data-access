@@ -1,1 +1,1 @@
-\label{fig:textsearch} Searching for root trait data by text, then downloading the data and opening with a spreadsheet program.
+\label{fig:textsearch} Searching for switchgrass yield data using a textbox on the BETYdb home page (www.betydb.org).
