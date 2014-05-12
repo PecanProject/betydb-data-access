@@ -8,6 +8,8 @@ On the welcome page of BETYdb there is a search option for trait and yield data.
 
 (Figure \ref{fig:textsearch})
 
+The downloaded file provides The date and SQL query data. The database itself has a suggested citation, and each record has a citation from which the data was collected (Figure \ref{fig:excelresults}).
+
 ## Advanced Search
 
 Advanced search can be used by using text or seaching using map. 
@@ -17,14 +19,11 @@ Advanced search can be used by using text or seaching using map.
 
 The advanced search can be used by searching for trait and yield data through text. Doing so is very simple, type in the site (city), species or trait into the search bar and the results will show what is the the BetYdb database. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
 
-
-![alt text](figures/textsearch/textsearch.png)
+(Figure \ref{fig:textsearch})
 
 
 ### Searching with maps and text
 
 Advance search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in Google Maps. Sites, species and traits can be searched further by clicking on the geographical location on the map. Additionally, there is a legand that shows selected sites that  match serach, don't match search, and sites that fall outside search area. All of these results can be downloaded by clicking the "download results" button on the upper right hand corner. 
 
-![alt text](figures/accessmaps/accessmaps.png)
-
-
+(Figure \ref{fig:mapsearch})
