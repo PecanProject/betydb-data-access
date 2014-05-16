@@ -16,6 +16,7 @@ _Instructions:_ The advanced search can be used by searching for trait and yield
 (Figure \ref{fig:textsearch})
 
 
-Advance search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in Google Maps. Sites, species and traits can be searched further by clicking on the geographical location on the map. Additionally, there is a legand that shows selected sites that  match serach, don't match search, and sites that fall outside search area. All of these results can be downloaded by clicking the "download results" button on the upper right hand corner. 
+Advanced search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in Google Maps. Sites, species and traits can be searched further by clicking on the geographical location on the map. Additionally, there is a legand that shows selected sites that  match serach, don't match search, and sites that fall outside search area. All of these results can be downloaded by clicking the "download results" button on the upper right hand corner. 
 
 (Figure \ref{fig:mapsearch})
+
