@@ -26,7 +26,7 @@ BetyDB has the ability to return any object in these three formats. All the tabl
 
 The format of your request will need to be:
 
-
+### Examples
 
 Return all citations in json format (replace json with xml or csv for those formats)
 
