@@ -22,11 +22,11 @@ Howver, most of the useful information, for example about sites and treatments, 
 
 ### Cross-table queries using CSV, JSON and XML APIs
 
-BetyDB has the ability to return any object in these three formats. All the tables in BetyDB are RESTful, which allows you to GET, POST, PUT, or DELETE them without interacting with the web interface. Here are some examples. In all of these examples, you can use exchange `.json` and `.xml` depending on the format you want.
-
-The format of your request will need to be:
+BETYdb has the ability to return any object in these three formats. All the tables in BETYdb are RESTful, which allows you to GET, POST, PUT, or DELETE them without interacting with the web interface. Here are some examples. In all of these examples, you can use exchange `.json` with `.xml` or `.csv` depending on the format that you want.
 
 ### Examples
+
+Here are some examples to define the  format of valid requests:
 
 Return all citations in json format (replace json with xml or csv for those formats)
 
