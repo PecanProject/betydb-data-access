@@ -75,3 +75,13 @@ Return citation 1 in json format with it’s associated sites and yields
 ## API keys
 
 Using an API key allows access to data without having to enter a login. To use an API key, simply append @?key=@ to the end of the URL. Each user must obtain a unique API key.
+
+### For admins
+
+Users who signed up on previous releases may not have an API key in the database. To create an API key for every existing user, run the command below
+
+    rake bety:make_keys
+
+This command will only be needed once.
+
+
