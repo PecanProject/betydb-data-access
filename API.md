@@ -40,7 +40,7 @@ Return all yield data for the genus ‘Miscanthus’:
     https://www.betydb.org/yields.json?genus=Miscanthus
     https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus
     
-**[The following is the correct syntax. You must _include_ each associated table that you want to use in your query, and you must qualify the joined tables with their table name.]**
+**[The following is the correct syntax. You must _include_ each associated table that you want to use in your query, and you must qualify columns from joined tables with their table name.]**
 
     https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus    
     https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
