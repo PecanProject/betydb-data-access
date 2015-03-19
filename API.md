@@ -60,9 +60,19 @@ Return all yield data from the with author = Heaton and year = 2008 (can also be
 
     https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
 
-Find species associated with the `biocro.salix` pft 
+Find species associated with the ~~`biocro.salix`~~ `salix` pft
 
-    https://www.betydb.org/species.xml?include[]=pfts_species&include[]=pfts&name=biocro.salix
+~~https://www.betydb.org/species.xml?include[]=pfts_species&include[]=pfts&name=biocro.salix~~
+
+    https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
+    
+**[There are some irregularities about when you need to use include[]=.  You _always_ have to use it to query on an associated table.  You sometimes need it to see the associated table's information.  But sometimes you don't.]**
+
+**[You _should_ also be able to do the query like so:]**
+
+    https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
+    
+**[This works, but you get pfts elements that contain no information inside each species element.]**
 
  Return all citations with their associated sites (you use the singular version of the associated tables name - site - when the relationship is many to one, and the plural when many to many; hint: if the id of the table you are attempting to include is in the record - relatedtable_id - then it is the singular version.   
 
