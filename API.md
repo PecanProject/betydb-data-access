@@ -31,60 +31,40 @@ BETYdb has the ability to return any object in these three formats. All the tabl
 
 Here are some examples to define the  format of valid requests:
 
-Return all citations in json format (replace json with xml or csv for those formats)
+Return all citations in json format (replace json with xml or csv for those formats):
 
     https://www.betydb.org/citations.json
 
-Return all yield data for the genus ‘Miscanthus’  
+Return all yield data for the genus ‘Miscanthus’:
   
     https://www.betydb.org/yields.json?genus=Miscanthus
-    https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus
-    
-**[The following is the correct syntax.  You must _include_ each associated table that you want to use in your query, and you must qualify the joined tables with their table name.]**
-    
-    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus
-    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
-    
-**These each return a list of yields together with information from the associated tables--including the species table--for each yield.  Thus, this query will show the same species information multiple times--once for each yield.**
+    https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus 
 
-**An alternative way of extracting the same information in a different format is**
+Return all yield data from the with author = Heaton and year = 2004 (can also be queried by title):
 
-    https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields            
-    https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
-    
-**These each return a list of Miscanthus species (a list of length one in the second case) where each list item itself contains a list of yields for the species of the item.  Since species and yields are in a one-to-many relationship, each species is only listed once.**
+    https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2004
 
+Find species associated with the `biocro.salix` pft:
 
+    https://www.betydb.org/species.xml?include[]=pfts_species&include[]=pfts&name=biocro.salix
 
-Return all yield data from the with author = Heaton and year = 2008 (can also be queried by title)
-
-    https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
-
-Find species associated with the ~~`biocro.salix`~~ `salix` pft
-
-~~https://www.betydb.org/species.xml?include[]=pfts_species&include[]=pfts&name=biocro.salix~~
-
-    https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
-    
-**[There are some irregularities about when you need to use include[]=.  You _always_ have to use it to query on an associated table.  You sometimes need it to see the associated table's information.  But sometimes you don't.]**
-
-**[You _should_ also be able to do the query like so:]**
-
-    https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
-    
-**[This works, but you get pfts elements that contain no information inside each species element.]**
-
- Return all citations with their associated sites (you use the singular version of the associated tables name - site - when the relationship is many to one, and the plural when many to many; hint: if the id of the table you are attempting to include is in the record - relatedtable_id - then it is the singular version.   
+ Return all citations with their associated sites.  (You use the singular version of the associated tables name&mdash;`site` in this case&mdash;when the relationship is many to one, and the plural when many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include&mdash;that is, something like `relatedtable_id`&mdash;then you need to use the singular version.)  
 
     https://www.betydb.org/citations.json?include[]=sites 
 
-Return all citations with their associated sites and yields (working on ability to nest this deeper)    
+Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
-    https://www.betydb.org/citations.json?include[]=sites&include[]=yields 
+    https://www.betydb.org/citations.json?include[]=sites&include[]=yields
+    
+**(Note that this will take considerable time since the information for all yields rows will be displayed.)**
 
-Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields.  
+Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields.  **Note that you need to use `%20` or simple `+` to represent the space character in a URL.** 
 
-    https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields 
+    https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
+    
+**[On pecandev, you can try this query instead since the former doesn't return any yields there:]**
+
+    http://pecandev.igb.illinois.edu/citations.json?journal=Biomass+and+Bioenergy&author=Fang&include[]=sites&include[]=yields
 
 Return citation 1 in json format, can also be achieved by adding ’?id=1’ to line 1  
 
