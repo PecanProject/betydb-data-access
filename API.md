@@ -47,7 +47,7 @@ Return all yield data for the genus ‘Miscanthus’:
     
 **These each return a list of yields together with information from the associated tables--including the species table--for each yield. Thus, this query will show the same species information multiple times--once for each yield.**
 
-**An alternative way of extracting the same information in a different format is**
+**An alternative way of extracting the same information in a different format is:**
 
     https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields       
     https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
