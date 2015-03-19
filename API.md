@@ -38,11 +38,27 @@ Return all citations in json format (replace json with xml or csv for those form
 Return all yield data for the genus ‘Miscanthus’  
   
     https://www.betydb.org/yields.json?genus=Miscanthus
-    https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus 
+    https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus
+    
+**[The following is the correct syntax.  You must _include_ each associated table that you want to use in your query, and you must qualify the joined tables with their table name.]**
+    
+    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus
+    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
+    
+**These each return a list of yields together with information from the associated tables--including the species table--for each yield.  Thus, this query will show the same species information multiple times--once for each yield.**
 
-Return all yield data from the with author = Heaton and year = 2004 (can also be queried by title)
+**An alternative way of extracting the same information in a different format is**
 
-    https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2004
+    https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields            
+    https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
+    
+**These each return a list of Miscanthus species (a list of length one in the second case) where each list item itself contains a list of yields for the species of the item.  Since species and yields are in a one-to-many relationship, each species is only listed once.**
+
+
+
+Return all yield data from the with author = Heaton and year = 2008 (can also be queried by title)
+
+    https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
 
 Find species associated with the `biocro.salix` pft 
 
