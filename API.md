@@ -73,9 +73,11 @@ Find species associated with the ~~`biocro.salix`~~ `salix` pft:
 **[This works, but you get pfts elements that contain no information inside each species element.]**  
 
 
- Return all citations with their associated sites.  (**Note**: When using `include[]=`, you use the singular version of the associated tables name—`site` in this case—when the relationship is many to one, and the plural when many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.)  
+ Return all citations with their associated sites: 
 
-    https://www.betydb.org/citations.json?include[]=sites 
+    https://www.betydb.org/citations.json?include[]=sites
+    
+(**Note**: When using `include[]=`, you use the singular version of the associated tables name when the relationship is many to one, and the plural&mdash;here `sites&mdash;when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
 
 Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
