@@ -64,9 +64,7 @@ Find species associated with the ~~`biocro.salix`~~ `salix` pft:
 
     https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
 
-**[There are some irregularities about when you need to use include[]=. You _always_ have to use it to query on an associated table. You sometimes need it to see the associated table's information. But sometimes you don't.]**
-
-**[You _should_ also be able to do the query like so:]**  
+**[You can also do the query like so:]**  
 
     https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
     
