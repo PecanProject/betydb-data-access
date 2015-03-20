@@ -67,8 +67,6 @@ Find species associated with the ~~`biocro.salix`~~ `salix` pft:
 **[You can also do the query like so:]**  
 
     https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
-    
-**[This works, but you get pfts elements that contain no information inside each species element.]**  
 
 
  Return all citations with their associated sites: 
