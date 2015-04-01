@@ -103,7 +103,7 @@ Return citation 1 in json format with it’s associated sites and yields
 
 ## API keys
 
-Using an API key allows access to data without having to enter a login. To use an API key, simply append `?key=` to the end of the URL. Each user must obtain a unique API key.
+Using an API key allows access to data without having to enter a login. To use an API key, simply append `?key=<your key>` to the end of the URL. Each user must obtain a unique API key.
 
 ### For admins
 
