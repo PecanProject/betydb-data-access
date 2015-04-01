@@ -73,7 +73,7 @@ Find species associated with the ~~`biocro.salix`~~ `salix` pft:
 
     https://www.betydb.org/citations.json?include[]=sites
     
-(**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural&mdash;here `sites`&mdash;when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
+(**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural—here `sites`—when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
 
 Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
@@ -103,7 +103,7 @@ Return citation 1 in json format with it’s associated sites and yields
 
 ## API keys
 
-Using an API key allows access to data without having to enter a login. To use an API key, simply append @?key=@ to the end of the URL. Each user must obtain a unique API key.
+Using an API key allows access to data without having to enter a login. To use an API key, simply append `?key=` to the end of the URL. Each user must obtain a unique API key.
 
 ### For admins
 
