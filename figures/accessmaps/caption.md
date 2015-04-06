@@ -1,1 +1,1 @@
-Refining search area
+\label{fig:accessmaps} Refining search area
