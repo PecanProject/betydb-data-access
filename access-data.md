@@ -19,12 +19,12 @@ The results page provides a map interface (Figure \ref{fig:mapsearch}) and the o
 The downloaded file is in csv format. This file provides meta-data and provenance information, including: the date and the SQL query used to access, as well as a citation for BETYdb itself (_to be updated on publication_) and the source of each record (Figure \ref{fig:excelresults}).
 
 
-_Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple, type in the site (city), species or trait into the search bar and the results will show what is the the BetYdb database. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
+_Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple, type in the site (city), species or trait into the search bar and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
 
 (Figure \ref{fig:textsearch})
 
 
-Advanced search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in Google Maps. Sites, species and traits can be searched further by clicking on the geographical location on the map. Additionally, there is a legand that shows selected sites that  match serach, don't match search, and sites that fall outside search area. All of these results can be downloaded by clicking the "download results" button on the upper right hand corner. 
+Advanced search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in a map. Sites, species and traits can be searched further by clicking on the geographical location on the map (Figure \ref{fig:accessmaps}). The color of each site indicates which sites match the search terms. Results can be downloaded by clicking the "download results" button on the upper right hand corner. 
 
 (Figure \ref{fig:mapsearch})
 
