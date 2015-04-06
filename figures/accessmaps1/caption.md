@@ -32,7 +32,7 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 
 ### Basic search:
 
-1.	Got to the home page. (This will be either: http://pecandev.igb.illinois.edu/bety, https://ebi-forecast.igb.illinois.edu/beta, or https://www.betydb.org.)
+1.	Go to the home page [betydb.org](https://www.betydb.org). 
 2.	Enter one or more terms in the search box.  Each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
@@ -54,8 +54,9 @@ Notes:
 
 ### Example
 
-1. Go to http://pecandev.igb.illinois.edu
-2. Simple search: sugarcane yields -- Enter the search term "sugarcane" followed by the keyword "yields" in the "SEARCH FOR TRAITS AND YIELDS" box; then click the search icon.
+1. Go to [betydb.org](https://www.betydb.org)
+2. Simple search: for sugarcane yields -- Enter the search term "sugarcane yields" in the search box.
+
 3. You will see a new page with a table of results show data about sugarcane yields.
 4. Advanced search task 1: Switch to showing trait data -- Click the radio button next to the word "traits"; then click the Submit button.
 5. Now you will see search results related to sugarcane trait data.
