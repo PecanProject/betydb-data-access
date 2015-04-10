@@ -80,7 +80,7 @@ Return all citations with their associated sites and yields (working on ability 
     
 **(Note that this will take considerable time since the information for all yields rows will be displayed.)**
 
-Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields.  **Note that you need to use `%20` or simple `+` to represent the space character in a URL.** 
+Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields.  **use `+` to represent the space character.** 
 
     https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
     
