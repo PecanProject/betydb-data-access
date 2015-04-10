@@ -58,9 +58,8 @@ Return all yield data from the with author = Heaton and year = 2008 (can also be
 
     https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
 
-Find species associated with the ~~`biocro.salix`~~ `salix` pft:
+Find species associated with the `salix` pft:
 
-~~https://www.betydb.org/species.xml?include[]=pfts_species&include[]=pfts&name=biocro.salix~~
 
     https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
 
