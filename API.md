@@ -2,19 +2,25 @@
 
 TODO: What is an API? Why is it useful?
 
-The BETYdb Application Programming Interface (API) provides access to results in csv, json, and xml format from url-based queries written in a web browser or scripting language such as R, Matlab, or Python (e.g. the rOpenSci traits package). All the tables in BETYdb are RESTful, which allows you to use GET, POST, PUT, or DELETE methods without interacting with the web interface. The primary advantage of this approach is the ability to submit more complex queries that access information and tables than are not available through the web-interface. Another advantage is that text-based queries can be recorded with more precision than instructions for interacting with the web-interface, and can be constructed automatically within a scripting language. In the future, this feature will be used to access BETYdb by the [`traits` package](https://github.com/ropensci/traits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. See appendix for examples. Each registered user has an API key that allows access to restricted data and tables without requiring a login or password.
+The BETYdb Application Programming Interface (API) provides access to results in csv, json, and xml format from URL-based queries entered in a web browser or called from a scripting language such as R, Matlab, or Python (e.g. the rOpenSci traits package). All the tables in BETYdb are RESTful, which allows you to use GET, POST, PUT, or DELETE methods without interacting with the web-browser-based GUI interface. The primary advantage of this approach is the ability to submit more complex queries that access information and tables than are not available through the GUI interface. Another advantage is that text-based queries can be recorded with more precision than instructions for interacting with the GUI interface, and can be constructed automatically within a scripting language. In the future, this feature will be used to access BETYdb by the [`traits` package](https://github.com/ropensci/traits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. See the appendix for examples. Each registered user has an API key that allows access to restricted data and tables without requiring a login or password.
  
 
 The API has two options: easy and hard. 
 
 ## Easy Way
 
-The easy way provides most useful information in a single table in a csv format that is easy to use - in any spreadsheet software or scripting language (or json or xml, see below). 
+The easy way provides most useful information in a single table in a csv format that is easy to use in any spreadsheet software or scripting language. (Other possible formats are json and xml; see below). 
 
 
-Data can be downloaded as a `.csv` file, and data from previously published syntheses can be downloaded without login. For example, to download all of the Switchgrass (Panicum virgatum L.) yield data,
+Data can be downloaded as a `.csv` file, and data from previously published syntheses can be downloaded without login. For example, to download all of the trait data for the switchgrass species Panicum virgatum, we must first look up the id number of the Panicum virgatum species.  We can do this by querying the species table:
 
-    https://www.betydb.org/traits.csv?genus=Switchgrass
+    https://www.betydb.org/species.csv?scientificname=Panicum+virgatum
+    
+and examining the "id" column value of the one-row result.  Once we have the id, we can use it to query the traits table:
+
+    https://www.betydb.org/traits.csv?specie_id=938
+
+The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **_Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum wil change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!
 
 ## Hard Way 
 
