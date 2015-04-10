@@ -45,7 +45,7 @@ Here are some examples to define the  format of valid requests:
 
 This will produce exactly the same result file as the "easy" query above that used the specie_id number.  (Note, however, that the XML and JSON formats of the same query give more information than the corresponding "easy" query.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each yield item returned, and queries using these formats do so.)
 
-A few pointers about the syntax of this query.
+A few pointers about the syntax of this query:
 
 a. We could have used the URL `https://www.betydb.org/traits.csv` to download the entire traits table (or rather, that portion of the table which the user is permitted to access).  To restrict the results, we use a _query string_, which is the portion of the URL after the question mark.  The query string consists of one or more clauses of the form `key=value` separated by `&` characters.
 
@@ -58,45 +58,45 @@ d. URLs can not contain spaces.  If the value you are querying against contains 
 2. Return all citations in json format (replace json with xml or csv for those formats):
 
     https://www.betydb.org/citations.json
-
-Return all yield data for the genus ‘Miscanthus’:
-  
-    https://www.betydb.org/yields.json?genus=Miscanthus
-    https://www.betydb.org/yields.json?genus=Miscanthus&species=giganteus
     
-**[The following is the correct syntax. You must `include` each associated table that you want to use in your query, and you must qualify columns from joined tables with their table name.]**
-
+3. Return all yield data for the genus ‘Miscanthus’:
+  
     https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus    
+
+If we're only interested in Miscanthus having species name "sinensis", we can do:
+
     https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
     
 **These each return a list of yields together with information from the associated tables--including the species table--for each yield. Thus, this query will show the same species information multiple times--once for each yield.**
 
-**An alternative way of extracting the same information in a different format is:**
+An alternative way of extracting the same information in a different format is:
 
     https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields       
     https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
     
-**These each return a list of Miscanthus species (a list of length one in the second case) where each list item itself contains a list of yields for the species of the item. Since species and yields are in a one-to-many relationship, each species is only listed once.**
+These each return a list of Miscanthus species (a list of length one in the second case) where each list item itself contains a list of yields for the species of the item. Since species and yields are in a one-to-many relationship, each species is only listed once.
 
-Return all yield data from the with author = Heaton and year = 2008 (can also be queried by title):
+4. Return all yield data from the citation with author = Heaton and year = 2008 (can also be queried by title):
 
     https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
 
-Find species associated with the `salix` pft:
+5. Find species associated with the `salix` pft:
 
 
     https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
 
-**[You can also do the query like so:]**  
+You can also do the query like so:
 
     https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
+    
+The results of these two queries contain essentially the same information, but the form of those results will be rather different.  It is instructive to compare them.
 
 
- Return all citations with their associated sites: 
+6. Return all citations with their associated sites: 
 
     https://www.betydb.org/citations.json?include[]=sites
     
-(**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural—here `sites`—when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
+(**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural&mdash;as we do here—when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
 
 Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
