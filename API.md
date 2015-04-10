@@ -9,6 +9,8 @@ The API has two options: easy and hard.
 
 ## Easy Way
 
+[Note: In all the examples in this section, we have written the query URLs as though they are to be run in the browser after having logged in to the BETYdb web site.  To run this queries programmatically, the URLs used will have to be modified to include the API key.  See the section on API keys below.]
+
 The easy way provides most useful information in a single table in a csv format that is easy to use in any spreadsheet software or scripting language. (Other possible formats are json and xml; see below). 
 
 
@@ -27,7 +29,7 @@ The reason we must use this two-stage process is that the traits table doesn't c
 ~~The "hard way" downloads individual tables from the database.~~ This appraoch allows more complex queries and faster programatic access. In the future, this feature will be used to access BETYdb by the [`rotraits` package](https://github.com/ropensci/rotraits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. Currently, PEcAn accesses the PostgreSQL database directly, via ssh tunnel. 
 
     
-However, most of the useful information, for example about sites and treatments, is provided on other tables. Thus, useful queries will should  trouble is that this file will need to 
+~~However, most of the useful information, for example about sites and treatments, is provided on other tables. Thus, useful queries will should  trouble is that this file will need to~~ REWRITE! 
 
 ### Cross-table queries using CSV, JSON and XML APIs
 
@@ -36,8 +38,13 @@ BETYdb has the ability to return any object in these three formats. All the tabl
 ### Examples
 
 Here are some examples to define the  format of valid requests:
+ 
+1. Return all trait data for "Panicum virgatum" without having to know its species id number:
 
-Return all citations in json format (replace json with xml or csv for those formats):
+   https://
+
+
+2. Return all citations in json format (replace json with xml or csv for those formats):
 
     https://www.betydb.org/citations.json
 
