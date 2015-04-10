@@ -43,7 +43,7 @@ Here are some examples to define the  format of valid requests:
 
         https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
 
-This will produce exactly the same result file as the "easy" query above that used the specie_id number.  (Note, however, that the XML and JSON formats of the same query give more information than the corresponding "easy" query.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each yield item returned, and queries using these formats do so.)
+    This will produce exactly the same result file as the "easy" query above that used the specie_id number.  (Note, however, that the XML and JSON formats of the same query give more information than the corresponding "easy" query.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each yield item returned, and queries using these formats do so.)
 
     A few pointers about the syntax of this query:
 
