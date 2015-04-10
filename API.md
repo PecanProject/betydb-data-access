@@ -63,7 +63,7 @@ This will produce exactly the same result file as the "easy" query above that us
   
         https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus    
 
-If we're only interested in Miscanthus having species name "sinensis", we can do:
+    If we're only interested in Miscanthus having species name "sinensis", we can do:
 
         https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
     
