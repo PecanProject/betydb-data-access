@@ -9,7 +9,7 @@ The API has two options: easy and hard.
 
 ## Easy Way
 
-[Note: In all the examples in this section, we have written the query URLs as though they are to be run in the browser after having logged in to the BETYdb web site.  To run this queries programmatically, the URLs used will have to be modified to include the API key.  See the section on API keys below.]
+[Note: In all the examples in this section, we have written the query URLs as though they are to be run in the browser after having logged in to the BETYdb web site.  To run these queries programmatically, the URLs used will have to be modified to include the API key.  See the section on API keys below.]
 
 The easy way provides most useful information in a single table in a csv format that is easy to use in any spreadsheet software or scripting language. (Other possible formats are json and xml; see below). 
 
@@ -41,8 +41,19 @@ Here are some examples to define the  format of valid requests:
  
 1. Return all trait data for "Panicum virgatum" without having to know its species id number:
 
-   https://
+   https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
 
+This will produce exactly the same result file as the "easy" query above that used the specie_id number.  (Note, however, that the XML and JSON formats of the same query give more information than the corresponding "easy" query.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each yield item returned, and queries using these formats do so.)
+
+A few pointers about the syntax of this query.
+
+a. We could have used the URL `https://www.betydb.org/traits.csv` to download the entire traits table (or rather, that portion of the table which the user is permitted to access).  To restrict the results, we use a _query string_, which is the portion of the URL after the question mark.  The query string consists of one or more clauses of the form `key=value` separated by `&` characters.
+
+b. In order to use columns from an associated table in our query (in this case, the species table), we have to have an "include[]=" clause in our query string.  The value to use after the equals sign is the singular form of the name of the associated table.  (That we use "specie" here instead of the true singular form of "species" which is also "species" is an artifact of the Rails programming.)  _Note you must include the square brackets after "include"!_
+
+c. When restricting the query by the value of a column in an associated table, you have to qualitify the name of the column with the name of the table: tablename.columname=...  Thus, here we write "species.scientificname=Panicum+virgatum" instead of "scientficname=Panicum+virgatum".
+
+d. URLs can not contain spaces.  If the value you are querying against contains a space, substitute `+` or `%20` in the URL.
 
 2. Return all citations in json format (replace json with xml or csv for those formats):
 
