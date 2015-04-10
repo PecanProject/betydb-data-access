@@ -24,7 +24,7 @@ The reason we must use this two-stage process is that the traits table doesn't c
 
 ## Hard Way 
 
---The "hard way" downloads individual tables from the database.-- This appraoch allows more complex queries and faster programatic access. In the future, this feature will be used to access BETYdb by the [`rotraits` package](https://github.com/ropensci/rotraits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. Currently, PEcAn accesses the PostgreSQL database directly, via ssh tunnel. 
+~~The "hard way" downloads individual tables from the database.~~ This appraoch allows more complex queries and faster programatic access. In the future, this feature will be used to access BETYdb by the [`rotraits` package](https://github.com/ropensci/rotraits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. Currently, PEcAn accesses the PostgreSQL database directly, via ssh tunnel. 
 
     
 However, most of the useful information, for example about sites and treatments, is provided on other tables. Thus, useful queries will should  trouble is that this file will need to 
