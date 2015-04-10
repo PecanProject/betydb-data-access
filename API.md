@@ -20,14 +20,14 @@ and examining the "id" column value of the one-row result.  Once we have the id,
 
     https://www.betydb.org/traits.csv?specie_id=938
 
-The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **_Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum wil change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!
+The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **_Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum wil change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!  For this and other reasons, it is worthwhile learning how to do cross-table queries.
 
 ## Hard Way 
 
-The "hard way" downloads individual tables from the database. This appraoch allows more complex queries and faster programatic access. In the future, this feature will be used to access BETYdb by the [`rotraits` package](https://github.com/ropensci/rotraits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. Currently, PEcAn accesses the PostgreSQL database directly, via ssh tunnel. 
+--The "hard way" downloads individual tables from the database.-- This appraoch allows more complex queries and faster programatic access. In the future, this feature will be used to access BETYdb by the [`rotraits` package](https://github.com/ropensci/rotraits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. Currently, PEcAn accesses the PostgreSQL database directly, via ssh tunnel. 
 
     
-Howver, most of the useful information, for example about sites and treatments, is provided on other tables. Thus, useful queries will should  trouble is that this file will need to 
+However, most of the useful information, for example about sites and treatments, is provided on other tables. Thus, useful queries will should  trouble is that this file will need to 
 
 ### Cross-table queries using CSV, JSON and XML APIs
 
