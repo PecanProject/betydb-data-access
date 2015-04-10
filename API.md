@@ -98,42 +98,44 @@ The results of these two queries contain essentially the same information, but t
     
 (**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural&mdash;as we do here—when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
 
-Return all citations with their associated sites and yields (working on ability to nest this deeper):  
+7. Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
     https://www.betydb.org/citations.json?include[]=sites&include[]=yields
     
-**(Note that this will take considerable time since the information for all yields rows will be displayed.)**
+**_Note that this will take considerable time since the information for all yields rows will be displayed._**
 
-Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields.  **use `+` to represent the space character.** 
+8. Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields. 
 
     https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
     
-**[On pecandev, you can try this query instead since the former doesn't return any yields there:]**
+9. Return citation 1 in json format: 
 
-    http://pecandev.igb.illinois.edu/citations.json?journal=Biomass+and+Bioenergy&author=Fang&include[]=sites&include[]=yields
+    https://www.betydb.org/citations/1.json
+    
+Alternatively, we can do:
 
-Return citation 1 in json format, can also be achieved by adding ’?id=1’ to line 1  
+    https://www.betydb.org/citations.json?id=1
+    
+This result is slightly different in that it returns a JSON array with a single item instead of the item itself.
 
-    https://www.betydb.org/citations/1.json 
-
-Return citation 1 in json format with it’s associated sites  
+10. Return citation 1 in json format with it’s associated sites  
 
     https://www.betydb.org/citations/1.json?include[]=sites 
 
-Return citation 1 in json format with it’s associated sites and yields 
+11. Return citation 1 in json format with it’s associated sites and yields 
 
     https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields 
 
 ## API keys
 
-Using an API key allows access to data without having to enter a login. To use an API key, simply append `?key=<your key>` to the end of the URL. Each user must obtain a unique API key.
+Using an API key allows access to data without having to enter a login. To use an API key, simply append `?key=<your key>` to the end of the URL. If the URL already contains a query string, append `&key=<your key>` instead.  Each user must obtain a unique API key.
 
-### For admins
+### For Admins
 
 Users who signed up on previous releases may not have an API key in the database. To create an API key for every existing user, run the command below
 
     rake bety:make_keys
 
-This command will only be needed once.
+This command will only be needed once.  To quickly make an API key for a single user, or to change a user's API key, log in to BETYdb, go to the users page, and click on the "key" button in the row for that user.
 
 
