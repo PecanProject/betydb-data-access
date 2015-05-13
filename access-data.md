@@ -1,7 +1,3 @@
-# Table of Contents
-
-* Overview \ref{sec:overview}
-
 # Guide to accessing data from BETYdb \label{sec:overview}
 
 Data is made available for analysis after it is submitted and reviewed by a database administrator. These data are suitable for basic scientific research and modeling. All reviewed data are made publicly available after publication to users of BETY-db who are conducting primary research. Access to these raw data is provided to users based on affiliation and contribution of data.
