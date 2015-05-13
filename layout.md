@@ -1,3 +1,4 @@
+Table-of-Contents.md
 access-data.md
 figures/textsearch/textsearch.png
 figures/mapsearch/mapsearch.png
