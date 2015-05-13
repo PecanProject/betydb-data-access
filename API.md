@@ -1,4 +1,4 @@
-# The BETYdb API
+# The BETYdb API \label{sec:betyapi}
 
 TODO: What is an API? Why is it useful?
 
