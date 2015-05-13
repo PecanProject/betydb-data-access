@@ -10,7 +10,7 @@ Please cite the source of data as:
 
 
 
-## Search Box
+## Search Box \label{subsec:searchbox}
 
 On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire database for specific sites, species, and traits.
 
