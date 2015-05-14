@@ -13,19 +13,19 @@ Please cite the source of data as:
 
 ## Search Box \label{sec:searchbox}
 
-On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire database for specific sites, species, and traits.
+On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire database for specific sites, citations, species, and traits.
 
 The results page provides a map interface (Figure \ref{fig:mapsearch}) and the option to download the file in the upper right of the page.
 
 The downloaded file is in csv format. This file provides meta-data and provenance information, including: the date and the SQL query used to access, as well as a citation for BETYdb itself (_to be updated on publication_) and the source of each record (Figure \ref{fig:excelresults}).
 
 
-_Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple, type in the site (city), species or trait into the search bar and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
+_Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple: type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search bar and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
 
 (Figure \ref{fig:textsearch})
 
 
-Advanced search using maps is used by seraching for a specific site(city), species and trait. The results of the search are then shown in a map. Sites, species and traits can be searched further by clicking on the geographical location on the map (Figure \ref{fig:accessmaps}). The color of each site indicates which sites match the search terms. Results can be downloaded by clicking the "download results" button on the upper right hand corner. 
+Advanced search using maps is used in conjunction with search terms to restrict search results to a particular geographical area or even a specific site by clicking on a map. Alternatively, if a search using search terms is done without clicking on the map, all sites associated with the returned results are highlighted on the map. Sites, species and traits can be searched further by clicking on the geographical location on the map (Figure \ref{fig:accessmaps}). The color of each site indicates which sites match the search terms. Results can be downloaded by clicking the "download results" button on the upper right hand corner. 
 
 (Figure \ref{fig:mapsearch})
 
@@ -34,12 +34,12 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 ### Basic search:\label{sec:basicsearch}
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
-2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: sitename, city, scientificname, commonname, authro, trait, trait\_description, or citation\_year.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.  Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
+2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.  Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
 ### Advanced search:\label{sec:advancedsearch}
 
-1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/searches” to the URL given in step one of the Basic search instructions.)
+1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/search” to the URL given in step one of the Basic search instructions.)
 2.	By default, the search will return results for both traits and yields.  Use the radio buttons to restrict results to one or the other.
 3.	Enter one or more terms in the main search box.  As with basic searches, each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  (Unlike basic searches, the “trait” and “yield” keywords are not recognized.  Using them here will most likely eliminate all search results since they don’t match the name of a species or treatment.  Use the radio buttons instead in order to restrict the search type.)
 4.	Press the Submit button to obtain search results.
