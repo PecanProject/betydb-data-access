@@ -30,13 +30,13 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 
 ## Details
 
-### Basic search:
+### Basic search:\label{sec:basicsearch}
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
 2.	Enter one or more terms in the search box.  Each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
-### Advanced search:
+### Advanced search:\lable{sec:advancedsearch}
 
 1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/searches” to the URL given in step one of the Basic search instructions.)
 2.	By default, the search will return results for both traits and yields.  Use the radio buttons to restrict results to one or the other.
@@ -52,7 +52,7 @@ Notes:
 4.	The layout of the advanced search page looks best when your browser window is as wide as possible.
 
 
-### Example
+### Example\label{sec:searchexample}
 
 1. Go to [betydb.org](https://www.betydb.org)
 2. Simple search: for sugarcane yields -- Enter the search term "sugarcane yields" in the search box.
