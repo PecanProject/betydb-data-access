@@ -116,13 +116,13 @@ Some examples will make the query syntax clearer. In all of these examples, you 
     
     (Note that we use the plural form "sites" in the include clause since citations and sites are in a many to many relationship.) 
 
-7. Return all citations with their associated sites and yields (working on ability to nest this deeper):  
+7. Return all citations with their associated sites and yields:  
 
         https://www.betydb.org/citations.json?include[]=sites&include[]=yields
     
-    **_Note that this will take considerable time since the information for all yields rows will be displayed._**
+    _Note that this will take considerable time since the information for all yields rows will be displayed._  Note also that the result of this query will not tell us directly which site is associated with which yield (although the yield result will have a site_id column, which will tell us indirectly).
 
-8. Return all citations with the field journal equal to ‘Agronomy Journal’ and author equal to ‘Adler’ with their associated sites and yields. 
+8. Return all citations in the field journal ‘Agronomy Journal’ by author ‘Adler’ with their associated sites and yields. 
 
         https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
     
@@ -142,7 +142,9 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
 11. Return citation 1 in json format with it’s associated sites and yields 
 
-        https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields 
+        https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields
+        
+Regarding the last three examples, although it is convenient to be able to return data associated with a single entity (citation 1 in these examples) using this syntax, in general it is best not to rely on fixed id numbers for entities.  "The citation in _Agronomy Journal_ with author Adler" is a more reliable locater than "The citation with id 1".
 
 ## API keys
 
