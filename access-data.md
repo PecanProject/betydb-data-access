@@ -20,12 +20,12 @@ The results page provides a map interface (Figure \ref{fig:mapsearch}) and the o
 The downloaded file is in CSV format. This file provides meta-data and provenance information, including: the SQL query used to extract the date, the date and time the query was made, and the citation source of each result row, as well as a citation for BETYdb itself (_to be updated on publication_) (Figure \ref{fig:excelresults}).
 
 
-_Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple: type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search bar and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
+_Instructions:_ Using the search box to search trait and yield data is very simple: type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search box and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in the Excel-compatible CSV format. 
 
 (Figure \ref{fig:textsearch})
 
 
-Advanced search using maps is used in conjunction with search terms to restrict search results to a particular geographical area or even a specific site by clicking on a map. Alternatively, if a search using search terms is done without clicking on the map, all sites associated with the returned results are highlighted on the map. Sites, species and traits can be searched further by clicking on the geographical location on the map (Figure \ref{fig:accessmaps}). The color of each site indicates which sites match the search terms. Results can be downloaded by clicking the "download results" button on the upper right hand corner. 
+The search map may be used in conjunction with search terms to restrict search results to a particular geographical area or even a specific site by clicking on a map.  Clicking on a particular site will restrict results to those associated with that site.  Clicking in the vicinity of a group of sites but not on a particular site will restrict the search to the region around the point clicked. Alternatively, if a search using search terms is done without clicking on the map, all sites associated with the returned results are highlighted on the map. Sites, species and traits can be searched further by clicking on or near highlighted locations on the map (Figure \ref{fig:accessmaps}). The color of each site indicates which sites match the search terms. Results can be downloaded by clicking the "Download Results" button on the upper right hand corner of the page. 
 
 (Figure \ref{fig:mapsearch})
 
