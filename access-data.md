@@ -20,7 +20,7 @@ The results page provides a map interface (Figure \ref{fig:mapsearch}) and the o
 The downloaded file is in CSV format. This file provides meta-data and provenance information, including: the SQL query used to extract the date, the date and time the query was made, and the citation source of each result row, as well as a citation for BETYdb itself (_to be updated on publication_) (Figure \ref{fig:excelresults}).
 
 
-_Instructions:_ Using the search box to search trait and yield data is very simple: type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search box and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in the Excel-compatible CSV format. 
+_Instructions:_ Using the search box to search trait and yield data is very simple: Type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search box and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in the Excel-compatible CSV format. 
 
 (Figure \ref{fig:textsearch})
 
