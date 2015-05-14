@@ -96,7 +96,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
     
         https://www.betydb.org/yields.xml?include[]=citation&citations.author=Heaton&citations.year=2008
         
-    Note that we use the singular form "citation" in the include clause, but the qualified column names "citations.author" and "citations.year" must always use the actual database table name.
+    Note that we use the singular form "citation" in the include clause (since there is one citation per yield), but the qualified column names "citations.author" and "citations.year" must always use the actual database table name.
 
 5. Find species associated with the `salix` pft:
 
