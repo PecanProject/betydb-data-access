@@ -79,7 +79,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
     
-     **These each return a list of yields together with information from the associated tables--including the species table--for each yield. Thus, this query will show the same species information multiple times--once for each yield.**
+As in the first example, this query will show the same species information multiple times--once for each yield.
 
     An alternative way of extracting the same information in a different format is:
 
@@ -91,6 +91,12 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 4. Return all yield data from the citation with author = Heaton and year = 2008 (can also be queried by title):
 
         https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
+        
+    To get this information in CSV format, we have to use yields as the primary table:
+    
+        https://www.betydb.org/yields.xml?include[]=citation&citations.author=Heaton&citations.year=2008
+        
+Note that we use the singular form "citation" in the include clause, but qualified column names "citations.author" and "citations.year" must always use the actual database table name.
 
 5. Find species associated with the `salix` pft:
 
