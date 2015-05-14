@@ -55,7 +55,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
 
-    This will produce exactly the same result file as the "easy" query above that used the specie_id number.  (Note, however, that the XML and JSON formats of the same query give more information than the corresponding "easy" query.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each yield item returned, and queries using these formats do so.)
+    This will produce exactly the same result file as the "easy" query above that used the specie_id number.  As mentioned above, the XML and JSON formats of the same query give more information than the CSV form does.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each trait item returned, and queries using these formats do so.
 
 
 
