@@ -51,8 +51,6 @@ Some examples will make the query syntax clearer. In all of these examples, you 
  
 ### Examples
 
-Here are some examples to define the  format of valid requests:
- 
 1. Return all trait data for "Panicum virgatum" without having to know its species id number:
 
         https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
