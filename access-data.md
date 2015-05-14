@@ -34,35 +34,26 @@ Advanced search using maps is used in conjunction with search terms to restrict 
 ### Basic search:\label{sec:basicsearch}
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
-2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.  Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
+2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search. Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
 ### Advanced search:\label{sec:advancedsearch}
 
 1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/search” to the URL given in step one of the Basic search instructions.)
-2.	By default, the search will return results for both traits and yields.  Use the radio buttons to restrict results to one or the other.
-3.	Enter one or more terms in the main search box.  As with basic searches, each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  (Unlike basic searches, the “trait” and “yield” keywords are not recognized.  Using them here will most likely eliminate all search results since they don’t match the name of a species or treatment.  Use the radio buttons instead in order to restrict the search type.)
-4.	Press the Submit button to obtain search results.
-5.	Narrowing Search Results: Once you have obtained a search result, you may refine the result by applying further restrictions using the “Narrow your search” panel on the right side of the page.  Enter terms in one or more of the three search boxes there to limit results by Site, by Species, or by Trait.  Then either click one of the “Apply Limit” links or click the Submit button again.
+2.	The search will return results for both traits and yields.
+3.	Enter one or more terms in the main search box.  As with basic searches, each term must match one of the eight searched columns.
+4.	Search results are updated as you type, but you may press the Enter key to a formal form submission, which will reload the page and update the URL in the browser address box to include all of the parameters of your search.
 
-Notes:
-
-1.	Search terms or case-insensitive and a search term will match a species name, treatment name, site name or trait name if it matches any part of the name.  Thus, simply typing “misc” will match against “Miscanthus”, “Miscanthus sacchariflorus”, “Miscanthus sinensis”, or “Miscanthus X giganteus”.
-2.	The “species” search box in the “Narrow your search” panel only matches against scientific names.  To match against common names, put the term in the main search box.
-3.	For sites having no formal site name, the city name is shown instead.  Note however that when narrowing your search by site, the term entered will only be matched against site names.
-4.	The layout of the advanced search page looks best when your browser window is as wide as possible.
 
 
 ### Example\label{sec:searchexample}
 
 1. Go to [betydb.org](https://www.betydb.org)
-2. Simple search: for sugarcane yields -- Enter the search term "sugarcane yields" in the search box.
+2. Simple search: for sugarcane yields -- Enter the search string "sugarcane Ayield" in the search box.
 
 3. You will see a new page with a table of results show data about sugarcane yields.
-4. Advanced search task 1: Switch to showing trait data -- Click the radio button next to the word "traits"; then click the Submit button.
-5. Now you will see search results related to sugarcane trait data.
-6. Advanced search task 2: Limit results to a specific site -- We just want to see the results for the 'Mackay' site.  In the 'Narrow Your Search ...' area on the right side of the page, enter the word 'Mackay' into the 'By Site' box; then click the 'Apply Limit' link.
-7. You will see only the search results for the 'Mackay' site.
-8. Advanced search task 3: Limit results to a specific trait -- We only want to see the results concerning shoot density.  In the 'Narrow Your Search ...' area on the right side of the page, enter the word 'density' into the 'By Trait' box; then click the 'Apply Limit' link.
-9. The resulting table rows all concern total shoot density data for sugarcane at the Mackay site.
+6. Advanced search task 2: Limit results to a specific site -- We just want to see the results for the 'Zentsuji' site.  Add a space and the word 'Zentsuji' to the search box.
+7. You will see only the search results for the 'Zentsuji' site.
+8. Advanced search task 3: Limit results to a specific trait -- We only want to see the results concerning stem\_biomass.  Replace the word 'Ayield' with the word 'stem\_biomass' to the search box.
+9. The resulting table rows all concern stem biomass data for sugarcane at the Zentsuji site.
 
