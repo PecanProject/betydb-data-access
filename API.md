@@ -79,7 +79,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
     
-As in the first example, this query will show the same species information multiple times--once for each yield.
+    As in the first example, this query will show the same species information multiple times--once for each yield.
 
     An alternative way of extracting the same information in a different format is:
 
@@ -96,7 +96,7 @@ As in the first example, this query will show the same species information multi
     
         https://www.betydb.org/yields.xml?include[]=citation&citations.author=Heaton&citations.year=2008
         
-Note that we use the singular form "citation" in the include clause, but qualified column names "citations.author" and "citations.year" must always use the actual database table name.
+    Note that we use the singular form "citation" in the include clause, but qualified column names "citations.author" and "citations.year" must always use the actual database table name.
 
 5. Find species associated with the `salix` pft:
 
