@@ -107,7 +107,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
     
-    The results of these two queries contain essentially the same information, but the form of those results will be rather different.  It is instructive to compare them.
+    The results of these two queries contain essentially the same information--and to emphasize that we only need to interchange the primary and included table names to get from one query to the other, we have used the fully-qualified column name "pfts.name" in both (though just "name" would suffice in the first); but the form of those results will be rather different.  It is instructive to compare them.
 
 
 6. Return all citations with their associated sites: 
