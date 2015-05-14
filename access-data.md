@@ -36,7 +36,7 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 2.	Enter one or more terms in the search box.  Each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
-### Advanced search:\lable{sec:advancedsearch}
+### Advanced search:\label{sec:advancedsearch}
 
 1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/searches” to the URL given in step one of the Basic search instructions.)
 2.	By default, the search will return results for both traits and yields.  Use the radio buttons to restrict results to one or the other.
