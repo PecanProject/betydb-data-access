@@ -31,13 +31,13 @@ The search map may be used in conjunction with search terms to restrict search r
 
 ## Details\label{sec:searchdetails}
 
-### Basic search:\label{sec:basicsearch}
+### Basic search: Searching from the Home Page\label{sec:basicsearch}
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
-2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search. Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
+2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search. Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".  There is no way to restrict which of the eight match columns a given term is matched against.
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
-### Advanced search:\label{sec:advancedsearch}
+### Advanced search: Searching from the Advanced Search page\label{sec:advancedsearch}
 
 1.	From the home page, you can get to the advanced search page simply by doing a basic search.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/search” to the URL given in step one of the Basic search instructions.)
 2.	The search will return results for both traits and yields.
