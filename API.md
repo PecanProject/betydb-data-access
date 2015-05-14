@@ -55,7 +55,17 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
 
-    This will produce exactly the same result file as the "easy" query above that used the specie_id number.  As mentioned above, the XML and JSON formats of the same query give more information than the CSV form does.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each trait item returned, and queries using these formats do so.
+    This will produce exactly the same result file as the "easy" query above that used the specie_id number.  As mentioned above, the XML and JSON formats of the same query give more information than the CSV form does.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each trait item returned, and queries using these formats do so.  Because of this, CSV-format queries are invariable faster.
+    
+2. An alternative way of obtaining all trait data for "Panicum virgatum" whithout having to know its species id number:
+
+    Note that the results of the previous query in XML or JSON formats are quite redundant: full information about species Panicum virgatum is included with each trait returned.  The following query will only show the Panicum virgatum species information once:
+    
+         https://www.betydb.org/species.xml?scientificname=Panicum+virgatum&include[]=traits
+         
+This returns a single result from the species table--the row information for Panicum virgatum--but nested inside this result is a list of all trait rows associated with that species.
+
+In CSV mode, this option is not available to us.  CSV format only shows information extracted from the primary table.  In CSV mode, an "include[]=other_table" clause is useless unless you are going to use the included table to filter the returned results by also including a clause of the form "other_table.column_name=column_value".
 
 
 
