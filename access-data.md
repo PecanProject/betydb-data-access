@@ -34,7 +34,7 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 ### Basic search:\label{sec:basicsearch}
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
-2.	Enter one or more terms in the search box.  Each term must match one of (1) the scientific name of a species; (2) the common name of a species; (3) the name of a treatment.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.
+2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: sitename, city, scientificname, commonname, authro, trait, trait\_description, or citation\_year.  Thus, the more terms entered, the more restrictive the search.  In addition to normal search terms, the keywords “trait” or “yield” may be entered to restrict the type of data returned.  Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value, and that matches are case-insensitive.  Thus, the term "grass" would match both a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
 ### Advanced search:\label{sec:advancedsearch}
