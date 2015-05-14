@@ -11,10 +11,10 @@ The Web API for querying BETYdb supports both simple single-table queries and co
 
 [Note: In all the examples in this section, we have written the query URLs as though they are to be run in the browser after having logged in to the BETYdb web site.  To run these queries programmatically, the URLs used will have to be modified to include the API key.  See the section on API keys below.]
 
-The simpler URL-based queries provide a way to extract useful information from a single database table in CSV (comma-separated values) format, which is easy to use in any spreadsheet software or scripting language.  (Other possible formats are json and xml; see below).
+The simpler URL-based queries provide a way to extract useful information from a single database table in CSV (comma-separated values) format, which is easy to use in any spreadsheet software or scripting language.  (Other possible formats are JSON and XML; see below).
 
 
-Data can be downloaded as a `.csv` file, and data from previously published syntheses can be downloaded without login. For example, to download all of the trait data for the switchgrass species Panicum virgatum, we must first look up the id number of the Panicum virgatum species.  We can do this by querying the species table:
+Data can be downloaded as a `.csv` file, and data from previously published syntheses can be downloaded without login.  In the simplest case, we can use a single key-value pair to filter the table, restricting the result to the set of rows having a given value in a given column.  For example, to download all of the trait data for the switchgrass species Panicum virgatum, we must first look up the id number of the Panicum virgatum species.  We can do this by querying the species table:
 
     https://www.betydb.org/species.csv?scientificname=Panicum+virgatum
     
@@ -26,19 +26,19 @@ The reason we must use this two-stage process is that the traits table doesn't c
 
 ## Complex API Queries
 
-The API allows more complex queries and faster programmatic access by appending search terms to the query url. 
-This feature is  used to access BETYdb via the [Ropensci `traits` package](https://github.com/ropensci/rotraits/issues/3).
+The API allows more complex queries and faster programmatic access by including multiple search terms to the query URL. 
+This feature is (for example) used to access BETYdb via the [Ropensci `traits` package](https://github.com/ropensci/rotraits/issues/3).
 
-### Pointers about the syntax of this query:
+### A brief summary of the syntax of URL-based queries:
 
-* We could have used the URL `https://www.betydb.org/traits.csv` to download the entire traits table (or rather, that portion of the table which the user is permitted to access).  To restrict the results, we use a _query string_, which is the portion of the URL after the question mark.  The query string consists of one or more clauses of the form `key=value` separated by `&` characters.
-* When restricting the query by the value of a column in an associated table, you have to qualitify the name of the column with the name of the table: tablename.columname=...  Thus, here we write "species.scientificname=Panicum+virgatum" instead of "scientficname=Panicum+virgatum".
-*  URLs can not contain spaces.  If the value you are querying against contains a space, substitute `+` or `%20` in the URL.
+* The portion of the URL directly following `https://www.betydb.org/` determines the primary table being queried and the format of the query result.  For example, `https://www.betydb.org/traits.json` would obtain results from the traits table in JSON format and `https://www.betydb.org/yields.xml` would get results from the yields table in XML format.
+* The URL `https://www.betydb.org/traits.csv` will download the entire traits table (or rather, that portion of the table which the user is permitted to access) in CSV format.  To restrict the results, we use a _query string_, which is the portion of the URL after the question mark.  The query string consists of one or more clauses of the form `key=value` separated by `&` characters.  For example, to obtain only the portion of the traits table associated with the site having id 99, the species having id 938, and the citation having id 45, we could write `https://www.betydb.org/traits.csv?site_id=99&specie_id=938&citation_id=45`.  Note that restrictions are cummulative: each claus further restricts the result of applying the previous restriction.  There is (currently) no way of taking the disjunction of multiple clauses--that is, there is not way of "OR-ing" the clauses together.
+*  URLs can not contain spaces.  If the value you are querying against contains a space, substitute `+` or `%20` in the URL.  Thus, above we had to write the query URL as `https://www.betydb.org/species.csv?scientificname=Panicum+virgatum`.  We couldn't have written it as `https://www.betydb.org/species.csv?scientificname=Panicum virgatum`.
 
 
 ### Cross-table queries using CSV, JSON and XML APIs
 
-BETYdb has the ability to return any object in these three formats. All the tables in BETYdb are RESTful, which allows you to GET, POST, PUT, or DELETE them without interacting with the web interface. Here are some examples. In all of these examples, you can use exchange `.json` with `.xml` or `.csv` depending on the format that you want.
+BETYdb has the ability to return any object in these three formats. All the tables in BETYdb are RESTful, which allows you to GET, POST, PUT, or DELETE them without interacting with the web interface. Here are some examples. In all of these examples, you can interchange `.json` with `.xml` or `.csv` depending on the format that you want.
 
 In order to use columns from an associated table in our query (in this case, the species table), we have to have an "include[]=" clause in our query string.  The value to use after the equals sign is the singular form of the name of the associated table.  (That we use "specie" here instead of the true singular form of "species" which is also "species" is an artifact of the Rails programming.)  _Note you must include the square brackets after "include"!_
  
