@@ -114,7 +114,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/citations.json?include[]=sites
     
-    (**Note**: When using `include[]=`, you use the singular version of the associated table's name when the relationship is many to one, and the plural—as we do here—when it is many to many. **Hint**: if the main table has a foreign key that references the table you are attempting to include—that is, something like `relatedtable_id`—then you need to use the singular version.) 
+    (Note that we use the plural form "sites" in the include clause since citations and sites are in a many to many relationship.) 
 
 7. Return all citations with their associated sites and yields (working on ability to nest this deeper):  
 
