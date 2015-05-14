@@ -13,11 +13,11 @@ Please cite the source of data as:
 
 ## Search Box \label{sec:searchbox}
 
-On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire database for specific sites, citations, species, and traits.
+On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire collection of trait and yield data for specific sites, citations, species, and traits.
 
-The results page provides a map interface (Figure \ref{fig:mapsearch}) and the option to download the file in the upper right of the page.
+The results page provides a map interface (Figure \ref{fig:mapsearch}) and the option to download a file containing search results.
 
-The downloaded file is in csv format. This file provides meta-data and provenance information, including: the date and the SQL query used to access, as well as a citation for BETYdb itself (_to be updated on publication_) and the source of each record (Figure \ref{fig:excelresults}).
+The downloaded file is in CSV format. This file provides meta-data and provenance information, including: the SQL query used to extract the date, the date and time the query was made, and the citation source of each result row, as well as a citation for BETYdb itself (_to be updated on publication_) (Figure \ref{fig:excelresults}).
 
 
 _Instructions:_ The advanced search can be used by searching for trait and yield data through text. Doing so is very simple: type in the site (city or site name), species, citation (author and/or year), or trait (variable name or description) into the search bar and the results will show contents of BETYdb that match the search. The number of records per page can be changed to viewer preference and the search results can be downloaded in an excel sheet format. 
