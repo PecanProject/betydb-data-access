@@ -63,13 +63,11 @@ Some examples will make the query syntax clearer. In all of these examples, you 
     
          https://www.betydb.org/species.xml?scientificname=Panicum+virgatum&include[]=traits
          
-This returns a single result from the species table--the row information for Panicum virgatum--but nested inside this result is a list of all trait rows associated with that species.
+    This returns a single result from the species table--the row information for Panicum virgatum--but nested inside this result is a list of all trait rows associated with that species.
 
-In CSV mode, this option is not available to us.  CSV format only shows information extracted from the primary table.  In CSV mode, an "include[]=other_table" clause is useless unless you are going to use the included table to filter the returned results by also including a clause of the form "other_table.column_name=column_value".
+    In CSV mode, this option is not available to us.  CSV format only shows information extracted from the primary table.  In CSV mode, an "include[]=other_table" clause is useless unless you are going to use the included table to filter the returned results by also including a clause of the form "other_table.column_name=column_value".
 
-
-
-2. Return all citations in json format (replace json with xml or csv for those formats):
+3. Return all citations in json format (replace json with xml or csv for those formats):
 
         https://www.betydb.org/citations.json
     
