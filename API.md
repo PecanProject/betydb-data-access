@@ -144,7 +144,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
         https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields
         
-Regarding the last three examples, although it is convenient to be able to return data associated with a single entity (citation 1 in these examples) using this syntax, in general it is best not to rely on fixed id numbers for entities.  "The citation in _Agronomy Journal_ with author Adler" is a more reliable locater than "The citation with id 1".
+Regarding the last three examples, although the syntax for returning data associated with a single entity (citation 1 in these examples) is very convenient, in general it is best not to rely on fixed id numbers for entities.  "The citation in _Agronomy Journal_ with author Adler" is a more reliable locator than "The citation with id 1".
 
 ## API keys
 
