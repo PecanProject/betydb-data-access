@@ -39,7 +39,7 @@ The search map may be used in conjunction with search terms to restrict search r
 
 ### Advanced search: Searching from the Advanced Search page\label{sec:advancedsearch}
 
-1.	From the home page, you can get to the advanced search page simply by typing search terms into the search box and clicking on the search icon.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly by appending “/search” to the URL given in step one of the Basic search instructions.)
+1.	From the home page, you can get to the advanced search page simply by typing search terms into the search box and clicking on the search icon.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly: [www.betydb.org/search])
 2.	The search will return results for both traits and yields.
 3.	Enter one or more terms in the main search box.  As with basic searches, each term must match one of the eight searched columns.
 4.	Search results are updated as you type, but you may press the Enter key to a formal form submission, which will reload the page and update the URL in the browser address box to include all of the parameters of your search.
