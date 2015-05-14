@@ -1,17 +1,17 @@
-# The BETYdb API \label{sec:betyapi}
+# The BETYdb Web API \label{sec:betyapi}
 
 TODO: What is an API? Why is it useful?
 
-The BETYdb Application Programming Interface (API) provides access to results in csv, json, and xml format from URL-based queries entered in a web browser or called from a scripting language such as R, Matlab, or Python (e.g. the rOpenSci traits package). All the tables in BETYdb are RESTful, which allows you to use GET, POST, PUT, or DELETE methods without interacting with the web-browser-based GUI interface. The primary advantage of this approach is the ability to submit more complex queries that access information and tables than are not available through the GUI interface. Another advantage is that text-based queries can be recorded with more precision than instructions for interacting with the GUI interface, and can be constructed automatically within a scripting language. In the future, this feature will be used to access BETYdb by the [`traits` package](https://github.com/ropensci/traits/issues/3) under development by rOpenSci. It would be straightforward to translate funcitons in the PEcAn.DB package to use the API. See the appendix for examples. Each registered user has an API key that allows access to restricted data and tables without requiring a login or password.
+The BETYdb Application Programming Interface (API) is a means of obtaining search or query results in CSV, JSON, or XML format from URL-based queries entered into a Web browser or called from a scripting language such as R, Matlab, or Python (e.g. the rOpenSci traits package). All the tables in BETYdb are RESTful, which allows you to use GET, POST, PUT, or DELETE methods without interacting with the web-browser-based GUI interface. The primary advantage of this approach is the ability to submit complex queries that access information and tables without having to do so through the GUI interface: text-based queries can be recorded with more precision than instructions for interacting with the GUI interface, and can be constructed automatically within a scripting language. In the future, this feature will be used to access BETYdb by the [`traits` package](https://github.com/ropensci/traits/issues/3) under development by rOpenSci. It would be straightforward to translate functions in the PEcAn.DB package to use the API. See the appendix for examples. Each registered user has an API key that allows access to restricted data without requiring a login or password.
  
 
-The API has two options: simple and complex. 
+The Web API for querying BETYdb supports both simple single-table queries and complex queries involving two or more tables. 
 
 ## Simple API Queries
 
 [Note: In all the examples in this section, we have written the query URLs as though they are to be run in the browser after having logged in to the BETYdb web site.  To run these queries programmatically, the URLs used will have to be modified to include the API key.  See the section on API keys below.]
 
-The easy way provides most useful information in a single table in a csv format that is easy to use in any spreadsheet software or scripting language. (Other possible formats are json and xml; see below). 
+The simpler URL-based queries provide a way to extract useful information from a single database table in CSV (comma-separated values) format, which is easy to use in any spreadsheet software or scripting language.  (Other possible formats are json and xml; see below).
 
 
 Data can be downloaded as a `.csv` file, and data from previously published syntheses can be downloaded without login. For example, to download all of the trait data for the switchgrass species Panicum virgatum, we must first look up the id number of the Panicum virgatum species.  We can do this by querying the species table:
