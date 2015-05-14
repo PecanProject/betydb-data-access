@@ -28,7 +28,7 @@ Advanced search using maps is used by seraching for a specific site(city), speci
 
 (Figure \ref{fig:mapsearch})
 
-## Details
+## Details\label{sec:searchdetails}
 
 ### Basic search:\label{sec:basicsearch}
 
