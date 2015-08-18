@@ -1,6 +1,6 @@
 # The BETYdb Web API \label{sec:betyapi}
 
-TODO: What is an API? Why is it useful?
+The BETYdb url-based API allows users to Query data. 
 
 The BETYdb Application Programming Interface (API) is a means of obtaining search or query results in CSV, JSON, or XML format from URL-based queries entered into a Web browser or called from a scripting language such as R, Matlab, or Python (e.g. the rOpenSci traits package). All the tables in BETYdb are RESTful, which allows you to use GET, POST, PUT, or DELETE methods without interacting with the web-browser-based GUI interface. The primary advantage of this approach is the ability to submit complex queries that access information and tables without having to do so through the GUI interface: text-based queries can be recorded with more precision than instructions for interacting with the GUI interface, and can be constructed automatically within a scripting language. In the future, this feature will be used to access BETYdb by the [`traits` package](https://github.com/ropensci/traits/issues/3) under development by rOpenSci. It would be straightforward to translate functions in the PEcAn.DB package to use the API. See the appendix for examples. Each registered user has an API key that allows access to restricted data without requiring a login or password.
  
@@ -161,3 +161,8 @@ Users who signed up on previous releases may not have an API key in the database
 This command will only be needed once.  To quickly make an API key for a single user, or to change a user's API key, log in to BETYdb, go to the users page, and click on the "key" button in the row for that user.
 
 
+
+  
+  
+  
+  
