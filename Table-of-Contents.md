@@ -1,4 +1,4 @@
-# Table of Contents
+**Table of Contents**
 
 * Overview \ref{sec:overview}
  * Search Box \ref{sec:searchbox}
@@ -8,3 +8,5 @@
       * Example \ref{sec:searchexample}
 * BETY API for URL-based Queries and Data Download \ref{sec:betyapi}
 
+
+  
