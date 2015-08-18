@@ -32,7 +32,9 @@ Please cite the source of data as:
 
 > LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. http://dx.doi.org/10.13012/J8H41PB9
 
+# The Advanced Search Box
 
+Most tables in BETYdb have search boxes, for example betydb.org/citations and betydb.org/sites. We describe below how to queried and downloaded these pages as .csv, .json, or .xml. The advanced search box is the easiest way to download summary datasets designed to have enough information (location, time, species, citations) to be useful for a wide range of use cases.
 
 ## Search Box \label{sec:searchbox}
 
@@ -81,5 +83,6 @@ The search map may be used in conjunction with search terms to restrict search r
 9. The resulting table rows all concern stem biomass data for sugarcane at the Zentsuji site.
 
 
+  
   
   
