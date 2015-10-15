@@ -25,7 +25,7 @@ All public data in BETYdb is made available under the [Open Data Commons Attribu
 
 ## Quality Flags
 
-The `checked` value indicates if data has been checked (1) is unchecked (0) or identified as incorrect (-1). Checked data has been independently reviewed. Only checked data is provided through the API. Unchecked data (0) is available as a PostgreSQL database (as easy as [`./load.bety.sh`](https://raw.githubusercontent.com/PecanProject/pecan/master/scripts/load.bety.sh). 
+The `checked` value indicates if data has been checked (1) is unchecked (0) or identified as incorrect (-1). Checked data has been independently reviewed. By default, only checked data is provided through the web interface and API; as of [BETYdb 4.4 (Oct 14 2015)](https://github.com/PecanProject/bety/releases/tag/betydb_4.4) users can opt-in to download unchecked data from the web search interface and API. Unchecked data (0) is also available as a PostgreSQL database (as easy as [`./load.bety.sh`](https://raw.githubusercontent.com/PecanProject/pecan/master/scripts/load.bety.sh)). 
 
 
 Please cite the source of data as:
