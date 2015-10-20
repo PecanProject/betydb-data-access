@@ -184,7 +184,24 @@ This is because when we use a column name as the search key, the value must matc
 
 By default, searches on `traits_and_yields_view` return only checked data.  The Web interface now has a checkbox labelled "include unchecked records" that the user may check to override this default.  To do the same thing through the API, the user must include a clause of the form `include_unchecked=true` in the query string.  (Any of 'TRUE', 'yes', 'YES', 'y', 'Y', '1', 't', 'T' may be used in place of 'true' here.)
 
+### A Few Notes about Searching the Traits and Yields View
 
+1. The base URL to use is https://www.betydb.org/search
+2. You can only use columnname keys when the result format is XML or JSON.  If the result format is CSV or HTML, any query-string clause of the form `columnname=value` is ignored.
+3. The query-string clauses of the form `search=value` and `include_unchecked=true` may be used with all result formats.
+4. If multiple `search=value` clauses are included, only last one is used.  **Don't do this!**  To search on multiple terms, separate them in the query string by `+` signs.  For example, `https://www.betydb.org/search.xml?search=LTER+cottongrass&include_unchecked=true` will likely find traits and yields results for cottongrass species at LTER (Long-term Ecological Research) sites, including those that have not been checked.
+5. As noted above, each word in the value of a `search=value` clause must match one of the columns `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year` in order for a given row to be included in the search results.  Here, "match" means "textually included in the column value".
+6. Remember that values for column name keys are treated very differently from the way the value of the `search` key is treated.  In particular, the value is treated as one unit.  Consider the difference between these two examples:
+
+```
+https://www.betydb.org?commonname=white+willow
+```
+will return only rows pertaining to the species with commonname "white willow",
+
+```
+https://www.betydb.org?search=white+willow
+```
+will in addition return rows for white ash at a site called Willow Creek.
 
 
 ## API keys
