@@ -160,7 +160,7 @@ Regarding the last three examples, although the syntax for returning data associ
 
 ## Using the Traits and Yields View to Avoid Complex Cross-Table Queries
 
-The database view `traits_and_yields_view` provides summary information about traits and yields: It combines information from the traits and the yields tables and it includes information from six associated tables—namely, the sites, species, citations, treatments, variables, and users tables.  Whereas the traits and the yields tables contain only pointers to these tables (foreign keys), the `traits_and_yields_view` directly contains information associated with a trait or yields such as the species name of the trait measured, the name of the measured variable, and the author and year of the citation associated with the trait or yield.  This means that in many cases a query of the `traits_and_yields_view` may be used to extract information that otherwise would require a complex cross-table query with traits or yields as the primary table.
+The database view `traits_and_yields_view` provides summary information about traits and yields: It combines information from the traits and the yields tables and it includes information from six associated tables—namely, the sites, species, citations, treatments, variables, and users tables.  Whereas the traits and the yields tables contain only pointers to these tables (foreign keys in the form of id numbers), the `traits_and_yields_view` directly contains information associated with a trait or yield such as the name of the species of the plant whose trait was measured, the name of the measured variable, and the author and year of the citation associated with the trait or yield.  This means that in many cases a query of the `traits_and_yields_view` may be used to extract information that otherwise would require a complex cross-table query with traits or yields as the primary table.
 
 Moreover, by using the special `search=` key in place of column names, one can avoid the strict matching that is used when the key is a bona fide column name.  For example,
 ```
@@ -178,7 +178,7 @@ https://www.betydb.org/search.xml?commonname=white+cottongrass
 https://www.betydb.org/search.xml?commonname=tall+cottongrass
 ```
 
-This is because when we use a column name as the search key, the value must match the column value exactly.
+This is because when we use a column name as the search key, the value must match the column value exactly (including the letter case and the number of spaces between words).
 
 ### Including Unchecked Data in the Traits and Yields View
 
