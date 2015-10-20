@@ -74,11 +74,11 @@ The search map may be used in conjunction with search terms to restrict search r
 ### Example\label{sec:searchexample}
 
 1. Go to [betydb.org](https://www.betydb.org)
-2. Task 1: Simple search for sugarcane yields — Enter the search string "sugarcane Ayield" in the search box.
+2. Task 1 (simple search): Search for sugarcane yields — Enter the search string "sugarcane Ayield" in the search box.
 3. You will see a new page with a table of results showing data about sugarcane yields.
-6. Task 2—Advanced search: Limit results to a specific site — We just want to see the results for the 'Zentsuji' site.  Add a space and the word 'Zentsuji' to the search box.
+6. Task 2 (advanced search): Limit results to a specific site — We just want to see the results for the 'Zentsuji' site.  Add a space and the word 'Zentsuji' to the search box.
 7. You will see only the sugarcane yields for the 'Zentsuji' site.
-8. Task 3—Advanced search: Limit results to a specific trait — We only want to see the results concerning stem\_biomass instead of annual yield.  Replace the word 'Ayield' with the word 'stem\_biomass' in the search box.
+8. Task 3 (advanced search): Limit results to a specific trait — We only want to see the results concerning stem\_biomass instead of annual yield.  Replace the word 'Ayield' with the word 'stem\_biomass' in the search box.
 9. The resulting table rows all concern stem biomass data for sugarcane at the Zentsuji site.
 
 
