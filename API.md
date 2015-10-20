@@ -167,12 +167,24 @@ Moreover, by using the special `search=` key in place of column names, one can a
 https://www.betydb.org/search.xml?search=cottongrass
 ```
 will return all traits and yields for which the common name of the species includes the word "cottongrass".  To get the same rows using `commonname` as the key, we would have to do three separate searches:
+
 ```
 https://www.betydb.org/search.xml?commonname=tussock+cottongrass
+```
+```
 https://www.betydb.org/search.xml?commonname=white+cottongrass
+```
+```
 https://www.betydb.org/search.xml?commonname=tall+cottongrass
 ```
+
 This is because when we use a column name as the search key, the value must match the column value exactly.
+
+### Including Unchecked Data in the Traits and Yields View
+
+By default, searches on `traits_and_yields_view` return only checked data.  The Web interface now has a checkbox labelled "include unchecked records" that the user may check to override this default.  To do the same thing through the API, the user must include a clause of the form `include_unchecked=true` in the query string.  (Any of 'TRUE', 'yes', 'YES', 'y', 'Y', '1', 't', 'T' may be used in place of 'true' here.)
+
+
 
 
 ## API keys
