@@ -24,6 +24,8 @@ and examining the "id" column value of the one-row result.  Once we have the id,
 
 The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **Caveat! _Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum will change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!  For this and other reasons, it is worthwhile learning how to do cross-table queries.
 
+
+
 ## Complex API Queries
 
 The API allows more complex queries and faster programmatic access by including multiple search terms to the query URL. 
@@ -155,6 +157,23 @@ Some examples will make the query syntax clearer. In all of these examples, you 
         https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields
         
 Regarding the last three examples, although the syntax for returning data associated with a single entity (citation 1 in these examples) is very convenient, in general it is best not to rely on fixed id numbers for entities.  "The citation in _Agronomy Journal_ with author Adler" is a more reliable locator than "The citation with id 1".
+
+## Using the Traits and Yields View to Avoid Complex Cross-Table Queries
+
+The database view `traits_and_yields_view` provides summary information about traits and yields: It combines information from the traits and the yields tables and it includes information from six associated tables—namely, the sites, species, citations, treatments, variables, and users tables.  Whereas the traits and the yields tables contain only pointers to these tables (foreign keys), the `traits_and_yields_view` directly contains information associated with a trait or yields such as the species name of the trait measured, the name of the measured variable, and the author and year of the citation associated with the trait or yield.  This means that in many cases a query of the `traits_and_yields_view` may be used to extract information that otherwise would require a complex cross-table query with traits or yields as the primary table.
+
+Moreover, by using the special `search=` key in place of column names, one can avoid the strict matching that is used when the key is a bona fide column name.  For example,
+```
+https://www.betydb.org/search.xml?search=cottongrass
+```
+will return all traits and yields for which the common name of the species includes the word "cottongrass".  To get the same rows using `commonname` as the key, we would have to do three separate searches:
+```
+https://www.betydb.org/search.xml?commonname=tussock+cottongrass
+https://www.betydb.org/search.xml?commonname=white+cottongrass
+https://www.betydb.org/search.xml?commonname=tall+cottongrass
+```
+This is because when we use a column name as the search key, the value must match the column value exactly.
+
 
 ## API keys
 
