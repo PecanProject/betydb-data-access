@@ -22,7 +22,7 @@ and examining the "id" column value of the one-row result.  Once we have the id,
 
     https://www.betydb.org/traits.csv?specie_id=938
 
-The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **Caveat! _Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum wil change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!  For this and other reasons, it is worthwhile learning how to do cross-table queries.
+The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **Caveat! _Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum will change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!  For this and other reasons, it is worthwhile learning how to do cross-table queries.
 
 ## Complex API Queries
 
