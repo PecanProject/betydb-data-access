@@ -168,15 +168,9 @@ https://www.betydb.org/search.xml?search=cottongrass
 ```
 will return all traits and yields for which the common name of the species includes the word "cottongrass".  To get the same rows using `commonname` as the key, we would have to do three separate searches:
 
-```
-https://www.betydb.org/search.xml?commonname=tussock+cottongrass
-```
-```
-https://www.betydb.org/search.xml?commonname=white+cottongrass
-```
-```
-https://www.betydb.org/search.xml?commonname=tall+cottongrass
-```
+        https://www.betydb.org/search.xml?commonname=tussock+cottongrass
+        https://www.betydb.org/search.xml?commonname=white+cottongrass
+        https://www.betydb.org/search.xml?commonname=tall+cottongrass
 
 This is because when we use a column name as the search key, the value must match the column value exactly (including the letter case and the number of spaces between words).
 
