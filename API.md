@@ -1,4 +1,4 @@
-# The BETYdb Web API \label{sec:betyapi}
+# The BETYdb Web API
 
 The BETYdb URL-based API allows users to Query data. 
 
