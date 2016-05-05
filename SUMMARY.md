@@ -8,7 +8,7 @@ Local-install.md
 * [Overview](introduction.md)
  * [Search Box](advanced_search)
 * [BETY API for URL-based Queries and Data Download](API.md)
-* [rOpenSci traits package](ropenSci_traits_package_
+* [rOpenSci traits package](rOpenSci_traits_package.md)
 * [Installing your own version of BETYdb](Local-install.md)
 
 
