@@ -12,6 +12,7 @@ Local-install.md
       * Advanced Search \ref{sec:advancedsearch}
       * Example \ref{sec:searchexample}
 * [BETY API for URL-based Queries and Data Download](API.md)
+* [Installing your own version of BETYdb](Local-install.md)
 
 
   
