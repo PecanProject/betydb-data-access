@@ -9,6 +9,7 @@ These are the core tables required to query traits and yields:
 
 ![](figures/betydb_schema.png)
 
+
 We have created the `yielssview` table to make it easier to query. It also provides an example of the suite of joins required to return the key information associated with each trait or yield record:
 
 ```sql
