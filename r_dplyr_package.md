@@ -49,8 +49,8 @@ bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname
 
 ## query and join tables
 species <- tbl(bety, 'species') %>% 
-  dplyr::select(id, scientificname, genus) %>% 
-  dplyr::rename(specie_id = id)
+  select(id, scientificname, genus) %>% 
+  rename(specie_id = id)
 
 sites <- tbl(bety, sql(
   paste("select id as site_id, st_y(st_centroid(sites.geometry)) AS lat,",
