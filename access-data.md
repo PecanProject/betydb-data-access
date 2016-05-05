@@ -1,37 +1,4 @@
 
-
-# Guide to accessing data from BETYdb 
-
-## What is covered here:
-
-There are many ways to access data in BETYdb. This document is written for people who want to get data from BETYdb through either 1) the web interface search box or 2) the more powerful url-based methods of submitting queries. This url-based query is the basis of the rOpensci 'traits' package that allows users to retrieve data in R.
-
-## What is not covered:
-
-While these methods allow users to access these data, some users may wish to use BETYdb actively in their research. If you want to contribute to BETYdb, see the [Data Entry](https://www.authorea.com/users/5574/articles/6800/_show_article) documentation. That document teaches users how they can curate their own data using BETYdb—either betydb.org or as a distributed node on the BETYdb network that enables data sharing.
-
-Many people who contribute data—and others who want to submit more complex queries—can benefit from accessing a PostgreSQL server. Users who want to install a a BETYdb PostgreSQL database (just ask!) are able to enter, use, and share data within and across a network of synced instances of BETYdb (see wiki ["Distributed BETYdb"](https://github.com/PecanProject/bety/wiki/Distributed-BETYdb)). This network shares data that has not necessarily been independently reviewed beyond the correction of extreme outliers. In practice, data sets in active use by researchers have been evaluated for meaning by researchers. Expert knowledge encoded in the 'priors' table, in the PEcAn meta-analysis models and the Ecosystem models parameterized by the meta-analysis results.  
-Users with access to a BETYdb PostgreSQL database can access data through R packages, in particular `PEcAn.DB` which is designed for use in PEcAn or 2) any programming language a scientist is likely to use. When not using PEcAn, I recommend the R package `dplyr` unless you prefer joins in SQL. 
-
-## Data Sharing
-
-Data is made available for analysis after it is submitted and reviewed by a database administrator. These data are suitable for basic scientific research and modeling. All reviewed data are made publicly available after publication to users of BETYdb who are conducting primary research. 
-
-If you want data that has not been reviewed, please request access. There are many records that are not publicly available through the web API, but that can be installed as a PostgreSQL database.
-
-## Access Restrictions 
-
-All public data in BETYdb is made available under the [Open Data Commons Attribution License (ODC-By) v1.0](http://opendatacommons.org/licenses/by/1-0/). You are free to share, create, and adapt its contents. Data with an `access_level` field and value <= 2 is is not covered by this license, but may be available for use with consent. 
-
-## Quality Flags
-
-The `checked` value indicates if data has been checked (1) is unchecked (0) or identified as incorrect (-1). Checked data has been independently reviewed. By default, only checked data is provided through the web interface and API; as of [BETYdb 4.4 (Oct 14 2015)](https://github.com/PecanProject/bety/releases/tag/betydb_4.4) users can opt-in to download unchecked data from the web search interface and API. Unchecked data (0) is also available as a PostgreSQL database (as easy as [`./load.bety.sh`](https://raw.githubusercontent.com/PecanProject/pecan/master/scripts/load.bety.sh)). 
-
-
-Please cite the source of data as:
-
-> LeBauer, David; Dietze, Michael; Kooper, Rob; Long, Steven; Mulrooney, Patrick; Rohde, Gareth Scott; Wang, Dan; (2010): Biofuel Ecophysiological Traits and Yields Database (BETYdb); Energy Biosciences Institute, University of Illinois at Urbana-Champaign. http://dx.doi.org/10.13012/J8H41PB9
-
 # The Advanced Search Box
 
 Most tables in BETYdb have search boxes, for example betydb.org/citations and betydb.org/sites. We describe below how to queried and downloaded these pages as .csv, .json, or .xml. The advanced search box is the easiest way to download summary datasets designed to have enough information (location, time, species, citations) to be useful for a wide range of use cases.
