@@ -32,7 +32,9 @@ mxgdata <- inner_join(species, yields, by = 'specie_id') %>%
   collect() 
 ```
 
-## Query Yield data with planting, irrigation, and fertilization rates
+## Yield data with experimental treatments
+
+Here we query Miscanthus and Switchgrass yield data along with planting, irrigation, and fertilization rates in order to update teh meta-analysis originally performed by Heaton et al (2004).
 
 ```r
 library(dplyr)
