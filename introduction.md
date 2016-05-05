@@ -10,7 +10,8 @@ There are many ways to access data in BETYdb. This document is written for peopl
 While these methods allow users to access these data, some users may wish to use BETYdb actively in their research. If you want to contribute to BETYdb, see the [Data Entry](https://www.authorea.com/users/5574/articles/6800/_show_article) documentation. That document teaches users how they can curate their own data using BETYdb—either betydb.org or as a distributed node on the BETYdb network that enables data sharing.
 
 Many people who contribute data—and others who want to submit more complex queries—can benefit from accessing a PostgreSQL server. Users who want to install a a BETYdb PostgreSQL database (just ask!) are able to enter, use, and share data within and across a network of synced instances of BETYdb (see wiki ["Distributed BETYdb"](https://github.com/PecanProject/bety/wiki/Distributed-BETYdb)). This network shares data that has not necessarily been independently reviewed beyond the correction of extreme outliers. In practice, data sets in active use by researchers have been evaluated for meaning by researchers. Expert knowledge encoded in the 'priors' table, in the PEcAn meta-analysis models and the Ecosystem models parameterized by the meta-analysis results.  
-Users with access to a BETYdb PostgreSQL database can access data through R packages, in particular `PEcAn.DB` which is designed for use in PEcAn or 2) any programming language a scientist is likely to use. When not using PEcAn, I recommend the R package `dplyr` unless you prefer joins in SQL. 
+Users with access to a BETYdb PostgreSQL database can access data through R packages, in particular `PEcAn.DB` which is designed for use in PEcAn or 2) any programming language a scientist is likely to use. 
+When not using PEcAn, I recommend the R package `dplyr` unless you prefer joins in SQL. 
 
 ## Data Sharing
 
@@ -38,6 +39,7 @@ This is provided as citation author, year, title, and date in database queries.
 It is important to archive the data used in a particular analysis so that someone can reproduce your results and check your assumptions.
 As we are continually collecting new data and checking existing data, BETYdb is not a static source of data.
 
+## Key Topics
 
 **Data access**
 
