@@ -1,9 +1,4 @@
 Table-of-Contents.md
-access-data.md
-figures/textsearch/textsearch.png
-figures/mapsearch/mapsearch.png
-figures/accessmaps/accessmaps.png
-figures/results_excel/results_excel.png
 API.md
 rOpenSci_traits_package_The_rOpenSci__.md
 Local-install.md
