@@ -7,6 +7,6 @@
 * [rOpenSci traits package](rOpenSci_traits_package.md)
 * [R dplyr package](r_dplyr_package.md)
 * [PEcAn R package](pecan_r_package.md)
-* [SQL_queries](sqlqueries.md)
+* [SQL queries](sqlqueries.md)
 * [Installing your own version of BETYdb](Local-install.md)
 
