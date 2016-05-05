@@ -2,7 +2,9 @@
 
 ### R dplyr interface
 
-Documentation for the `dplyr` interface to databases is provided in the [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html)
+Using dplyr requires having access to a PostgreSQL server running BETYdb or [installing your own](Local-install.md).
+
+Comprehensive documentation for the `dplyr` interface to databases is provided in the [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html)
 
 ```{r}
 install.packages('dplyr')
