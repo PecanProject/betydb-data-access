@@ -7,5 +7,5 @@
 * [rOpenSci traits package](rOpenSci_traits_package.md)
 * [R dplyr package](r_dplyr_package.md)
 * [Installing your own version of BETYdb](Local-install.md)
-* R dplyr Package
+* [R dplyr Package](r_dplyr_package.md)
 
