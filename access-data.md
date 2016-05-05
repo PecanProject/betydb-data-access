@@ -1,6 +1,6 @@
 
 
-# Guide to accessing data from BETYdb \label{sec:overview}
+# Guide to accessing data from BETYdb 
 
 ## What is covered here:
 
@@ -36,7 +36,7 @@ Please cite the source of data as:
 
 Most tables in BETYdb have search boxes, for example betydb.org/citations and betydb.org/sites. We describe below how to queried and downloaded these pages as .csv, .json, or .xml. The advanced search box is the easiest way to download summary datasets designed to have enough information (location, time, species, citations) to be useful for a wide range of use cases.
 
-## Search Box \label{sec:searchbox}
+## Search Box
 
 On the welcome page of BETYdb there is a search option for trait and yield data (Figure \ref{fig:textsearch}). This tool allows users to search the entire collection of trait and yield data for specific sites, citations, species, and traits.
 
@@ -54,15 +54,15 @@ The search map may be used in conjunction with search terms to restrict search r
 
 (Figure \ref{fig:mapsearch})
 
-## Details\label{sec:searchdetails}
+## Details
 
-### Basic search: Searching from the Home Page\label{sec:basicsearch}
+### Basic search: Searching from the Home Page
 
 1.	Go to the home page [betydb.org](https://www.betydb.org). 
 2.	Enter one or more terms in the search box.  The search will succeed if (and only if) each term in the search box matches one of the following columns of the `traits_and_yields_view`: `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year`.  Thus, the more terms entered, the more restrictive the search. Note that a search term _matches_ a column value if it occurs anywhere within the text of that column value and that matches are case-insensitive.  Thus, the term "grass" would match a row with commonname column value "switchgrass" or "tussock cottongrass", a row with site name "Grassland Soil & Water Research Laboratory", or a row with trait description "for grasses, stem internode length".  There is no way to restrict which of the eight match columns a given term is matched against except perhaps by makeing the term itself more specific; in the example just given, typing "cottongrass" rather than just "grass" would make in more likely that only the match against the `commonname` column would succeed.
 3.	Click the search icon next to the search box (or press the ENTER key).  This will take one to the search results/advanced search page and show the result of the search.
 
-### Advanced search: Searching from the Advanced Search page\label{sec:advancedsearch}
+### Advanced search: Searching from the Advanced Search page
 
 1.	From the home page, you can get to the advanced search page simply by typing search terms into the search box and clicking on the search icon.  (Or just click the search icon without entering any terms.  Or enter the URL for the advanced search page directly: www.betydb.org/search)
 2.	The search will return results for both traits and yields.
@@ -71,7 +71,7 @@ The search map may be used in conjunction with search terms to restrict search r
 
 
 
-### Example\label{sec:searchexample}
+### Example
 
 1. Go to [betydb.org](https://www.betydb.org)
 2. Task 1 (simple search): Search for sugarcane yields — Enter the search string "sugarcane Ayield" in the search box.
