@@ -1,2 +1,2 @@
-# SQL_queries
+# SQL queries
 
