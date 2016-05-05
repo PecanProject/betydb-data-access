@@ -12,10 +12,10 @@ This can be done on your computer or through Amazon Web Services.
 Here is some of the basic functionality:
 
 ```r
-settings <- list(database = list(bety = list(driver = "PostgreSQL", user = "bety", dbname = "bety", password = "bety")))
+settings <- read.settings("pecan.xml")
 
-# equivalent to standard method to load PEcAn settings:
-# settings <- read.settings("pecan.xml")
+# For database queries, this is equivalent to:
+# settings <- list(database = list(bety = list(driver = "PostgreSQL", user = "bety", dbname = "bety", password = "bety")))
 
 library(PEcAn.DB)
 require(RPostgreSQL)
