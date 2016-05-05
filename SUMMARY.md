@@ -5,7 +5,7 @@ Local-install.md
 
 **Table of Contents**
 
-* Overview
+* [Overview](introduction.md)
  * Search Box
  * Details
       * Basic Search \ref{sec:basicsearch}
