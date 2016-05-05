@@ -5,6 +5,7 @@
 * [Web Interface Search](advanced_search)
 * [API for URL-based Queries](API.md)
 * [rOpenSci traits package](rOpenSci_traits_package.md)
+* PEcAn R package
 * [R dplyr package](r_dplyr_package.md)
    * PEcAn R package
 * [Installing your own version of BETYdb](Local-install.md)
