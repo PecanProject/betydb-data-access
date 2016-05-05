@@ -7,10 +7,13 @@ The full, most recent BETYdb Schema is available at [https://<servername>/schema
 
 These are the core tables required to query traits and yields:
 
-![](figures/betydb_schema.png)
+
+![](betydb_schema.png)
 
 
-We have created the `yielssview` table to make it easier to query. It also provides an example of the suite of joins required to return the key information associated with each trait or yield record:
+We have created 'views' to make it easier to query data from multiple tables. 
+For example, to lookup the name and location of a site or the names and units of variables. 
+The following query joins multiple tables, and is based on the yieldsview table:
 
 ```sql
 SELECT 'yields'::character(10) AS result_type,
@@ -33,7 +36,6 @@ SELECT 'yields'::character(10) AS result_type,
     yields.date,
     date_part('month'::text, yields.date) AS month,
     date_part('year'::text, yields.date) AS year,
-    yields.dateloc,
     variables.name AS trait,
     variables.description AS trait_description,
     yields.mean,
@@ -42,11 +44,6 @@ SELECT 'yields'::character(10) AS result_type,
     yields.statname,
     yields.stat,
     yields.notes,
-    yields.access_level,
-    yields.checked,
-    users.login,
-    users.name,
-    users.email
    FROM ((((((yields
      LEFT JOIN sites ON ((yields.site_id = sites.id)))
      LEFT JOIN species ON ((yields.specie_id = species.id)))
