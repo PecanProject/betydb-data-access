@@ -6,12 +6,9 @@ Local-install.md
 **Table of Contents**
 
 * [Overview](introduction.md)
- * Search Box
- * Details
-      * Basic Search \ref{sec:basicsearch}
-      * Advanced Search \ref{sec:advancedsearch}
-      * Example \ref{sec:searchexample}
+ * [Search Box](advanced_search)
 * [BETY API for URL-based Queries and Data Download](API.md)
+* [rOpenSci traits package](ropenSci_traits_package_
 * [Installing your own version of BETYdb](Local-install.md)
 
 
