@@ -3,7 +3,7 @@
 The BETYdb repository has a large number of example SQL queries if you search for the terms ['select' and 'join' in its issues](https://github.com/pecanproject/bety/issues?utf8=%E2%9C%93&q=is%3Aissue+select+where+join).
 
 SQL is the most flexible way of querying data from BETYdb. 
-The l[ist of tables](https://www.betydb.org/schemas) and [schema](https://www.betydb.org/schemas?partial=relationships) at  and a list of tables at [https://betydb.org/schemas](https://www.betydb.org/schemas).
+The l[ist of tables](https://www.betydb.org/schemas) and [schema](https://www.betydb.org/schemas?partial=relationships) on the website is up to date with the current database, but for the most part the existing schema doesn't change.
 
 These are the core tables required to query traits and yields:
 
