@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Overview](introduction.md)
-* [Web Interface Search](advanced_search)
+* [Web Interface Search](advanced_search.md)
 * [API for URL-based Queries](API.md)
 * [rOpenSci traits package](rOpenSci_traits_package.md)
 * [R dplyr package](r_dplyr_package.md)
