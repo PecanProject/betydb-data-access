@@ -5,7 +5,7 @@
 * [Web Interface Search](advanced_search.md)
 * [API for URL-based Queries](API.md)
    * [New Beta API](API/beta_API.md)
-   * Original API
+   * [Original API](original_api.md)
 * [rOpenSci traits package](rOpenSci_traits_package.md)
 * [R dplyr package](r_dplyr_package.md)
 * [PEcAn R package](pecan_r_package.md)
