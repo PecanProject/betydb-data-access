@@ -1,6 +1,13 @@
 {
     "plugins": [
-        "autocover"
+        "autocover",
+        "image-captions"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "image-captions": {
+            "caption": "_CAPTION_",
+            "align": "left",
+            "variable_name": "pictures"
+        }
+    }
 }
