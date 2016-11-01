@@ -163,10 +163,10 @@ to the search box.
 
 5. You will see only the sugarcane yields for the 'Zentsuji' site.
 
-6. **Task 3 (advanced search)**: Limit results to a specific trait — We only want to
-see the results concerning stem\_biomass instead of annual yield.  Replace the
-word 'Ayield' with the word 'stem\_biomass' in the search box.
+6. **Task 3 (advanced search)**: Limit results to a specific trait — We only
+want to see the results concerning stemN instead of annual yield.  Replace the
+word 'Ayield' with the word 'stemN' in the search box.
 
-7. The resulting table rows all concern stem biomass data for sugarcane at the
+7. The resulting table rows all concern stem nitrogen data for sugarcane at the
 Zentsuji site.
 
