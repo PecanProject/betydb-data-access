@@ -1,0 +1,9 @@
+blockquote[id^=fn] {
+    border-left: 0;
+    padding: 0;
+    color: inherit;
+}
+
+blockquote[id^=fn] sup {
+    top: 0;
+}
