@@ -10,5 +10,8 @@
             "align": "left",
             "variable_name": "pictures"
         }
+    },
+    "variables": {
+        "BETYdb_URL": "https://www.betydb.org"
     }
 }

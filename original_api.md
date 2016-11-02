@@ -27,14 +27,24 @@ the id, we can use it to query the traits table by visiting this URL:
 
     https://www.betydb.org/traits.csv?specie_id=938
 
-The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.  **Caveat! _Note that there is no guarantee that these id numbers will not change!_**  Although it is rather unlikely that the id number for Panicum virgatum will change between the time we query the species table to look it up and the time we use it to query the traits table, it entirely possible that if we run the query `https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results will be for an entirely different species!  For this and other reasons, it is worthwhile learning how to do cross-table queries.
+The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.
+
+_**Caveat!** There is no guarantee that these id numbers will not change!_
+Although it is rather unlikely that the id number for Panicum virgatum will
+change between the time we query the species table to look it up and the time we
+use it to query the traits table, it entirely possible that if we run the query
+`https://www.betydb.org/traits.csv?specie_id=938` a year from now, the results
+will be for an entirely different species!  For this and other reasons, it is
+worthwhile learning how to do cross-table queries.
 
 
 
 ## Complex API Queries
 
-The API allows more complex queries and faster programmatic access by including multiple search terms to the query URL.
-This feature is (for example) used to access BETYdb via the [Ropensci `traits` package](https://github.com/ropensci/rotraits/issues/3).
+The API allows more complex queries and faster programmatic access by including
+multiple search terms in the query string of the URL.  This feature is (for
+example) used to access BETYdb via the [Ropensci `traits`
+package](https://github.com/ropensci/rotraits/issues/3).
 
 ### A brief summary of the syntax of URL-based queries:
 
@@ -50,7 +60,7 @@ This feature is (for example) used to access BETYdb via the [Ropensci `traits` p
 It is possible to write queries involving multiple tables, but compared with the full expressive power of SQL, this ability is somewhat limited.  Nevertheless, most common queries of interest should be possible.  Here is a short outline of the scope and syntax of such queries:
 
 * In any multiple-table query, there is always a "primary" table.  This corresponds to the name directly following the hostname portion of the URL.  For example, in a query of the form `https://www.betydb.org/yields.csv?specie_id=938&...`, "yields" is the primary table of the query.
-* Other tables involved in the query must be related to the primary table in one of the following three ways: (1) The primary table has a foreign key column that refers to the other table.  For example, the `citation_id` column of the yields table refers to the citations table, so we can include the citations table in any query on the yields table.  (2) The other table has a foreign key referring to the primary table.  For example, we could involve the cultivars table in any query where species is the primary table because the cultivars table has a `specie_id` column.  (3) There is a join table connecting the primary table to the other table.  For example, because the `citations_sites` table joins the citations table with the sites table, a query with `citations` as the primary table is allowed to include the sites table.  Visit https://www.betydb.org/schemas to view a list of the tables (including join tables) of BETYdb.  Click on a table name to see a list of its columns.
+* Other tables involved in the query must be related to the primary table in one of the following three ways: (1) The primary table has a foreign key column that refers to the other table.  For example, the `citation_id` column of the yields table refers to the citations table, so we can include the citations table in any query on the yields table.  (2) The other table has a foreign key referring to the primary table.  For example, we could involve the cultivars table in any query where species is the primary table because the cultivars table has a `specie_id` column.  (3) There is a join table connecting the primary table to the other table.  For example, because the `citations_sites` table joins the citations table with the sites table, a query with `citations` as the primary table is allowed to include the sites table.  Visit {{book.BETYdb_URL}}/schemas to view a list of the tables (including join tables) of BETYdb.  Click on a table name to see a list of its columns.
 * For each "other" table involved in the query, there must be a clause in the query string of the URL of the form `include[]=other`.  The "other" portion of this clause is either (1) the name of the other table; (2) the singular form of the name of the other table.  Which of these two to use depends on whether a row of the primary table may be associated with multiple rows of the other table (case 1) or whether a row of the primary table is always associated with at most one row of the associated table (case 2).  An easy rule of thumb here is to use the singular form if the primary table has a foreign key column referring to the other table and to use the bona fide (plural) table name otherwise.  Note that for the purposes of this syntactical requirement and contrary to reality, "specie" is the singular form of "species".  _Note you must include the square brackets after "include"!_
 * "include[]-ing" another table in a query allows the query to filter query results based on column values in that other table.  But to do so, the "key" portion of the filter clause must be of the form "\<other table name>.\<column name>".  (Note that keys referring to column values in the primary table may use, but do not require, the table name qualifier.)
 * "include[]-ing" another table in a query has another effect in the case of XML and JSON-formatted results: The associated row(s) from the included table are included with each entity of the primary table the query returns.  For example, consider the query `https://www.betydb.org/cultivars.xml?species.genus=Salix&include[]=specie`.  Not only will this return all cultivars for any species with genus Salix, it will return detailed species information for each cultivar returned.  Contrast this with the CSV-format query `https://www.betydb.org/cultivars.csv?species.genus=Salix&include[]=specie`.  This returns the same cultivars as before, but we only get the information contained in the cultivars table.  In particular, while we will get the value of `specie_id` for each returned cultivar, we won't get the corresponding species name.
@@ -185,7 +195,7 @@ By default, searches on `traits_and_yields_view` return only checked data.  The 
 
 ### A Few Notes about Searching the Traits and Yields View
 
-1. The base URL to use is https://www.betydb.org/search
+1. The base URL to use is {{book.BETYdb_URL}}/search
 2. You can only use columnname keys when the result format is XML or JSON.  If the result format is CSV or HTML, any query-string clause of the form `columnname=value` is ignored.
 3. The query-string clauses of the form `search=value` and `include_unchecked=true` may be used with all result formats.
 4. If multiple `search=value` clauses are included, only last one is used.  **Don't do this!**  To search on multiple terms, separate them in the query string by `+` signs.  For example, `https://www.betydb.org/search.xml?search=LTER+cottongrass&include_unchecked=true` will likely find traits and yields results for cottongrass species at LTER (Long-term Ecological Research) sites, including those that have not been checked.

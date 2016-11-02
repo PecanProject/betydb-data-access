@@ -1,6 +1,4 @@
 ---
-BETYdb_URL: "https://www.betydb.org"
-
 # TO-DO: Update image files        
 Figures:
     SearchBox:
@@ -38,7 +36,7 @@ Figures:
 # The Advanced Search Box
 
 Most tables in BETYdb have search boxes; for example,
-{{page.BETYdb_URL}}/citations and {{page.BETYdb_URL}}/sites. We describe below
+{{book.BETYdb_URL}}/citations and {{book.BETYdb_URL}}/sites. We describe below
 how to query these tables and download the results as CSV, JSON, or XML. The
 Advanced Search box is the easiest way to download summary datasets designed to
 have enough information (location, time, species, citations) to be useful for a
@@ -149,7 +147,7 @@ search map.  To display the search map, click `Search Using Map`.
 
 ### Example
 
-1. Go to [{{page.BETYdb_URL}}]({{page.BETYdb_URL}}).
+1. Go to [{{book.BETYdb_URL}}]({{book.BETYdb_URL}}).
 
 2. **Task 1 (simple search)**: Search for sugarcane yields — Enter the search
 string "sugarcane Ayield" in the search box.

@@ -6,4 +6,5 @@ blockquote[id^=fn] {
 
 blockquote[id^=fn] sup {
     top: 0;
+    font-size: larger;
 }
