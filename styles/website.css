@@ -8,3 +8,8 @@ blockquote[id^=fn] sup {
     top: 0;
     font-size: larger;
 }
+
+/* indent free-standing URLs */
+p > a:first-child {
+    margin-left: 1em;
+}

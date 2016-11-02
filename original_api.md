@@ -20,12 +20,12 @@ all of the trait data for the switchgrass species Panicum virgatum, we must
 first look up the id number of the Panicum virgatum species.  We can do this by
 querying the species table by issuing a call to this URL[^apikey-note]
 
-    https://www.betydb.org/species.csv?scientificname=Panicum+virgatum
+https://www.betydb.org/species.csv?scientificname=Panicum+virgatum
 
 and then examining the "id" column value of the one-row result.  Once we have
 the id, we can use it to query the traits table by visiting this URL:
 
-    https://www.betydb.org/traits.csv?specie_id=938
+https://www.betydb.org/traits.csv?specie_id=938
 
 The reason we must use this two-stage process is that the traits table doesn't contain the species name information directly.
 
@@ -80,7 +80,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
 1. Return all trait data for "Panicum virgatum" without having to know its species id number:
 
-        https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
+    https://www.betydb.org/traits.csv?include[]=specie&species.scientificname=Panicum+virgatum
 
     This will produce exactly the same result file as the "easy" query above that used the specie_id number.  As mentioned above, the XML and JSON formats of the same query give more information than the CSV form does.  Since XML and JSON are more highly-structured that CSV, it is easy to include full species information with each trait item returned, and queries using these formats do so.  Because of this, CSV-format queries are invariable faster.
 
@@ -88,7 +88,7 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
     Note that the results of the previous query in XML or JSON formats are quite redundant: full information about species Panicum virgatum is included with each trait returned.  The following query will only show the Panicum virgatum species information once:
 
-         https://www.betydb.org/species.xml?scientificname=Panicum+virgatum&include[]=traits
+     https://www.betydb.org/species.xml?scientificname=Panicum+virgatum&include[]=traits
 
     This returns a single result from the species table--the row information for Panicum virgatum--but nested inside this result is a list of all trait rows associated with that species.
 
@@ -96,80 +96,80 @@ Some examples will make the query syntax clearer. In all of these examples, you 
 
 3. Return all citations in json format (replace json with xml or csv for those formats):
 
-        https://www.betydb.org/citations.json
+    https://www.betydb.org/citations.json
 
 3. Return all yield data for the genus ‘Miscanthus’:
 
-        https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus
+    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus
 
     If we're only interested in Miscanthus having species name "sinensis", we can do:
 
-        https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
+    https://www.betydb.org/yields.json?include[]=specie&species.genus=Miscanthus&species.species=sinensis
 
     As in the first example, this query will show the same species information multiple times--once for each yield.
 
     An alternative way of extracting the same information in a different format is:
 
-        https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields
-        https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
+    https://www.betydb.org/species.json?genus=Miscanthus&include[]=yields
+    https://www.betydb.org/species.json?genus=Miscanthus&species=sinensis&include[]=yields
 
     These each return a list of Miscanthus species (a list of length one in the second case) where each list item itself contains a list of yields for the species of the item. Since species and yields are in a one-to-many relationship, each species is only listed once.
 
 4. Return all yield data from the citation with author = Heaton and year = 2008 (can also be queried by title):
 
-        https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
+    https://www.betydb.org/citations.xml?include[]=yields&author=Heaton&year=2008
 
     To get this information in CSV format, we have to use yields as the primary table:
 
-        https://www.betydb.org/yields.xml?include[]=citation&citations.author=Heaton&citations.year=2008
+    https://www.betydb.org/yields.xml?include[]=citation&citations.author=Heaton&citations.year=2008
 
     Note that we use the singular form "citation" in the include clause (since there is one citation per yield), but the qualified column names "citations.author" and "citations.year" must always use the actual database table name.
 
 5. Find species associated with the `salix` pft:
 
 
-        https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
+    https://www.betydb.org/pfts.xml?pfts.name=salix&include[]=specie
 
     You can also do the query like so:
 
-        https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
+    https://www.betydb.org/species.xml?pfts.name=salix&include[]=pfts
 
     The results of these two queries contain essentially the same information--and to emphasize that we only need to interchange the primary and included table names to get from one query to the other, we have used the fully-qualified column name "pfts.name" in both (though just "name" would suffice in the first); but the form of those results will be rather different.  It is instructive to compare them.
 
 
 6. Return all citations with their associated sites:
 
-        https://www.betydb.org/citations.json?include[]=sites
+    https://www.betydb.org/citations.json?include[]=sites
 
     (Note that we use the plural form "sites" in the include clause since citations and sites are in a many to many relationship.)
 
 7. Return all citations with their associated sites and yields:
 
-        https://www.betydb.org/citations.json?include[]=sites&include[]=yields
+    https://www.betydb.org/citations.json?include[]=sites&include[]=yields
 
     _Note that this will take considerable time since the information for all yields rows will be displayed._  Note also that the result of this query will not tell us directly which site is associated with which yield (although the yield result will have a site_id column, which will tell us indirectly).
 
 8. Return all citations in the field journal ‘Agronomy Journal’ by author ‘Adler’ with their associated sites and yields.
 
-        https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
+    https://www.betydb.org/citations.json?journal=Agronomy%20Journal&author=Adler&include[]=sites&include[]=yields
 
 9. Return citation 1 in json format:
 
-        https://www.betydb.org/citations/1.json
+    https://www.betydb.org/citations/1.json
 
     Alternatively, we can do:
 
-        https://www.betydb.org/citations.json?id=1
+    https://www.betydb.org/citations.json?id=1
 
     This result is slightly different in that it returns a JSON array with a single item instead of the item itself.
 
 10. Return citation 1 in json format with it’s associated sites
 
-        https://www.betydb.org/citations/1.json?include[]=sites
+    https://www.betydb.org/citations/1.json?include[]=sites
 
 11. Return citation 1 in json format with it’s associated sites and yields
 
-        https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields
+    https://www.betydb.org/citations/1.json?include[]=sites&include[]=yields
 
 Regarding the last three examples, although the syntax for returning data associated with a single entity (citation 1 in these examples) is very convenient, in general it is best not to rely on fixed id numbers for entities.  "The citation in _Agronomy Journal_ with author Adler" is a more reliable locator than "The citation with id 1".
 
@@ -178,14 +178,16 @@ Regarding the last three examples, although the syntax for returning data associ
 The database view `traits_and_yields_view` provides summary information about traits and yields: It combines information from the traits and the yields tables and it includes information from six associated tables—namely, the sites, species, citations, treatments, variables, and users tables.  Whereas the traits and the yields tables contain only pointers to these tables (foreign keys in the form of id numbers), the `traits_and_yields_view` directly contains information associated with a trait or yield such as the name of the species of the plant whose trait was measured, the name of the measured variable, and the author and year of the citation associated with the trait or yield.  This means that in many cases a query of the `traits_and_yields_view` may be used to extract information that otherwise would require a complex cross-table query with traits or yields as the primary table.
 
 Moreover, by using the special `search=` key in place of column names, one can avoid the strict matching that is used when the key is a bona fide column name.  For example,
-```
+
 https://www.betydb.org/search.xml?search=cottongrass
-```
+
 will return all traits and yields for which the common name of the species includes the word "cottongrass".  To get the same rows using `commonname` as the key, we would have to do three separate searches:
 
-        https://www.betydb.org/search.xml?commonname=tussock+cottongrass
-        https://www.betydb.org/search.xml?commonname=white+cottongrass
-        https://www.betydb.org/search.xml?commonname=tall+cottongrass
+https://www.betydb.org/search.xml?commonname=tussock+cottongrass
+
+https://www.betydb.org/search.xml?commonname=white+cottongrass
+
+https://www.betydb.org/search.xml?commonname=tall+cottongrass
 
 This is because when we use a column name as the search key, the value must match the column value exactly (including the letter case and the number of spaces between words).
 
@@ -198,19 +200,17 @@ By default, searches on `traits_and_yields_view` return only checked data.  The 
 1. The base URL to use is {{book.BETYdb_URL}}/search
 2. You can only use columnname keys when the result format is XML or JSON.  If the result format is CSV or HTML, any query-string clause of the form `columnname=value` is ignored.
 3. The query-string clauses of the form `search=value` and `include_unchecked=true` may be used with all result formats.
-4. If multiple `search=value` clauses are included, only last one is used.  **Don't do this!**  To search on multiple terms, separate them in the query string by `+` signs.  For example, `https://www.betydb.org/search.xml?search=LTER+cottongrass&include_unchecked=true` will likely find traits and yields results for cottongrass species at LTER (Long-term Ecological Research) sites, including those that have not been checked.
+4. If multiple `search=value` clauses are included, only last one is used.  **Don't do this!**  To search on multiple terms, separate them in the query string by `+` signs.  For example, https://www.betydb.org/search.xml?search=LTER+cottongrass&include_unchecked=true will likely find traits and yields results for cottongrass species at LTER (Long-term Ecological Research) sites, including those that have not been checked.
 5. As noted above, each word in the value of a `search=value` clause must match one of the columns `sitename`, `city`, `scientificname`, `commonname`, `author`, `trait`, `trait_description`, or `citation_year` in order for a given row to be included in the search results.  Here, "match" means "be textually included in the column value".
 6. Remember that values for column name keys are treated very differently from the way the value of the `search` key is treated.  In particular, the value is treated as one unit.  Consider the difference between these two examples:
 
-```
-https://www.betydb.org?commonname=white+willow
-```
-will return only rows pertaining to the species with commonname "white willow",
+    https://www.betydb.org?commonname=white+willow
 
-```
-https://www.betydb.org?search=white+willow
-```
-will in addition return rows for white ash at a site called Willow Creek.
+    will return only rows pertaining to the species with commonname "white willow",
+
+    https://www.betydb.org?search=white+willow
+
+    will in addition return rows for white ash at a site called Willow Creek.
 
 ---
 
@@ -221,7 +221,7 @@ visiting `https://www.betydb.org/species.csv?scientificname=Panicum+virgatum` in
 a Web browser, issue the `curl` command
 
 ```bash
-curl -u <your login>:<your password "https://www.betydb.org/species.csv?scientificname=Panicum+virgatum"
+curl -u <your login>:<your password> "https://www.betydb.org/species.csv?scientificname=Panicum+virgatum"
 ```
 or, using an API key instead of the `-u` option,
 
