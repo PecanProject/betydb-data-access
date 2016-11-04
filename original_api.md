@@ -12,14 +12,12 @@ information from a single database table in various formats.  CSV
 that is easy to view and use in any spreadsheet software and in R.  Other
 possible formats are JSON and XML.
 
-In the discussion that follows, most URLs given as examples are clickable, and
-the results of the various API calls represented by these URLs will then be
-viewable in a browser.  In most of these calls, we will write the URLs to
-request results in XML format rather than in CSV format.  This is mainly for
-convenience: requests for XML format will usually display the result in the
-browser whereas requests for CSV format will result in a CSV file being produced
-and downloaded; this would require the additional step of opening the CSV file
-in a suitable application program.
+In the discussion that follows, most URLs given as examples are clickable; the
+results of the various API calls represented by these URLs will then be viewable
+in a browser.  In most of these calls, we will write the URLs to request results
+in XML format rather than in CSV format.  This is mainly for convenience:
+requests for XML format will usually display the result in the browser whereas
+requests for CSV format will download a CSV file.
 
 If, however, you want to see what the result would be in either of the other two
 formats, this is easy to do: After clicking the link and seeing the XML result
@@ -28,8 +26,8 @@ there, replacing the .xml extension with .json or .csv as desired.
 
 ### A simple example
 
-Data can be downloaded as a CSV, XML, or JSON file, and data from previously
-published syntheses can be downloaded without logging in.  In the simplest case,
+Data can be requested as a CSV, XML, or JSON file, and data from previously
+published syntheses can be requested without logging in.  In the simplest case,
 we can use a single key-value pair to filter the table, restricting the result
 to the set of rows having a given value in a given column.  For example, to
 download all of the trait data for the switchgrass species Panicum virgatum, we
@@ -38,8 +36,8 @@ this by querying the species table by issuing a call to this URL[^apikey-note]
 
 {{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum
 
-and then examining the "id" value of one species in the result.  Once we have
-the id, we can use it to query the traits table by visiting this URL:
+and then examining the "id" value of the one species in the result.  Once we
+have the id, we can use it in a query to the traits table:
 
 {{book.BETYdb_URL}}/traits.xml?specie_id=938
 
@@ -47,12 +45,12 @@ The reason we must use this two-stage process is that the traits table doesn't
 contain the species name information directly.
 
 _**Caveat!** There is no guarantee that these id numbers will not change!_
-Although it is rather unlikely that the id number for Panicum virgatum will
-change between the time we query the species table to look it up and the time we
-use it to query the traits table, it entirely possible that if we run the query
-{{book.BETYdb_URL}}/traits.xml?specie_id=938 a year from now, the results will
-be for an entirely different species!  For this and other reasons, it is
-worthwhile learning how to do cross-table queries.
+Although it is unlikely that the id number for Panicum virgatum will change
+between the time we query the species table to look it up and the time we use it
+to query the traits table, it entirely possible that if we run the query
+{{book.BETYdb_URL}}/traits.xml?specie_id=938 a year from now, the result will be
+for an entirely different species!  For this and other reasons, it is worthwhile
+learning how to do cross-table queries.
 
 
 
@@ -234,19 +232,19 @@ By default, searches on `traits_and_yields_view` return only checked data.  The 
 
 ---
 
-[^apikey-note]: In all of the examples in this section, we have written the query URLs as though they are to be run in a web browser after having logged in to the BETYdb web site.  To run these queries from the command line or in a script, you must either pass login creditials with the HTTP call or the URLs used will have to be modified to include the API key (see the section on [API keys](Api.html#api-keys)).
+[^apikey-note]: In all of the examples in this section, we have written the query URLs as though they are to be run in a web browser after having logged in to the BETYdb web site.  To run these queries from the command line or in a script, you must either pass login creditials with the HTTP call or include a valid API key in the URL (see the section on [API keys](Api.html#api-keys)).
 
 Using the command-line program `curl` as an example, we could, instead of
-visiting {{book.BETYdb_URL}}/species.csv?scientificname=Panicum+virgatum in
+visiting {{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum in
 a Web browser, issue the `curl` command
 
 <!--- See https://github.com/GitbookIO/gitbook/issues/707 for why we can't use the usual Markdown syntax --->
 <pre><code class="lang-bash">
-curl -u &lt;your login&gt;:&lt;your password&gt; "{{book.BETYdb_URL}}/species.csv?scientificname=Panicum+virgatum"
+curl -u &lt;your login&gt;:&lt;your password&gt; "{{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum"
 </code></pre>
 or, using an API key instead of the `-u` option,
 
 <pre><code class="lang-bash">
-curl "{{book.BETYdb_URL}}/species.csv?scientificname=Panicum+virgatum?key=yourAPIkey"
+curl "{{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum?key=yourAPIkey"
 </code></pre>
 
