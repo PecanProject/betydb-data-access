@@ -5,7 +5,7 @@ Figures:
         ReferenceName: "Figure 1"
         
         Caption: "Figure 1: BETYdb Advanced Search box—searching for switchgrass
-                  yield data" # doesn't currently work with image-captions plugin
+                  yield data"
                   
         ImageFile: /assets/textsearch.png
     MapSearch:
@@ -13,7 +13,7 @@ Figures:
         
         Caption: "Figure 2: Results of searching for switchgrass yields,
                   including an interactive map showing sites for which data is
-                  available" # doesn't currently work with image-captions plugin
+                  available"
 
         ImageFile: /assets/mapsearch.png
     SearchResults:
@@ -22,7 +22,7 @@ Figures:
         Caption: "Figure 3: The download result file from a search for
                   switchgrass yields, displayed in Excel.  This shows the
                   meta-data the the first few query results out of several
-                  hundred." # doesn't currently work with image-captions plugin
+                  hundred."
 
         ImageFile: /assets/results_excel.png
     AccessMaps:
@@ -49,13 +49,13 @@ On the Welcome page of BETYdb there is a search option for trait and yield data
 entire collection of trait and yield data for specific sites, citations,
 species, and traits.
 
-![Figure 1: BETYdb Advanced Search box—searching for switchgrass yield data]({{page.Figures.SearchBox.ImageFile}})
+![{{page.Figures.SearchBox.Caption}}]({{page.Figures.SearchBox.ImageFile}})
 
 The results page provides a map interface
 ({{page.Figures.MapSearch.ReferenceName}}) and the option to download a file
 containing search results.
 
-![Figure 2: Results of searching for switchgrass yields, including an interactive map showing sites for which data is available]({{page.Figures.MapSearch.ImageFile}})
+![{{page.Figures.MapSearch.Caption}}]({{page.Figures.MapSearch.ImageFile}})
 
 The downloaded file ({{page.Figures.SearchResults.ReferenceName}}) is in CSV
 format. This file provides meta-data and provenance information, including: the
@@ -63,7 +63,7 @@ SQL query used to extract the data, the date and time the query was made, the
 citation source of each result row, and a citation for BETYdb itself (_to be
 updated on publication_).
 
-![Figure 3: The download result file from a search for switchgrass yields, displayed in Excel. This shows the meta-data the the first few query results out of several hundred.]({{page.Figures.SearchResults.ImageFile}})
+![{{page.Figures.SearchResults.Caption}}]({{page.Figures.SearchResults.ImageFile}})
 
 #### Step-by-step instructions
 
@@ -85,7 +85,7 @@ associated with the returned results are highlighted on the map.  Then, to zero
 in on results for a particular geographic area, click on or near highlighted
 locations on the map ({{page.Figures.AccessMaps.ReferenceName}}).
 
-![Figure 4: Refining the search area]({{page.Figures.AccessMaps.ImageFile}})
+![{{page.Figures.AccessMaps.Caption}}]({{page.Figures.AccessMaps.ImageFile}})
 
 ## Details
 

@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
 * [Overview](introduction.md)
 * [Web Interface Search](advanced_search.md)
 * [API for URL-based Queries](API.md)

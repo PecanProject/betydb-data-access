@@ -13,5 +13,8 @@
     },
     "variables": {
         "BETYdb_URL": "https://www.betydb.org"
+    },
+    "structure": {
+        "readme": "introduction.md"
     }
 }
