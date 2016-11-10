@@ -1,12 +1,10 @@
-Gitbook version {{gitbook.version}}
-
 # Original API
 
 
 ## Simple API queries
 
 
-The simpler of the available API calls provide a way to extract useful
+The simpler of the available API calls provide ways to extract useful
 information from a single database table in various formats.  CSV
 (comma-separated values) format is of particular interest, as it is a format
 that is easy to view and use in any spreadsheet software and in R.  Other
@@ -14,15 +12,16 @@ possible formats are JSON and XML.
 
 In the discussion that follows, most URLs given as examples are clickable; the
 results of the various API calls represented by these URLs will then be viewable
-in a browser.  In most of these calls, we will write the URLs to request results
-in XML format rather than in CSV format.  This is mainly for convenience:
-requests for XML format will usually display the result in the browser whereas
-requests for CSV format will download a CSV file.
+in a browser.
 
-If, however, you want to see what the result would be in either of the other two
-formats, this is easy to do: After clicking the link and seeing the XML result
-in the browser, go into the browser's address box and manually edit the URL
-there, replacing the .xml extension with .json or .csv as desired.
+In most of these calls, we will write the URLs to request results in XML format
+rather than in CSV format.  This is mainly for convenience: requests for XML
+format will usually display the result in the browser whereas requests for CSV
+format will download a CSV file.  If, however, you want to see what the result
+would be in either of the other two formats, this is easy to do: After clicking
+the link and seeing the XML result in the browser, go into the browser's address
+box and manually edit the URL there, replacing the .xml extension with .json or
+.csv as desired.
 
 ### A simple example
 
@@ -39,7 +38,7 @@ this by querying the species table by issuing a call to this URL[^apikey-note]
 and then examining the "id" value of the one species in the result.  Once we
 have the id, we can use it in a query to the traits table:
 
-{{book.BETYdb_URL}}/traits.xml?specie_id=938
+{{book.BETYdb_URL}}/traits.xml?specie_id=938 [^specie_id_note]
 
 The reason we must use this two-stage process is that the traits table doesn't
 contain the species name information directly.
@@ -63,13 +62,38 @@ package](https://github.com/ropensci/rotraits/issues/3).
 
 ### A brief summary of the syntax of URL-based queries:
 
-* The portion of the URL directly following {{book.BETYdb_URL}}/ determines the primary table being queried and the format of the query result.  For example, {{book.BETYdb_URL}}/traits.json would obtain results from the traits table in JSON format and {{book.BETYdb_URL}}/yields.xml would get results from the yields table in XML format.
+* The portion of the URL directly following {{book.BETYdb_URL}}/ determines the
+  primary table being queried and the format of the query result.  For example,
+  {{book.BETYdb_URL}}/traits.json would obtain results from the traits table in
+  JSON format and {{book.BETYdb_URL}}/yields.xml would get results from the
+  yields table in XML format.
 
-* As a special case, to query the traits\_and\_yields\_view, use "search" in place of the table name.  For example, {{book.BETYdb_URL}}/search.json returns the rows of this view in JSON format.  Note that multiple-table URL-based queries are not currently possible with `traits_and_yields_view` as the primary table.
+* As a special case, to query the SQL view `traits_and_yields_view`, use
+  "search" in place of the table name.  For example,
+  {{book.BETYdb_URL}}/search.json returns the rows of this view in JSON format.
+  Note that multiple-table URL-based queries are not currently possible with
+  `traits_and_yields_view` as the primary table.
 
-* The URL {{book.BETYdb_URL}}/traits.csv will download the entire traits table (or rather, that portion of the table which the user is permitted to access) in CSV format.  To restrict the results, we use a _query string_, which is the portion of the URL after the question mark.  The query string consists of one or more clauses of the form `key=value` separated by `&` characters.  For example, to obtain only the portion of the traits table associated with the site having id 99, the species having id 938, and the citation having id 45, we could write {{book.BETYdb_URL}}/traits.csv?site_id=99&specie_id=938&citation_id=45.  Note that restrictions are cummulative: each clause further restricts the result of applying the previous restriction.  In general, there is (currently) no way of taking the disjunction of multiple clauses—that is, there is not way of "OR-ing" the clauses together (but see the next item).
+* The URL {{book.BETYdb_URL}}/traits.csv will download the entire traits table
+  (or rather, that portion of the table which the user is permitted to access)
+  in CSV format.  To restrict the results, we use a _query string_, which is the
+  portion of the URL after the question mark.  The query string consists of one
+  or more clauses of the form `<key>=<value>` separated by `&` characters.  For
+  example, to obtain only the portion of the traits table associated with the
+  site having id 99, the species having id 938, and the citation having id 45,
+  we could write
+  {{book.BETYdb_URL}}/traits.csv?site_id=99&specie_id=938&citation_id=45.  Note
+  that restrictions are cummulative: each clause further restricts the result of
+  applying the previous restriction.  In general, there is no way of
+  taking the disjunction of multiple clauses—that is, there is not way of
+  "OR-ing" the clauses together (but see the next item).
 
-* In queries on `traits_and_yields_view`, in addition to being able to use column names as keys, you can also use the special key `search`.  This matches against multiple columns at once, and the query succeeds if each word in the search string matches any portion of one of the column values in the list of searched columns.  Moreover, these matches are not case-sensitive.  For details, see \ref{sec:basicsearch} above.
+* In queries on `traits_and_yields_view`, in addition to being able to use
+  column names as keys, you can also use the special key `search`.  This matches
+  against multiple columns at once, and the query succeeds if each word in the
+  search string matches any portion of one of the column values in the list of
+  searched columns.  Moreover, these matches are not case-sensitive.  For
+  details, see \ref{sec:basicsearch} above.
 
 *  URLs can not contain spaces.  If the value you are querying against contains a space, substitute `+` or `%20` in the URL.  Thus, above we had to write the query URL as {{book.BETYdb_URL}}/species.csv?scientificname=Panicum+virgatum.  We couldn't have written it as {{book.BETYdb_URL}}/species.csv?scientificname=Panicum virgatum.
 
@@ -248,3 +272,4 @@ or, using an API key instead of the `-u` option,
 curl "{{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum?key=yourAPIkey"
 </code></pre>
 
+[^specie_id_note]: Note the name of the key `specie_id` (which should rightfully be called `species_id`).  This naming is an unfortunate artifact of Rails default schema for naming foreign keys.

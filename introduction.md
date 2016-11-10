@@ -121,9 +121,14 @@ computer.
 
 Data from any database table can be downloaded as a CSV file.
 
-For example, to download all of the
-Switchgrass (Panicum virgatum) yield data, 
-open the BETYdb Welcome page at https://www.betydb.org, select Species under Data menu.  Type "Panicum virgatum" in the search box and click on the "Show" icon in the Actions column of the row for Panicum virgatum.  You should see the URL `https://www.betydb.org/species/938` in the address box after the View Species page is displayed.  The trailing number in the URL–938—is the id number of the species Panicum virgatum.  You can now use this number to search for yields for this species.
+For example[^alt-example], to download all of the Switchgrass (Panicum virgatum) yield data,
+open the BETYdb Welcome page at https://www.betydb.org, select Species under
+Data menu.  Type "Panicum virgatum" in the search box and click on the "Show"
+icon in the Actions column of the row for Panicum virgatum.  You should see the
+URL `https://www.betydb.org/species/938` in the address box after the View
+Species page is displayed.  The trailing number in the URL—938—is the id number
+of the species Panicum virgatum.  You can now use this number to search for
+yields for this species.
 
 To do so, enter the URL for the species listing page,
 https://www.betydb.org/yields, into the browser address box, append ".csv" to
@@ -151,5 +156,7 @@ See [Installing your own version of BETYdb](Local-install.md).
 
 
 ---
+
+[^alt-example]: This example is revisited in the section [Original API](original_api.md#a-simple-example), where the same information is retrieved in XML format by issuing GET requests to URLs.
 
 [^API-key]: This is the guest user's API key at the time of writing.
