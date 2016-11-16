@@ -1,7 +1,8 @@
 {
     "plugins": [
         "footnote-string-to-number",
-        "image-captions"
+        "image-captions",
+        "autocover"
     ],
     "pluginsConfig": {
         "image-captions": {
