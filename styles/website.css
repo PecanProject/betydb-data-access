@@ -9,3 +9,11 @@ blockquote[id^=fn] sup {
     font-size: larger;
 }
 
+code {
+    padding: 0 !important;
+    background-color: inherit !important;
+}
+
+code:after, code:before {
+    content: "" !important;
+}

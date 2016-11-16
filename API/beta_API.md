@@ -14,16 +14,17 @@ format.
 
 ### Format of table listing requests
 
-A GET request may be sent to any of the paths listed on the /api/docs page (see
-above).  (The path should be preceded by the HTTP protocol (http or https) and
-the hostname of course.)  The only required parameter is "key" which is the
-user's API key.[^1] (To view your API key, log in to the BETYdb Web interface,
-go to the users list page, and look in the Apikey column.)
+A GET request may be sent to any of the paths listed on the `/api/docs` page
+(see above).  (The path should be preceded by the HTTP protocol (http or https)
+and the hostname of course.)  The only _required_ parameter is _key_ which is
+the user's API key.[^apikey_details] (To view your API key, log in to the BETYdb Web
+interface, go to the users list page, and look in the _Apikey_ column.)
 
 ###### Example
 
-To get all[^2] of the trait information from the traits table on the betydb.org
-site using `curl`, do
+To get all[^default_limit] of the trait information from the traits table on the
+betydb.org site using `curl`, do
+
 ```bash
 curl "https://www.betydb.org/api/beta/traits?key=<your api key>"
 ```
@@ -31,7 +32,7 @@ curl "https://www.betydb.org/api/beta/traits?key=<your api key>"
 In examples from now on, we will put simply `key=` in the query string instead
 of `key=<your api key>`.  This way, if you are logged in to www.betydb.org, the
 example can be run simply by pasting the URL shown into your browser's address
-box (see footnote [^1]).
+box.[^apikey_details]
 
 
 #### Implicit restriction of results
@@ -53,20 +54,21 @@ window" of returned results.
 
 ###### Example
 
-The following three requests should[^3] return three distinct groups of results
-of 10 rows each:
+The following three requests should[^offset_caveat] return three distinct groups
+of results of 10 rows each:
+
 ```bash
 curl "https://www.betydb.org/api/beta/species?key=&limit=10"
 curl "https://www.betydb.org/api/beta/species?key=&limit=10&offset=10"
 curl "https://www.betydb.org/api/beta/species?key=&limit=10&offset=20"
 ```
 
-##### Filtering out restricted information
+##### Restricted data
 
 Unless the account associated with the specified API key has administrative
-access, certain information is filtered out of the traits, yields, and users
-tables.  In particular, non-administrators visiting the path `/api/beta/users`
-will only see the single row corresponding to their own account.
+access, certain rows are filtered out of the traits, yields, and users tables.
+In particular, non-administrators visiting the path `/api/beta/users` will only
+see the single row corresponding to their own account.
 
 #### Filtering results with exact matching
 
@@ -79,10 +81,10 @@ To find all species in the family Orchidaceae, add `Family=Orchidaceae` to the
 query string:
 
 ```bash
-curl "https://www.betydb.org/api/beta/species?key=&Family=Orchidaceae&limit=none
+curl "https://www.betydb.org/api/beta/species?key=&Family=Orchidaceae&limit=none"
 ```
 
-Exact matching may be used on any column of the table being queried.  I works
+Exact matching may be used on any column of the table being queried.  It works
 best with integer and textual data types.
 
 ##### Exact Matching Caveats
@@ -115,21 +117,21 @@ have, however, used "%C3%97" in place of "×": "%C3%97" is the URL encoding of
 
 3. Date/Time may not match as expected.
 
- To match a column value having data type "timestamp", you must exactly match the
-PostgreSQL textual representation of that timestamp.  In general, this is not
-the same as the representation display by the query result.  For example, a
-query that filters by creation time using the key-value string
-"created_at=2010-10-22+13:59:26" may return results where the "created_at" value
-is "2010-10-22T08:59:26-05:00".  This is because the "created_at" column has
+ To match a column value having data type "timestamp", you must exactly match
+the PostgreSQL textual representation of that timestamp.  In general, this is
+not the same as the representation displayed by the query result.  For example,
+a query that filters by creation time using the key-value string
+`created_at=2010-10-22+13:59:26` may return results where the "created_at" value
+is `2010-10-22T08:59:26-05:00`.  This is because the "created_at" column has
 type "timestamp without time zone" and because Rails stores timestamps in UTC
-but displays them in local time showing the timezone offset.  Moreover, Rails
-displays the timestamp with a "T" between the date and time parts where SQL has
-a space.
+but displays them in local time showing the timezone offset.  Moreover, whereas
+SQL separates the date and time parts of a timestamp with a space, Rails
+displays a "T" between the two parts.
 
 4. Numerical types match as numbers.
 
  For integers, this means that could (somewhat perversely) match an id number of
-26536 using the key-value pair "id=+++%2B26536+++" in the query string.  Here,
+26536 using the key-value pair `id=+++%2B26536+++` in the query string.  Here,
 "%2B" is the URL-encoded version of the plus sign, and the "+" symbols are
 URL-encodings of spaces.
 
@@ -174,7 +176,7 @@ This will find all traits updated from March 10 through March 19, 2015 UTC.
 
 The beta API suports two response formats: JSON and XML.  This is a very brief
 description of the information contained in the response and how that
-information is presented in each format.  Much of this is subject to change.
+information is presented in each format.
 
 #### General outline of information returned.
 
@@ -184,9 +186,9 @@ Every response is divided into two or more of the following main sections:
 
   The metadata in the response contains the following three items:
 
-  * URI: The URI requested in the GET request
+  * URI: The URI requested in the GET request.
   
-  * timestamp: The date and time of the request
+  * timestamp: The date and time of the request.
 
   * count: The number of rows of data represented in the response or `null` if
     there was an error in the request.
@@ -203,11 +205,12 @@ Every response is divided into two or more of the following main sections:
 
 * data
 
-  This is main item of interest in a successful request (it is omitted if the
-  request is unsuccessful).  It contains all the rows of the table associated
-  with the URI path that are not filtered out by request parameters.
+  This is main item of interest in a successful request.  (It is omitted if the
+  request is unsuccessful.)  It contains all the rows of the table associated
+  with the URI path that are not filtered out by request parameters (subject to
+  access restrictions and the default size limit).
 
-#### Content of returned data--JSON format
+#### Content of returned data: JSON format
 
 The value of the "data" property will be a JSON array consisting of zero or more
 JSON objects, each of which represents one row of the database table
@@ -216,6 +219,40 @@ single property whose name is usually the singular form of the table being
 represented.  For example, in a request to the API path `/api/beta/traits`, the
 property name will be "trait".  The value of this property is itself a JSON
 object, one having a property for each column of the represented database table.
+The data portion of a typical trait request will look something like this:
+```json
+"data": [
+    {
+        "trait": {
+            "id": 36854,
+            "site_id": 593,
+            "specie_id": 19066,
+            "citation_id": 375,
+            "cultivar_id": null,
+            "treatment_id": 1199,
+            "date": "2002-07-21T19:00:00-05:00",
+            "dateloc": "5.0",
+            ...
+            ...
+        },
+        "trait": {
+            "id": 22320,
+            "site_id": 76,
+            "specie_id": 938,
+            "citation_id": 18,
+            "cultivar_id": 10,
+            "treatment_id": 743,
+            "date": "2006-04-25T19:00:00-05:00",
+            "dateloc": "5.5",
+            ...
+            ...
+        },
+        ...
+        ...
+    }
+]
+```
+
 
 ##### Additional properties
 
@@ -225,17 +262,13 @@ data JSON objects will also contain the following:
 * A property for certain associated tables that are in a many-to-many or
   many-to-one relationship with this table.
 
-  For example, the value of each "site" property returned in a request to path
-  `/api/beta/sites` will be an object containing the properties "associated
-  citations ids", "associated sitegroup ids", "associated yield ids", etc.  The
-  values of these properties are JSON arrays containing a list of id numbers.
-  For example, the value of "associated yield ids" will be an array of all of
-  the id numbers of yields associated with the given site.
+  For example, the value of each _site_ property returned in a request to path
+  `/api/beta/sites` will be an object containing the properties "number of associated
+  citations", "number of associated sitegroups", "number of associated yields", etc.
 
-  Note that properties corresponding to join tables are usually omitted.  For
-  example, a "site" object will have a property "associated citation ids" but
-  will omit the property for the `citations_sites` table that sets up that
-  association.
+  Note that properties corresponding to join tables are generally omitted.  For
+  example, a "site" object will have a property "number of associated citations"
+  but not "number of associated citations\_sites".
 
 * A `view_url` property.
 
@@ -247,23 +280,23 @@ data JSON objects will also contain the following:
 
 For the property values corresponding to table columns, there are at least two
 cases where the form in which they are represented in the JSON response is
-slightly different from the form shown by, for example, the psql database
-client.
+slightly different from the form returned by a direct query of the database
+using a client such as psql.
 
 1. timestamps
 
-The form returned by the API is "YYYY-MM-DDTHH:MM:SS[+|-]HH:MM" where as psql
-will display a timestamp in the form "YYYY-MM-DD HH:MM:SS.nnnnnn".  That is, the
-API separates the date and the time with the character "T" where psql uses a
-space, and it shows a timezone offset where psql simply returns a time with no
-offset assumed to be UTC.  (Also, the API doesn't show fractional seconds.)
+  The form returned by the API is `YYYY-MM-DDTHH:MM:SS[+|-]HH:MM` whereas psql
+  will display a timestamp in the form `YYYY-MM-DD HH:MM:SS.nnnnnn`.  That is,
+  the API (a) separates the date and the time with the character "T" where psql
+  uses a space, (b) shows a timezone offset where psql simply returns a time
+  with no offset (assumed to be UTC), and (c) does not show fractional seconds.
 
 2. geometries
 
-The API displays the sites.geometry column in human-readable form (for example,
-"POINT (-68.1069 44.8708 265.0)") whereas psql does not.
+  The API displays the sites.geometry column in human-readable form (for example,
+  "POINT (-68.1069 44.8708 265.0)") whereas psql does not.
 
-#### Content of returned data-XML format
+#### Content of returned data: XML format
 
 The information content of the data in an XML response is exactly the same as
 that of a JSON response.  In general, where JSON has a property name and a
@@ -285,11 +318,7 @@ element will have an attribute `type="array"`.
 4. Underscores in property names become hyphens in XML element names.
 
 5. Both NULLs and empty string values in the database are represented in XML by
-empty elements having the attribute `nil="true"`.
-
-  This is one case in which the XML response contains less information that the
-  JSON response.  Whereas JSON displays `""` and `null` respectively for empty
-  strings and NULLs, XML shows `nil="true"` in both cases.
+empty elements having the attribute `nil="true"`.[^null_vs_empty]
 
 6. The XML response has an element whose name matches the database table name.
 
@@ -316,78 +345,69 @@ empty elements having the attribute `nil="true"`.
   </data>
   ```
 
-7. More generally, corresponding to any JSON array will be an XML element whose
-name is the plural form of the name of the objects in the array and whose
-children are elements having the singular form of the name.
-
-  For example, the associated-citation-ids portion of the response to a request
-  to `/api/beta/sites.xml` will look something like
-
-  ```xml
-  <associated-citation-ids type="array">
-    <associated-citation-id type="integer">75</associated-citation-id>
-    <associated-citation-id type="integer">78</associated-citation-id>
-    <associated-citation-id type="integer">79</associated-citation-id>
-    <associated-citation-id type="integer">87</associated-citation-id>
-    <associated-citation-id type="integer">354</associated-citation-id>
-    <associated-citation-id type="integer">101</associated-citation-id>
-    <associated-citation-id type="integer">99</associated-citation-id>
-    <associated-citation-id type="integer">67</associated-citation-id>
-  </associated-citation-ids>
-  ```
-
 ## API endpoints for individual items
 
-The paths for these endpoints are generally of the form `/api/beta/<table
-name>/<id number>[.<extension>]`.  Again, most tables of interest are exposed
-and the extension determines the format of the returned result and is JSON by
-default.
+The paths for these endpoints are generally of the form
 
-### Parameters for individual-item API endpoings
+```
+/api/beta/<table name>/<id number>[.<extension>]
+```
 
-The only required parameter---indeed, the only recognized parameter---is the
-"key" parameter specifying the user's API key.
+Again, most tables of interest are exposed, and the extension (if given)
+determines the format of the returned result (JSON by default).
+
+### Parameters for individual-item API endpoints
+
+The only required parameter—indeed, the only _recognized_ parameter—is the "key"
+parameter specifying the user's API key.
 
 ### Format of Returned Results
 
 In general, a request of the form
 
 ```bash
-curl "http[s]://<hostname>/api/beta/<table name>/nnn?key=<your api key>
+curl "http[s]://<hostname>/api/beta/<table name>/nnn.json?key=<your api key>
 ```
 
 will return nearly the same result as the request
 
 ```bash
-curl "http[s]://<hostname>/api/beta/<table name>?key=<your api key>&id=nnn
+curl "http[s]://<hostname>/api/beta/<table name>.json?key=<your api key>&id=nnn
 ```
 
 Here are the main differences:
 
-1. There will be no count property in the metadata.
-
-  If the request is successful, the response will contain data about exactly one item.
+1. There will be no _count_ property in the metadata.  If the request is
+  successful, the response will contain data about exactly one item.
 
 2. The value of the "data" property will be a single JSON object rather than a JSON array.
 
+3. If the table being queried is in a many-to-one relationship to some other
+table, full information will be included about the referred-to item.  For
+example, https://www.betydb.org/api/beta/cultivars.json?key=&id=55 will show the
+id of the species associated with cultivar 55, but
+https://www.betydb.org/api/beta/cultivars/55.json?key= will show full
+information about the species.
+
+4. For one-to-many or many-to-many associations, the _individual item_ form of
+the request will return a list of associated items, not just a count of the
+number of associated items.
+
+These differences carry over _mutatis mutandis_ to XML-format requests.
+
 
 ---
-[^1] If you enter these API URLs in a browser after logging into the host site,
-you don't actually need to use a valid API key.  The `key` parameter must still
-be present, but you don't need to use a corresponding value.  Thus, to see a
-list of traits, you could just enter
-`https://www.betydb.org/api/beta/traits?key=` into your browser's address box
-after logging in to www.betydb.org.  This will save much typing as you try out
-examples.
+[^apikey_details]: If you enter these API URLs in a browser after logging into the host site, you don't actually need to use a valid API key.  The `key` parameter must still be present, but you don't need to use a corresponding value.  Thus, to see a list of traits, you could just enter https://www.betydb.org/api/beta/traits?key= into your browser's address box after logging in to www.betydb.org.  This will save much typing as you try out examples.
 
-[^2] Actually, this retrieves only the first 200 rows, 200 being
-the default size limit of the response.  To get more than 200 results, set an
-explicit limit using the `limit` parameter; for example,
+[^default_limit]: Actually, this retrieves only the first 200 rows, 200 being the default size limit of the response.
+
+To get more than 200 results, set an explicit limit using the `limit` parameter;
+for example,
 ```bash
 curl "https://www.betydb.org/api/beta/traits?key=&limit=550"
 ```
 
-Note that it is especially important to quote the URL here as otherwise the `&`
+Note that _it is especially important to quote the URL here_ as otherwise the `&`
 symbol will be interpreted by the shell instead of as part of the URL.
 
 If you want to ensure that _all_ rows are returned, use the special limit value
@@ -397,7 +417,7 @@ If you want to ensure that _all_ rows are returned, use the special limit value
 curl "https://www.betydb.org/api/beta/traits?key=&limit=all"
 ```
 
-[^3] Use of offset may not give consistent results.  To quote from the PostgreSQL documentation:
+[^offset_caveat]: Use of offset may not give consistent results.  To quote from the PostgreSQL documentation:
 
 > The query optimizer takes LIMIT into account when generating query plans, so
 > you are very likely to get different plans (yielding different row orders)
@@ -408,4 +428,5 @@ curl "https://www.betydb.org/api/beta/traits?key=&limit=all"
 
 The beta API does not (yet) support specifying the order of results.
 
+[^null_vs_empty]: This is one case in which the XML response contains less information that the JSON response.  Whereas JSON displays `""` and `null` respectively for empty strings and NULLs, XML shows `nil="true"` in both cases.
 
