@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "autocover",
+        "-autocover",
         "footnote-string-to-number",
         "image-captions"
     ],
