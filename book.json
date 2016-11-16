@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "-autocover",
         "footnote-string-to-number",
         "image-captions"
     ],
@@ -16,24 +15,5 @@
     },
     "structure": {
         "readme": "introduction.md"
-    }
-}{
-    "title": "BETYdb Data Access",
-    "author": "David LeBauer and Scott Rohde",
-    "pluginsConfig": {
-        "autocover": {
-            "font": {
-                "size": null,
-                "family": "Impact",
-                "color": "#FFF"
-            },
-            "size": {
-                "w": 1800,
-                "h": 2360
-            },
-            "background": {
-                "color": "#09F"
-            }
-        }
     }
 }
