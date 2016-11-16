@@ -16,9 +16,10 @@
     },
     "structure": {
         "readme": "introduction.md"
-    },
-    "title": "My Book",
-    "author": "Author",
+    }
+}{
+    "title": "BETYdb Data Access",
+    "author": "David LeBauer and Scott Rohde",
     "pluginsConfig": {
         "autocover": {
             "font": {
