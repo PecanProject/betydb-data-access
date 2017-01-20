@@ -1,17 +1,36 @@
 # The BETYdb Web API
 
-The BETYdb URL-based API allows users to query data.
+The BETYdb URL-based API allows users to fetch and query data.
 
-The BETYdb Application Programming Interface (API) is a means of obtaining
-search or query results in CSV, JSON, or XML format from URL-based queries
-entered into a Web browser or called from a scripting language such as Bash, R,
-Matlab, or Python. All the tables in BETYdb are RESTful, which allows you to use
-GET, POST, PUT, or DELETE methods without interacting with the web browser-based
-GUI interface. The primary advantage of this approach is the ability to submit
-complex queries that access information and tables without having to do so
-through the GUI interface: text-based queries can be recorded with more
-precision than instructions for interacting with the GUI interface and can be
-constructed automatically within a scripting language.
+The BETYdb _Application Programming Interface_ (API) is a means of obtaining
+search or query results in CSV, JSON, or XML format using URL-based queries.
+These queries may be entered into a Web browser or called from a scripting
+language such as Bash, R, MATLAB, or Python.  BETYdb strives to be a RESTful Web
+service, and nearly all the tables in BETYdb and the individual rows within
+those tables are treated as Web-addressable resources having their own URL.
+
+Note that although the Web browser-based GUI interface to BETYdb allows for the
+full complement of common HTTP methods (GET, POST, PUT, and DELETE), at this
+point, for most of these resources, the API supports only the GET method.  The
+one exception is the API for inserting new traits into the traits table, which
+uses the POST method.  This document treats only the GET methods of the API.
+For information about _POST_-ing new data via the API, see [Inserting New Traits
+Via the
+API](https://pecan.gitbooks.io/betydbdoc-dataentry/content/trait_insertion_api.html)
+in the [BETYdb Data Entry
+Workflow](https://pecan.gitbooks.io/betydbdoc-dataentry/content/) manual.
+
+
+While all of the GET requests provided by the API may be used inside a Web
+browser, when we think of an _API_, we usually have some sort of programmatic
+interaction in mind.  The primary advantage of this approach is the ability to
+submit complex queries that access information without having to do so through
+the GUI interface: text-based queries can be recorded with more precision than
+can instructions for interacting with the GUI interface, and they can be
+constructed automatically within a scripting language.  Entering the URL of an
+API-provided resource into a Web browser's address box, however, is a convenient
+way to get a feel for how the API works, what information it makes available,
+and how that information is presented.
 
 
 ## Versions
@@ -30,11 +49,11 @@ constructed automatically within a scripting language.
 
 Using an API key allows access to data without having to log in.  If you do not
 already have an API key, you may create one by logging in to the BETYdb Web
-site, selecting Users from the Data menu, and clicking the "key" button in the
-Action column of the row containing your name.  (Unless you are an adminstrator,
-you will only see one row—the one containing your name.)  A new key will then be
-displayed in the "Apikey" column.  You may also use this same method to change
-your API key if your existing one should become compromised.
+site, selecting "Users" from the Data menu, and clicking the "key" button in the
+Action column of the row containing your name.  (Unless you are an
+administrator, you will only see one row—the one containing your name.)  A new
+key will then be displayed in the "Apikey" column.  You may also use this same
+method to change your API key if your existing one should become compromised.
 
 To use an API key, simply append `?key=<your key>` to the end of the URL. If the
 URL already contains a query string, append `&key=<your key>` instead.

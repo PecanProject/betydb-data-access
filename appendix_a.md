@@ -2,6 +2,8 @@
 
 ## List of searchable columns in each table
 
+## List of Rails associations pertaining to cross-table API queries
+
 ## Specification of result formats
 
 ### The CSV format
