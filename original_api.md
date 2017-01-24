@@ -455,7 +455,7 @@ instead of visiting the given URL in a Web browser.  Or, using an API key
 instead of the `-u` option, we could use the command
 
 <pre><code class="lang-bash">
-curl "{{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum?key=yourAPIkey"
+curl "{{book.BETYdb_URL}}/species.xml?scientificname=Panicum+virgatum?key=&lt;your API key>"
 </code></pre>
 
 [^specie_id_note]: Note the name of the key `specie_id` (which should rightfully be called `species_id`).  This naming is an unfortunate artifact of Rails default schema for naming foreign keys.

@@ -47,19 +47,23 @@ and how that information is presented.
 
 ## API keys
 
-Using an API key allows access to data without having to log in.  If you do not
-already have an API key, you may create one by logging in to the BETYdb Web
-site, selecting "Users" from the Data menu, and clicking the "key" button in the
-Action column of the row containing your name.  (Unless you are an
+Using an API key allows access to data without having to log in.
+
+If you do not already have an API key, you may create one by logging in to the
+BETYdb Web site, selecting "Users" from the Data menu, and clicking the "key"
+button in the Action column of the row containing your name.  (Unless you are an
 administrator, you will only see one row—the one containing your name.)  A new
 key will then be displayed in the "Apikey" column.  You may also use this same
 method to change your API key if your existing one should become compromised.
 
-To use an API key, simply append `?key=<your key>` to the end of the URL. If the
-URL already contains a query string, append `&key=<your key>` instead.
+To use an API key, simply append `?key=<your API key>` to the end of the URL. If
+the URL already contains a query string, append `&key=<your API key>` instead.
 
 Your API key is unique to you and will have the same data-access permissions as
 those associated with your account.
+
+To view your API key at any time, log in to the BETYdb Web interface, go to the
+users list page, and look in the _Apikey_ column.
 
 ---
 

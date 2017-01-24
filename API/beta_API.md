@@ -1,38 +1,36 @@
 # The Beta API
 
-This page provides a general description of how to access data via the (new)
+This page provides a general description of how to access data using the (newer)
 beta version of the BETYdb API.  For a list of URLs of API endpoints, visit
-https://www.betydb.org/api/docs.
+{{book.BETYdb_URL}}/api/docs.
 
 ## API endpoints for table listings
 
 The paths for these endpoints are generally of the form `/api/beta/<table
 name>[.<extension>]`.  Most tables of interest are exposed.  The extension
 determines the format of the returned result and may be either "json" or "xml".
-The extension is optional, and if not given, the result is returned in JSON
-format.
+The extension is optional; if not given, the result is returned in JSON format.
 
 ### Format of table listing requests
 
 A GET request may be sent to any of the paths listed on the `/api/docs` page
-(see above).  (The path should be preceded by the HTTP protocol (http or https)
-and the hostname of course.)  The only _required_ parameter is _key_ which is
-the user's API key.[^apikey_details] (To view your API key, log in to the BETYdb Web
-interface, go to the users list page, and look in the _Apikey_ column.)
+(see above).  (The path should of course be preceded by the HTTP protocol (http
+or https) and the hostname.)  To authenticate, you may use the parameter _key_,
+setting it to the user's API key (see the section on [API
+keys](../Api.html#api-keys)).[^apikey_details]
 
 ###### Example
 
 To get all[^default_limit] of the trait information from the traits table on the
-betydb.org site using `curl`, do
+betydb.org site, send a request to
 
-```bash
-curl "https://www.betydb.org/api/beta/traits?key=<your api key>"
-```
+{{book.BETYdb_URL}}/api/beta/traits
 
-In examples from now on, we will put simply `key=` in the query string instead
-of `key=<your api key>`.  This way, if you are logged in to www.betydb.org, the
-example can be run simply by pasting the URL shown into your browser's address
-box.[^apikey_details]
+(As in the previous section, [Original API](../original_api.md), we write the
+example URLs as though they are to be visited in a browser after having logged
+in to www.betydb.org.  For more information, including how to send the HTTP
+requests using curl, visit [this footnote](../original_api.md#fn_1) on that
+page.)
 
 
 #### Implicit restriction of results
@@ -44,24 +42,22 @@ this limit, or to impose a smaller limit, use the `limit` parameter.
 
 ###### Example
 
-To get a list of _all_ citations, do
-```bash
-curl "https://www.betydb.org/api/beta/citations?key=&limit=none"
-```
+To get a list of _all_ citations, visit
+{{book.BETYdb_URL}}/api/beta/citations?limit=none
 
 The `limit` parameter may be combined with an `offset` parameter to "shift the
 window" of returned results.
 
 ###### Example
 
-The following three requests should[^offset_caveat] return three distinct groups
-of results of 10 rows each:
+Requests to the following three URLs should[^offset_caveat] return three
+distinct groups of results of 10 rows each:
 
-```bash
-curl "https://www.betydb.org/api/beta/species?key=&limit=10"
-curl "https://www.betydb.org/api/beta/species?key=&limit=10&offset=10"
-curl "https://www.betydb.org/api/beta/species?key=&limit=10&offset=20"
-```
+{{book.BETYdb_URL}}/api/beta/species?limit=10
+
+{{book.BETYdb_URL}}/api/beta/species?limit=10&offset=10
+
+{{book.BETYdb_URL}}/api/beta/species?limit=10&offset=20
 
 ##### Restricted data
 
@@ -80,9 +76,7 @@ values can be added to the query string.
 To find all species in the family Orchidaceae, add `Family=Orchidaceae` to the
 query string:
 
-```bash
-curl "https://www.betydb.org/api/beta/species?key=&Family=Orchidaceae&limit=none"
-```
+{{book.BETYdb_URL}}/api/beta/species?Family=Orchidaceae&limit=none
 
 Exact matching may be used on any column of the table being queried.  It works
 best with integer and textual data types.
@@ -94,16 +88,13 @@ best with integer and textual data types.
  ##### Example
 
  To find full information about sweet orange, you could do the API call
- ```
- http://bety-dev:3000/api/beta/species?key=&limit=250&scientificname=Citrus+×+sinensis
- ```
+
+ {{book.BETYdb_URL}}/api/beta/species?limit=250&scientificname=Citrus+×+sinensis
 
  (Note here that the spaces in the name must be URL-encoded as a `+` symbol when
  used in the query string.)  But if you do
 
- ```
- http://bety-dev:3000/api/beta/species?key=&limit=250&scientificname=Citrus+×sinensis
- ```
+ {{book.BETYdb_URL}}/api/beta/species?limit=250&scientificname=Citrus+×sinensis
 
  instead (with no space between the `×` and the species name), you won't get the
  result you want.
@@ -148,17 +139,13 @@ of the value in any key-value pair.
 
 To find all sites with the string "University" in their sitename, do the API call
 
-```
-curl "https://www.betydb.org/api/beta/sites?sitename=~University&key="
-```
+{{book.BETYdb_URL}}/api/beta/sites?sitename=~University
 
 Note that regular expressions are not anchored by default.  To return only those
 sites whose sitename begins with "University", use the regular-expression anchor
 symbol "^" at the beginning of the string:
 
-```
-curl "https://www.betydb.org/api/beta/sites?sitename=~%5EUniversity&key="
-```
+{{book.BETYdb_URL}}/api/beta/sites?sitename=~%5EUniversity
 
 (Here, "%5E" is the URL-encoding of "^".)
 
@@ -166,9 +153,8 @@ We can use regular expression matching to alleviate some of the problems with
 exact matching mentioned above.  For example, to find all trait rows that were
 updated in the middle part of March 2015, we could do an API call like
 
-```
-curl "https://www.betydb.org/api/beta/traits?key=&limit=250&updated_at=~2015-03-1
-```
+{{book.BETYdb_URL}}/api/beta/traits?limit=250&updated_at=~2015-03-1
+
 
 This will find all traits updated from March 10 through March 19, 2015 UTC.
 
@@ -384,10 +370,10 @@ Here are the main differences:
 
 3. If the table being queried is in a many-to-one relationship to some other
 table, full information will be included about the referred-to item.  For
-example, https://www.betydb.org/api/beta/cultivars.json?key=&id=55 will show the
-id of the species associated with cultivar 55, but
-https://www.betydb.org/api/beta/cultivars/55.json?key= will show full
-information about the species.
+example, {{book.BETYdb_URL}}/api/beta/cultivars.json?id=55 will show the id of
+the species associated with cultivar 55, but
+{{book.BETYdb_URL}}/api/beta/cultivars/55.json will show full information about
+the species.
 
 4. For one-to-many or many-to-many associations, the _individual item_ form of
 the request will return a list of associated items, not just a count of the
@@ -397,27 +383,21 @@ These differences carry over _mutatis mutandis_ to XML-format requests.
 
 
 ---
-[^apikey_details]: If you enter these API URLs in a browser after logging into the host site, you don't actually need to use a valid API key.  The `key` parameter must still be present, but you don't need to use a corresponding value.  Thus, to see a list of traits, you could just enter https://www.betydb.org/api/beta/traits?key= into your browser's address box after logging in to www.betydb.org.  This will save much typing as you try out examples.
+<!-- IMPORTANT: Keep footnotes to a single line if you want the "return" link to appear at the end of the footnote. -->
+[^apikey_details]: If you enter these API URLs in a browser after logging into the host site, you needn't include the API key in the query string.  Thus, to see a list of traits, you could just enter {{book.BETYdb_URL}}/api/beta/traits into your browser's address box after logging in to www.betydb.org.  This will save much typing as you try out examples.
 
 [^default_limit]: Actually, this retrieves only the first 200 rows, 200 being the default size limit of the response.
 
 To get more than 200 results, set an explicit limit using the `limit` parameter;
 for example,
-```bash
-curl "https://www.betydb.org/api/beta/traits?key=&limit=550"
-```
-
-Note that _it is especially important to quote the URL here_ as otherwise the `&`
-symbol will be interpreted by the shell instead of as part of the URL.
+{{book.BETYdb_URL}}/api/beta/traits?limit=550
 
 If you want to ensure that _all_ rows are returned, use the special limit value
 "all" (or equivalently, "none", that is, _no limit_):
 
-```bash
-curl "https://www.betydb.org/api/beta/traits?key=&limit=all"
-```
+{{book.BETYdb_URL}}/api/beta/traits?limit=all
 
-[^offset_caveat]: Use of offset may not give consistent results.  To quote from the PostgreSQL documentation:
+[^offset_caveat]: Use of _offset_ may not give consistent results.  To quote from the PostgreSQL documentation:
 
 > The query optimizer takes LIMIT into account when generating query plans, so
 > you are very likely to get different plans (yielding different row orders)
