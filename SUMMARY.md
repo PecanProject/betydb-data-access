@@ -10,4 +10,5 @@
 * [PEcAn R Package](pecan_r_package.md)
 * [SQL Queries](sqlqueries.md)
 * [Installing Your Own Version of BETYdb](Local-install.md)
-* [Appendix: Full Search Details](appendix_a.md)
+* [Appendix: Full Search Details](appendices.md)
+   * [Searchable Table Columns](appendices/searchable_columns.md)

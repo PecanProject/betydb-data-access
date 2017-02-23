@@ -1,6 +1,6 @@
-# Appendix: Full Search Details
+# Appendices: Full Search Details
 
-## List of searchable columns in each table
+## [List of searchable columns in each table](appendices/searchable_columns.md)
 
 ## List of Rails associations pertaining to cross-table API queries
 
