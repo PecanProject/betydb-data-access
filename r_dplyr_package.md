@@ -6,13 +6,23 @@ Using dplyr requires having access to a PostgreSQL server running BETYdb or [ins
 
 Comprehensive documentation for the `dplyr` interface to databases is provided in the [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html)
 
+## Connect to Database
+
+```{r}
+library(dplyr)
+library(data.table)
+## connection to database
+d <- list(host = 'localhost',
+          dbname = 'bety',
+          user = 'bety',
+          password = 'bety')
+
+bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname = d$dbname)
+```
+
 ## Query Miscanthus yield data
 
 ```{r}
-install.packages('dplyr')
-library(dplyr)
-d <- settings$database$bety[c("dbname", "password", "host", "user")]
-bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname = d$dbname)
 
 species <- tbl(bety, 'species') %>% 
   select(id, scientificname, genus) %>% 
@@ -37,15 +47,6 @@ mxgdata <- inner_join(species, yields, by = 'specie_id') %>%
 Here we query Miscanthus and Switchgrass yield data along with planting, irrigation, and fertilization rates in order to update teh meta-analysis originally performed by Heaton et al (2004).
 
 ```r
-library(dplyr)
-library(data.table)
-## connection to database
-d <- list(host = 'localhost',
-          dbname = 'bety',
-          user = 'bety',
-          password = 'bety')
-
-bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname = d$dbname)
 
 ## query and join tables
 species <- tbl(bety, 'species') %>% 
