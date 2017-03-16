@@ -27,3 +27,36 @@ salix_spp <- query.pft_species(pft = "salix", modeltype = "BIOCRO", con = dbcon)
 
 salix_vcmax <- query.trait.data(trait = "Vcmax", spstr = vecpaste(salix_spp$id), con = dbcon)
 ```
+
+### Installing a PEcAn Virtual Machine (BETYdb sandbox)
+
+If you want
+
+* full access to the public content of BETYdb
+* the easiest way to get started using PEcAn tools to access BETYdb
+* to develop BETYdb 
+* have full access to the server and database
+
+You may want to install a PEcAn Virtual Machine
+
+These are the steps 
+
+1. Setting up the virtual machine:
+   1. Download PEcAn virtual machine (.ova file) from [here](https://opensource.ncsa.illinois.edu/projects/artifacts.php?key=PECAN).
+   1. Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+   1. Open VirtualBox. If you want, go to the preferences and change your default machine folder. This will be about 14–15 GB, so make sure you select a drive with plenty of space.
+   1. go to File > Import Appliance, and select the .ova file you downloaded. Continue.
+   1. Check "Reinitialize the MAC address of all network cards" and press Import.
+1. Using the virtual machine:
+   1. In the VirtualBox Manager window, select the PEcAn VM and press Start.
+   1. A new window will pop up and boot Linux, eventually prompting you for a username. Enter "carya" (no quotes) and then "illinois" (again no quotes) for the password. You're now at the Linux command line.
+   1. Open up Safari and go to localhost:6480/rstudio. Log in with the same username and password as above.
+   1. You're in RStudio! Now you can start accessing BETYdb from here, for example by using [dplyr](https://pecan.gitbooks.io/betydb-data-access/content/r_dplyr_package.html).
+   
+See also tutorials on pecanproject.org 
+
+Note:
+
+* Any changes or additions to the database not be synced back to other BETYdb databases
+   * please report errors and updates to github.com/pecanproject/bety/issues/new
+* If you want to run a production instance of BETYdb and / or add sync your database with others, see the [BETYdb documentation section on distributed databases](https://pecan.gitbooks.io/betydb-documentation/content/distributed_betydb.html). (this will not be covered here)
