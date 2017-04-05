@@ -1,11 +1,11 @@
 # Installing a local version of BETYdb
 
-A standard ODB database provides access to the back-end PostgreSQL database server. This is hosted on a production server or locally.
+A standard ODB database provides access to the back-end PostgreSQL database server. This database may be hosted on a production server. You can also install a version of BETYdb on your own comptuer
 
-The following scripts make it easy to install the latest version of BETYdb locally \(on Linux or OSX\), populated with all public data.   
-Many users of [PEcAn](https://www.pecanproject.org) install a local copy of BETYdb, and BETYdb can sync across different servers.   
-The [PEcAn repository](https://github.com/PecanProject/pecan) provides useful configuration files.   
-Their use is described in the developer's guide to [installing PEcAn](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn).   
+The following scripts make it easy to install the latest version of BETYdb locally \(on Linux or OSX\), populated with all public data.  
+Many users of [PEcAn](https://www.pecanproject.org) install a local copy of BETYdb, and BETYdb can sync across different servers.  
+The [PEcAn repository](https://github.com/PecanProject/pecan) provides useful configuration files.  
+Their use is described in the developer's guide to [installing PEcAn](https://github.com/PecanProject/pecan/wiki/Installing-PEcAn).  
 You can also run BETYdb on pre-configured PEcAn Virtual Machines using a VirtualBox or similar  software, and can be run on a laptop, desktop, server, or cloud services such as Amazon cloud or NCSA OpenStack.
 
 * PostgreSQL: [https://github.com/PecanProject/pecan/blob/master/scripts/load.bety.sh](https://github.com/PecanProject/pecan/blob/master/scripts/load.bety.sh)
