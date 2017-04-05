@@ -1,4 +1,4 @@
-# Installing a local version of BETYdb
+Installing a local version of BETYdb
 
 A standard ODB database provides access to the back-end PostgreSQL database server. This database may be hosted on a production server. You can also install a version of BETYdb on your own comptuer
 
