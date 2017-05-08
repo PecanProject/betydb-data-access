@@ -1,6 +1,20 @@
 # Appendices: Full Search Details
 
-## [List of searchable columns in each table](appendices/searchable_columns.md)
+## List of searchable columns in each table
+
+### Search page
+
+On the main search page, the search covers the following fields:
+
+* Scientific name 
+* Common name 
+* Trait 
+* Trait description 
+* City 
+* Site name 
+* Author 
+* Cultivar 
+* Entity
 
 ## List of Rails associations pertaining to cross-table API queries
 
@@ -13,3 +27,6 @@
 ### The JSON format
 
 ### Regular expressions in API queries
+
+
+
