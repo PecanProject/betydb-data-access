@@ -96,8 +96,9 @@ irrigation <- managements %>%
   filter(mgmttype == 'irrigation') 
 
 irrigation_rate <- irrigation %>% 
+  mutate(year=sql("extract(year from date)")) %>%
   filter(units == 'mm', !is.na(treatment_id)) %>% 
-  group_by(treatment_id, year = sql("extract(year from date)"), units) %>% 
+  group_by(treatment_id, year, units) %>% 
   summarise(irrig.mm = sum(level)) %>% 
   group_by(treatment_id) %>% 
   summarise(irrig.mm.y = mean(irrig.mm))
