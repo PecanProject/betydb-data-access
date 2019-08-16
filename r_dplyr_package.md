@@ -8,7 +8,7 @@ Comprehensive documentation for the `dplyr` interface to databases is provided i
 
 ## Connect to Database
 
-```{r}
+```r
 library(dplyr)
 library(data.table)
 ## connection to database
@@ -22,7 +22,7 @@ bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname
 
 ## Query Miscanthus yield data
 
-```{r}
+```r
 
 species <- tbl(bety, 'species') %>% 
   select(id, scientificname, genus) %>% 
@@ -119,7 +119,7 @@ grass_yields <- yields %>%
   left_join(planting_rate, by = 'treatment_id') %>% 
   left_join(irrigation_all, by = 'treatment_id', copy = TRUE) %>% 
   collect %>% 
-  mutate(age = year(date)- year(planting_date),
+  #mutate(age = year(date)- year(planting_date),
          nrate = ifelse(is.na(nrate), 0, nrate),
          SE = ifelse(statname == "SE", stat, ifelse(statname == 'SD', stat / sqrt(n), NA)),
          continent = ifelse(lon < -30, 'united_states', ifelse(lon < 75, 'europe', 'asia')))

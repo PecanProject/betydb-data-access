@@ -1,0 +1,13 @@
+rmd_files: ["index.Rmd",
+            "introduction.md", # Overview
+            "advanced_search.md", # Web Interface Search
+            "API.md", # API for URL-based Queries
+            "original_api.md", # API v0.original
+            "API/beta_API.md", # API v1.beta
+            "rOpenSci_traits_package.md", # rOpenSci Traits Package
+            "r_dplyr_package.md", # R dplyr Package
+            "pecan_r_package.md", # PEcAn R Package
+            "sqlqueries.md", # SQL Queries
+            "Local-install.md", # Installing Your Own Version of BETYdb
+            "appendices.md" # Appendix: Full Search Details
+            ]

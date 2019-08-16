@@ -1,5 +1,5 @@
 
-# Guide to accessing data from BETYdb 
+# Guide to accessing data from BETYdb
 
 ## What is covered here:
 
