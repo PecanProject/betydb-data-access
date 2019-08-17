@@ -1,71 +1,46 @@
 ---
 # TO-DO: Update image files        
-Figures:
-    SearchBox:
-        ReferenceName: "Figure 1"
-        
-        Caption: "Figure 1: BETYdb Advanced Search box—searching for switchgrass
-                  yield data"
-                  
-        ImageFile: /assets/textsearch.png
-    MapSearch:
-        ReferenceName: "Figure 2"
-        
-        Caption: "Figure 2: Results of searching for switchgrass yields,
-                  including an interactive map showing sites for which data is
-                  available"
-
-        ImageFile: /assets/mapsearch.png
-    SearchResults:
-        ReferenceName: "Figure 3"
-        
-        Caption: "Figure 3: The download result file from a search for
-                  switchgrass yields, displayed in Excel.  This shows the
-                  meta-data the the first few query results out of several
-                  hundred."
-
-        ImageFile: /assets/results_excel.png
-    AccessMaps:
-        ReferenceName: "Figure 4"
-        
-        Caption: "Figure 4: Refining the search area" # doesn't currently work with image-captions plugin
-
-        ImageFile: /assets/accessmaps.png
 ---
 
 # The Advanced Search Box
 
 Most tables in BETYdb have search boxes; for example,
-{{book.BETYdb_URL}}/citations and {{book.BETYdb_URL}}/sites. We describe below
-how to query these tables and download the results as CSV, JSON, or XML. The
-Advanced Search box is the easiest way to download summary datasets designed to
-have enough information (location, time, species, citations) to be useful for a
-wide range of use cases.
+[https://www.betydb.org/citations](https://www.betydb.org/citations){target="_blank"}
+and
+[https://www.betydb.org/sites](https://www.betydb.org/sites){target="_blank"}.
+We describe below how to query these tables and download the results as CSV,
+JSON, or XML. The Advanced Search box is the easiest way to download summary
+datasets designed to have enough information (location, time, species,
+citations) to be useful for a wide range of use cases.
 
-### Using the Search Box
+## Using the Search Box
 
 On the Welcome page of BETYdb there is a search option for trait and yield data
-({{page.Figures.SearchBox.ReferenceName}}). This tool allows users to search the
-entire collection of trait and yield data for specific sites, citations,
-species, and traits.
+(Figure \@ref(fig:textsearch)). This tool allows users to search the entire collection
+of trait and yield data for specific sites, citations, species, and traits.
 
-![{{page.Figures.SearchBox.Caption}}]({{page.Figures.SearchBox.ImageFile}})
+```{r textsearch, echo=FALSE, fig.cap="BETYdb Advanced Search box—searching for switchgrass yield data"}
+knitr::include_graphics("assets/textsearch.png")
+```
 
-The results page provides a map interface
-({{page.Figures.MapSearch.ReferenceName}}) and the option to download a file
-containing search results.
+The results page provides a map interface (Figure \@ref(fig:mapsearch)) and the
+option to download a file containing search results.
 
-![{{page.Figures.MapSearch.Caption}}]({{page.Figures.MapSearch.ImageFile}})
+```{r mapsearch, echo=FALSE, fig.cap="Results of searching for switchgrass yields, including an interactive map showing sites for which data is available"}
+knitr::include_graphics("assets/mapsearch.png")
+```
 
-The downloaded file ({{page.Figures.SearchResults.ReferenceName}}) is in CSV
-format. This file provides meta-data and provenance information, including: the
-SQL query used to extract the data, the date and time the query was made, the
-citation source of each result row, and a citation for BETYdb itself (_to be
-updated on publication_).
+The downloaded file (Figure \@ref(fig:resultsexcel)) is in CSV format. This
+file provides meta-data and provenance information, including: the SQL query
+used to extract the data, the date and time the query was made, the citation
+source of each result row, and a citation for BETYdb itself (_to be updated on
+publication_).
 
-![{{page.Figures.SearchResults.Caption}}]({{page.Figures.SearchResults.ImageFile}})
+```{r resultsexcel, echo=FALSE, fig.cap="The download result file from a search for switchgrass yields, displayed in Excel.  This shows the meta-data the the first few query results out of several hundred."}
+knitr::include_graphics("assets/results_excel.png")
+```
 
-#### Step-by-step instructions
+### Step-by-step instructions
 
 Using the search box to search trait and yield data is very simple: Type the
 site (city or site name), species (scientific or common name), cultivar,
@@ -83,15 +58,17 @@ will restrict the search to the region around the point clicked. Alternatively,
 if a search using search terms is done without clicking on the map, all sites
 associated with the returned results are highlighted on the map.  Then, to zero
 in on results for a particular geographic area, click on or near highlighted
-locations on the map ({{page.Figures.AccessMaps.ReferenceName}}).
+locations on the map (Figure \@ref(fig:accessmaps)).
 
-![{{page.Figures.AccessMaps.Caption}}]({{page.Figures.AccessMaps.ImageFile}})
+```{r accessmaps, echo=FALSE, fig.cap="Refining the search area"}
+knitr::include_graphics("assets/accessmaps.png")
+```
 
 ## Details
 
 ### Basic search: Searching from the Home Page
 
-1. Go to the home page [betydb.org](https://www.betydb.org).
+1. Go to the home page [betydb.org](https://www.betydb.org){target="_blank"}.
 
 2. Enter one or more terms in the search box.  The search will succeed if (and
 only if) each term in the search box matches one of the following columns of the
@@ -118,7 +95,7 @@ of the search.
 1. From the home page, you can get to the advanced search page simply by typing
 search terms into the search box and clicking on the search icon.  (Or just
 click the search icon without entering any terms.  Or enter the URL for the
-advanced search page directly: https://www.betydb.org/search)
+advanced search page directly: [https://www.betydb.org/search](https://www.betydb.org/search){target="_blank"})
 
 2. The search will return results for both traits and yields.
 
@@ -147,7 +124,7 @@ search map.  To display the search map, click `Search Using Map`.
 
 ### Example
 
-1. Go to [{{book.BETYdb_URL}}]({{book.BETYdb_URL}}).
+1. Go to [https://www.betydb.org](https://www.betydb.org){target="_blank"}.
 
 2. **Task 1 (simple search)**: Search for sugarcane yields — Enter the search
 string "sugarcane Ayield" in the search box.
