@@ -16,9 +16,10 @@ one exception is the API for inserting new traits into the traits table, which
 uses the POST method.  This document treats only the GET methods of the API.
 For information about _POST_-ing new data via the API, see [Inserting New Traits
 Via the
-API](https://pecan.gitbooks.io/betydbdoc-dataentry/content/trait_insertion_api.html)
+API](https://pecanproject.github.io/bety-documentation/dataentry/inserting-new-traits-via-the-api.html){target="_blank"}
 in the [BETYdb Data Entry
-Workflow](https://pecan.gitbooks.io/betydbdoc-dataentry/content/) manual.
+Workflow](https://pecanproject.github.io/bety-documentation/dataentry/index.html){target="_blank"}
+manual.
 
 
 While all of the GET requests provided by the API may be used inside a Web
@@ -38,9 +39,9 @@ and how that information is presented.
 * **original**: Works but is a little bit clunky and limited.
 * **beta**: Is more standardized than the original; supports _inserting_ data as
     well as requesting data (see [Inserting New Traits Via the
-    API](https://pecan.gitbooks.io/betydbdoc-dataentry/content/trait_insertion_api.html)
+    API](https://pecanproject.github.io/bety-documentation/dataentry/inserting-new-traits-via-the-api.html){target="_blank"}
     in the [BETYdb Data Entry
-    Workflow](https://pecan.gitbooks.io/betydbdoc-dataentry/content/)
+    Workflow](https://pecanproject.github.io/bety-documentation/dataentry/index.html){target="_blank"}
     documentation).
 * **v1** (to be released): Will work the same as beta, but with additional features.
 
@@ -67,7 +68,7 @@ users list page, and look in the _Apikey_ column.
 
 ---
 
-#### For administrators
+### For administrators {-}
 
 API keys are automatically generated for new users, but users who signed up on
 previous releases may not have an API key in the database. To create an API key
