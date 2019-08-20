@@ -1,12 +1,12 @@
-# The Beta API
+# The Version 1 API {#v1_api}
 
 This page provides a general description of how to access data using the (newer)
-beta version of the BETYdb API.  For a list of URLs of API endpoints, visit
-{{book.BETYdb_URL}}/api/docs.
+version 1 (v1) BETYdb API.  For a list of URLs of API endpoints, visit
+[https://www.betydb.org/api/docs](https://www.betydb.org/api/docs){target="_blank"}.
 
 ## API endpoints for table listings
 
-The paths for these endpoints are generally of the form `/api/beta/<table
+The paths for these endpoints are generally of the form `/api/v1/<table
 name>[.<extension>]`.  Most tables of interest are exposed.  The extension
 determines the format of the returned result and may be either "json" or "xml".
 The extension is optional; if not given, the result is returned in JSON format.
@@ -17,53 +17,52 @@ A GET request may be sent to any of the paths listed on the `/api/docs` page
 (see above).  (The path should of course be preceded by the HTTP protocol (http
 or https) and the hostname.)  To authenticate, you may use the parameter _key_,
 setting it to the user's API key (see the section on [API
-keys](../Api.html#api-keys)).[^apikey_details]
+keys]).[^apikey_details]
 
-###### Example
+#### Example {-}
 
 To get all[^default_limit] of the trait information from the traits table on the
 betydb.org site, send a request to
 
-{{book.BETYdb_URL}}/api/beta/traits
+[https://www.betydb.org/api/v1/traits](https://www.betydb.org/api/v1/traits){target="_blank"}
 
-(As in the previous section, [Original API](../original_api.md), we write the
-example URLs as though they are to be visited in a browser after having logged
-in to www.betydb.org.  For more information, including how to send the HTTP
-requests using curl, visit [this footnote](../original_api.md#fn_1) on that
-page.)
+(As in the previous section, [Original API], we write the example URLs as though
+they are to be visited in a browser after having logged in to www.betydb.org.
+For more information, including how to send the HTTP requests using curl, see
+the footnote on that page.)
 
 
 #### Implicit restriction of results
 
-##### Limit and Offset
+##### Limit and Offset {-}
 
 Be default, the size of returned results is limited to 200 rows.  To get around
 this limit, or to impose a smaller limit, use the `limit` parameter.
 
-###### Example
+###### Example {-}
 
 To get a list of _all_ citations, visit
-{{book.BETYdb_URL}}/api/beta/citations?limit=none
+[https://www.betydb.org/api/v1/citations?limit=none](https://www.betydb.org/api/v1/citations?limit=none){target="_blank"}
 
 The `limit` parameter may be combined with an `offset` parameter to "shift the
 window" of returned results.
 
-###### Example
+###### Example {-}
 
 Requests to the following three URLs should[^offset_caveat] return three
 distinct groups of results of 10 rows each:
 
-{{book.BETYdb_URL}}/api/beta/species?limit=10
+[https://www.betydb.org/api/v1/species?limit=10](https://www.betydb.org/api/v1/species?limit=10){target="_blank"}
 
-{{book.BETYdb_URL}}/api/beta/species?limit=10&offset=10
+[https://www.betydb.org/api/v1/species?limit=10&offset=10](https://www.betydb.org/api/v1/species?limit=10&offset=10){target="_blank"}
 
-{{book.BETYdb_URL}}/api/beta/species?limit=10&offset=20
+[https://www.betydb.org/api/v1/species?limit=10&offset=20](https://www.betydb.org/api/v1/species?limit=10&offset=20){target="_blank"}
 
-##### Restricted data
+##### Restricted data {-}
 
 Unless the account associated with the specified API key has administrative
 access, certain rows are filtered out of the traits, yields, and users tables.
-In particular, non-administrators visiting the path `/api/beta/users` will only
+In particular, non-administrators visiting the path `/api/v1/users` will only
 see the single row corresponding to their own account.
 
 #### Filtering results with exact matching
@@ -71,44 +70,44 @@ see the single row corresponding to their own account.
 In order to filter the returned results, parameters specifying required column
 values can be added to the query string.
 
-###### Example
+###### Example {-}
 
 To find all species in the family Orchidaceae, add `Family=Orchidaceae` to the
 query string:
 
-{{book.BETYdb_URL}}/api/beta/species?Family=Orchidaceae&limit=none
+[https://www.betydb.org/api/v1/species?Family=Orchidaceae&limit=none](https://www.betydb.org/api/v1/species?Family=Orchidaceae&limit=none){target="_blank"}
 
 Exact matching may be used on any column of the table being queried.  It works
 best with integer and textual data types.
 
-##### Exact Matching Caveats
+##### Exact Matching Caveats  {-}
 
 1. Textual matchings are case- and whitespace-sensitive.
 
- ##### Example
+    ##### Example
 
- To find full information about sweet orange, you could do the API call
+    To find full information about sweet orange, you could do the API call
 
- {{book.BETYdb_URL}}/api/beta/species?limit=250&scientificname=Citrus+×+sinensis
+    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×+sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×+sinensis){target="_blank"}
 
- (Note here that the spaces in the name must be URL-encoded as a `+` symbol when
- used in the query string.)  But if you do
+    (Note here that the spaces in the name must be URL-encoded as a `+` symbol when
+    used in the query string.)  But if you do
 
- {{book.BETYdb_URL}}/api/beta/species?limit=250&scientificname=Citrus+×sinensis
+    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×sinensis){target="_blank"}
 
- instead (with no space between the `×` and the species name), you won't get the
- result you want.
+    instead (with no space between the `×` and the species name), you won't get the
+    result you want.
 
 2. Certain symbols that look very much alike are not interchangeable.
 
- In the previous example, if you had used the letter "x" instead of the times
+    In the previous example, if you had used the letter "x" instead of the times
 symbol "×", the API call wouldn't have returned the desired result.  (You could
 have, however, used "%C3%97" in place of "×": "%C3%97" is the URL encoding of
 "×".)
 
 3. Date/Time may not match as expected.
 
- To match a column value having data type "timestamp", you must exactly match
+    To match a column value having data type "timestamp", you must exactly match
 the PostgreSQL textual representation of that timestamp.  In general, this is
 not the same as the representation displayed by the query result.  For example,
 a query that filters by creation time using the key-value string
@@ -121,12 +120,12 @@ displays a "T" between the two parts.
 
 4. Numerical types match as numbers.
 
- For integers, this means that could (somewhat perversely) match an id number of
+    For integers, this means that could (somewhat perversely) match an id number of
 26536 using the key-value pair `id=+++%2B26536+++` in the query string.  Here,
 "%2B" is the URL-encoded version of the plus sign, and the "+" symbols are
 URL-encodings of spaces.
 
- For floating point numbers, some rounding is done when matching values, but not
+    For floating point numbers, some rounding is done when matching values, but not
 much.  For example, the key-value string "stat=0.18299999999999999" may return a
 trait having stat value 0.183 whereas the string "stat=0.1829999999999" may not.
 
@@ -135,17 +134,17 @@ trait having stat value 0.183 whereas the string "stat=0.1829999999999" may not.
 To turn on regular expression matching, use the symbol "~" as the first symbol
 of the value in any key-value pair.
 
-###### Example
+###### Example {-}
 
 To find all sites with the string "University" in their sitename, do the API call
 
-{{book.BETYdb_URL}}/api/beta/sites?sitename=~University
+[https://www.betydb.org/api/v1/sites?sitename=~University](https://www.betydb.org/api/v1/sites?sitename=~University){target="_blank"}
 
 Note that regular expressions are not anchored by default.  To return only those
 sites whose sitename begins with "University", use the regular-expression anchor
 symbol "^" at the beginning of the string:
 
-{{book.BETYdb_URL}}/api/beta/sites?sitename=~%5EUniversity
+[https://www.betydb.org/api/v1/sites?sitename=~%5EUniversity](https://www.betydb.org/api/v1/sites?sitename=~%5EUniversity){target="_blank"}
 
 (Here, "%5E" is the URL-encoding of "^".)
 
@@ -153,14 +152,14 @@ We can use regular expression matching to alleviate some of the problems with
 exact matching mentioned above.  For example, to find all trait rows that were
 updated in the middle part of March 2015, we could do an API call like
 
-{{book.BETYdb_URL}}/api/beta/traits?limit=250&updated_at=~2015-03-1
+[https://www.betydb.org/api/v1/traits?limit=250&updated_at=~2015-03-1](https://www.betydb.org/api/v1/traits?limit=250&updated_at=~2015-03-1){target="_blank"}
 
 
 This will find all traits updated from March 10 through March 19, 2015 UTC.
 
 ### Format of Returned Results
 
-The beta API suports two response formats: JSON and XML.  This is a very brief
+The v1 API suports two response formats: JSON and XML.  This is a very brief
 description of the information contained in the response and how that
 information is presented in each format.
 
@@ -170,28 +169,28 @@ Every response is divided into two or more of the following main sections:
 
 * metadata
 
-  The metadata in the response contains the following three items:
+    The metadata in the response contains the following three items:
 
-  * URI: The URI requested in the GET request.
-  
-  * timestamp: The date and time of the request.
+    * URI: The URI requested in the GET request.
 
-  * count: The number of rows of data represented in the response or `null` if
-    there was an error in the request.
+    * timestamp: The date and time of the request.
+
+    * count: The number of rows of data represented in the response or `null` if
+      there was an error in the request.
 
 * errors
 
-  The error or list of errors associated with the request.  If no errors
+    The error or list of errors associated with the request.  If no errors
   occurred, the item will be omitted.
 
 * warnings
 
-  Any warnings associated with the request.  This item is omitted if there are
+    Any warnings associated with the request.  This item is omitted if there are
   no warnings.
 
 * data
 
-  This is main item of interest in a successful request.  (It is omitted if the
+    This is main item of interest in a successful request.  (It is omitted if the
   request is unsuccessful.)  It contains all the rows of the table associated
   with the URI path that are not filtered out by request parameters (subject to
   access restrictions and the default size limit).
@@ -202,7 +201,7 @@ The value of the "data" property will be a JSON array consisting of zero or more
 JSON objects, each of which represents one row of the database table
 corresponding to the API endpoint in the request.  Each of these objects has a
 single property whose name is usually the singular form of the table being
-represented.  For example, in a request to the API path `/api/beta/traits`, the
+represented.  For example, in a request to the API path `/api/v1/traits`, the
 property name will be "trait".  The value of this property is itself a JSON
 object, one having a property for each column of the represented database table.
 The data portion of a typical trait request will look something like this:
@@ -240,7 +239,7 @@ The data portion of a typical trait request will look something like this:
 ```
 
 
-##### Additional properties
+##### Additional properties {-}
 
 In addition to a property for each column of the represented database table, the
 data JSON objects will also contain the following:
@@ -248,21 +247,21 @@ data JSON objects will also contain the following:
 * A property for certain associated tables that are in a many-to-many or
   many-to-one relationship with this table.
 
-  For example, the value of each _site_ property returned in a request to path
-  `/api/beta/sites` will be an object containing the properties "number of associated
+    For example, the value of each _site_ property returned in a request to path
+  `/api/v1/sites` will be an object containing the properties "number of associated
   citations", "number of associated sitegroups", "number of associated yields", etc.
 
-  Note that properties corresponding to join tables are generally omitted.  For
+    Note that properties corresponding to join tables are generally omitted.  For
   example, a "site" object will have a property "number of associated citations"
   but not "number of associated citations\_sites".
 
 * A `view_url` property.
 
-  This property shows the "show" URL for the Web page that displays the item in
+    This property shows the "show" URL for the Web page that displays the item in
   HTML format.  This page will usually contain an "Edit" link for editing the
   item.
 
-##### Representation of column values
+##### Representation of column values {-}
 
 For the property values corresponding to table columns, there are at least two
 cases where the form in which they are represented in the JSON response is
@@ -271,7 +270,7 @@ using a client such as psql.
 
 1. timestamps
 
-  The form returned by the API is `YYYY-MM-DDTHH:MM:SS[+|-]HH:MM` whereas psql
+    The form returned by the API is `YYYY-MM-DDTHH:MM:SS[+|-]HH:MM` whereas psql
   will display a timestamp in the form `YYYY-MM-DD HH:MM:SS.nnnnnn`.  That is,
   the API (a) separates the date and the time with the character "T" where psql
   uses a space, (b) shows a timezone offset where psql simply returns a time
@@ -279,7 +278,7 @@ using a client such as psql.
 
 2. geometries
 
-  The API displays the sites.geometry column in human-readable form (for example,
+    The API displays the sites.geometry column in human-readable form (for example,
   "POINT (-68.1069 44.8708 265.0)") whereas psql does not.
 
 #### Content of returned data: XML format
@@ -294,7 +293,7 @@ content corresponding to the value.  But note the following:
 2. For JSON properties having non-textual simple values, the corresponding XML
 element will have a "type" attribute stating the type of the value.
 
-  For example, the start tag for the element representing the "id" column is `<id
+    For example, the start tag for the element representing the "id" column is `<id
   type="integer">`.  The start tag for the "created_at" column is `<created-at
   type="datetime">`.  Note that the types shown are Ruby types, not SQL types.
 
@@ -308,35 +307,35 @@ empty elements having the attribute `nil="true"`.[^null_vs_empty]
 
 6. The XML response has an element whose name matches the database table name.
 
-  For example, a request to the path `/api/beta/sites.xml` returns a result whose
+    For example, a request to the path `/api/v1/sites.xml` returns a result whose
   data portion looks like
 
-  ```xml
-  <data>
-    <sites type="array">
-      <site>
-        <id type="integer">...
+    ```xml
+    <data>
+      <sites type="array">
+        <site>
+          <id type="integer">...
+          ...
+          ...
+        </site>
+        <site>
+          <id type="integer">...
+          ...
+          ...
+        </site>
         ...
         ...
-      </site>
-      <site>
-        <id type="integer">...
         ...
-        ...
-      </site>
-      ...
-      ...
-      ...
-    </sites>
-  </data>
-  ```
+      </sites>
+    </data>
+    ```
 
 ## API endpoints for individual items
 
 The paths for these endpoints are generally of the form
 
 ```
-/api/beta/<table name>/<id number>[.<extension>]
+/api/v1/<table name>/<id number>[.<extension>]
 ```
 
 Again, most tables of interest are exposed, and the extension (if given)
@@ -352,13 +351,13 @@ parameter specifying the user's API key.
 In general, a request of the form
 
 ```bash
-curl "http[s]://<hostname>/api/beta/<table name>/nnn.json?key=<your api key>
+curl "http[s]://<hostname>/api/v1/<table name>/nnn.json?key=<your api key>
 ```
 
 will return nearly the same result as the request
 
 ```bash
-curl "http[s]://<hostname>/api/beta/<table name>.json?key=<your api key>&id=nnn
+curl "http[s]://<hostname>/api/v1/<table name>.json?key=<your api key>&id=nnn
 ```
 
 Here are the main differences:
@@ -370,10 +369,11 @@ Here are the main differences:
 
 3. If the table being queried is in a many-to-one relationship to some other
 table, full information will be included about the referred-to item.  For
-example, {{book.BETYdb_URL}}/api/beta/cultivars.json?id=55 will show the id of
-the species associated with cultivar 55, but
-{{book.BETYdb_URL}}/api/beta/cultivars/55.json will show full information about
-the species.
+example,
+[https://www.betydb.org/api/v1/cultivars.json?id=55](https://www.betydb.org/api/v1/cultivars.json?id=55){target="_blank"}
+will show the id of the species associated with cultivar 55, but
+[https://www.betydb.org/api/v1/cultivars/55.json](https://www.betydb.org/api/v1/cultivars/55.json){target="_blank"}
+will show full information about the species.
 
 4. For one-to-many or many-to-many associations, the _individual item_ form of
 the request will return a list of associated items, not just a count of the
@@ -382,31 +382,29 @@ number of associated items.
 These differences carry over _mutatis mutandis_ to XML-format requests.
 
 
----
-<!-- IMPORTANT: Keep footnotes to a single line if you want the "return" link to appear at the end of the footnote. -->
-[^apikey_details]: If you enter these API URLs in a browser after logging into the host site, you needn't include the API key in the query string.  Thus, to see a list of traits, you could just enter {{book.BETYdb_URL}}/api/beta/traits into your browser's address box after logging in to www.betydb.org.  This will save much typing as you try out examples.
+[^apikey_details]: If you enter these API URLs in a browser after logging into the host site, you needn't include the API key in the query string.  Thus, to see a list of traits, you could just enter [https://www.betydb.org/api/v1/traits](https://www.betydb.org/api/v1/traits){target="_blank"} into your browser's address box after logging in to www.betydb.org.  This will save much typing as you try out examples.
 
 [^default_limit]: Actually, this retrieves only the first 200 rows, 200 being the default size limit of the response.
 
-To get more than 200 results, set an explicit limit using the `limit` parameter;
-for example,
-{{book.BETYdb_URL}}/api/beta/traits?limit=550
+    To get more than 200 results, set an explicit limit using the `limit` parameter;
+    for example,
+    [https://www.betydb.org/api/v1/traits?limit=550](https://www.betydb.org/api/v1/traits?limit=550){target="_blank"}
 
-If you want to ensure that _all_ rows are returned, use the special limit value
-"all" (or equivalently, "none", that is, _no limit_):
+    If you want to ensure that _all_ rows are returned, use the special limit value
+    "all" (or equivalently, "none", that is, _no limit_):
 
-{{book.BETYdb_URL}}/api/beta/traits?limit=all
+    [https://www.betydb.org/api/v1/traits?limit=all](https://www.betydb.org/api/v1/traits?limit=all){target="_blank"}
 
 [^offset_caveat]: Use of _offset_ may not give consistent results.  To quote from the PostgreSQL documentation:
 
-> The query optimizer takes LIMIT into account when generating query plans, so
-> you are very likely to get different plans (yielding different row orders)
-> depending on what you give for LIMIT and OFFSET. Thus, using different
-> LIMIT/OFFSET values to select different subsets of a query result will give
-> inconsistent results unless you enforce a predictable result ordering with
-> ORDER BY.
+    > The query optimizer takes LIMIT into account when generating query plans, so
+    > you are very likely to get different plans (yielding different row orders)
+    > depending on what you give for LIMIT and OFFSET. Thus, using different
+    > LIMIT/OFFSET values to select different subsets of a query result will give
+    > inconsistent results unless you enforce a predictable result ordering with
+    > ORDER BY.
 
-The beta API does not (yet) support specifying the order of results.
+    The v1 API does not (yet) support specifying the order of results.
 
 [^null_vs_empty]: This is one case in which the XML response contains less information that the JSON response.  Whereas JSON displays `""` and `null` respectively for empty strings and NULLs, XML shows `nil="true"` in both cases.
 

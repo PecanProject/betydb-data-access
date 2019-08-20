@@ -386,7 +386,7 @@ key, we would have to do three separate searches:
 
 This is because when we use a column name as the search key, the value must
 match the column value _exactly_, including the letter case and the number of
-spaces between words.[^fuzzy_matching_in_beta_api]
+spaces between words.[^fuzzy_matching_in_v1_api]
 
 ### Including Unchecked Data in the Traits and Yields View
 
@@ -470,4 +470,4 @@ valid API key in the URL (see the section on [API keys]).
 
 [^table_relation_rule]: The "real" rule is: use the singular form if the Rails model for the table has a line of the form `belongs_to <singular form of other table>`, and use the actual table name if the Rails model has a line of the form `has_many <other table>`.  See footnote [^associations].
 
-[^fuzzy_matching_in_beta_api]: The newer [beta api][The Beta API] offers less strict methods of matching by column values.
+[^fuzzy_matching_in_v1_api]: The newer [v1 api](#v1_api) offers less strict methods of matching by column values.

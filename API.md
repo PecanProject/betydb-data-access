@@ -37,13 +37,15 @@ and how that information is presented.
 ## Versions
 
 * **original**: Works but is a little bit clunky and limited.
-* **beta**: Is more standardized than the original; supports _inserting_ data as
+* **beta**: A draft version of the v1 API; maintained only to support existing
+    external links.  (In its current form, the beta version is essentially
+    identical to the v1 version except for its name.)
+* **v1**: Is more standardized than the original; supports _inserting_ data as
     well as requesting data (see [Inserting New Traits Via the
     API](https://pecanproject.github.io/bety-documentation/dataentry/inserting-new-traits-via-the-api.html){target="_blank"}
     in the [BETYdb Data Entry
     Workflow](https://pecanproject.github.io/bety-documentation/dataentry/index.html){target="_blank"}
     documentation).
-* **v1** (to be released): Will work the same as beta, but with additional features.
 
 
 ## API keys
