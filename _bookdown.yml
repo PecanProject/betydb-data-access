@@ -3,7 +3,7 @@ rmd_files: ["index.Rmd",
             "advanced_search.md", # Web Interface Search
             "API.md", # API for URL-based Queries
             "original_api.md", # API v0.original
-            "API/beta_API.md", # API v1.beta
+            "v1_API.md", # API v1.beta
             "rOpenSci_traits_package.md", # rOpenSci Traits Package
             "r_dplyr_package.md", # R dplyr Package
             "pecan_r_package.md", # PEcAn R Package
