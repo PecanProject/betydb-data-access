@@ -1,4 +1,4 @@
-# Appendices: Full Search Details
+# Appendices: Full Search Details {#appendix}
 
 ## List of searchable columns in each table
 
