@@ -1,5 +1,7 @@
 # Appendices: Full Search Details {#appendix}
 
+[This page is incomplete.]
+
 ## List of searchable columns in each table
 
 ### Search page
