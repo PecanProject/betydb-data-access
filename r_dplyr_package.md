@@ -1,10 +1,13 @@
 # R dplyr Package
 
-### R dplyr interface
+## R dplyr interface {-}
 
-Using dplyr requires having access to a PostgreSQL server running BETYdb or [installing your own](Local-install.md).
+Using dplyr requires having access to a PostgreSQL server running BETYdb or [installing your own](#local_installation).
 
-Comprehensive documentation for the `dplyr` interface to databases is provided in the [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html)
+Comprehensive documentation for the `dplyr` interface to databases is provided in the [dbplyr vignette](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html){target="_blank"}[^dbplyr]
+
+[^dbplyr]: For versions of `dplyr` later than version 0.5.0, `dbplyr` is the
+database backend for `dplyr`.
 
 ## Connect to Database
 
