@@ -48,7 +48,7 @@ SELECT 'yields'::character(10) AS result_type,
     yields.n,
     yields.statname,
     yields.stat,
-    yields.notes,
+    yields.notes
    FROM ((((((yields
      LEFT JOIN sites ON ((yields.site_id = sites.id)))
      LEFT JOIN species ON ((yields.specie_id = species.id)))
