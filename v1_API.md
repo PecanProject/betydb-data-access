@@ -88,12 +88,12 @@ best with integer and textual data types.
 
     To find full information about sweet orange, you could do the API call
 
-    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×+sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×+sinensis){target="_blank"}
+    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×+sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+%C3%97+sinensis){target="_blank"}
 
     (Note here that the spaces in the name must be URL-encoded as a `+` symbol when
     used in the query string.)  But if you do
 
-    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×sinensis){target="_blank"}
+    [https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+×sinensis](https://www.betydb.org/api/v1/species?limit=250&scientificname=Citrus+%C3%97sinensis){target="_blank"}
 
     instead (with no space between the `×` and the species name), you won't get the
     result you want.
