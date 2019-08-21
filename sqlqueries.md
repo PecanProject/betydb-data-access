@@ -13,7 +13,7 @@ stable.
 These are the core tables required to query traits and yields:
 
 
-![](betydb_schema.png)
+![](assets/betydb_schema.png)
 
 
 We have created 'views' to make it easier to query data from multiple tables. 
