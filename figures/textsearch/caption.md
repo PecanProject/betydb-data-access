@@ -1,1 +1,0 @@
-\label{fig:textsearch} Searching for switchgrass yield data using a textbox on the BETYdb home page (www.betydb.org).

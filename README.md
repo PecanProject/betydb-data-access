@@ -1,1 +1,0 @@
-This book is published at https://pecan.gitbooks.io/betydb-data-access/content/.

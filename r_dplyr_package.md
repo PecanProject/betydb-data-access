@@ -1,14 +1,17 @@
 # R dplyr Package
 
-### R dplyr interface
+## R dplyr interface {-}
 
-Using dplyr requires having access to a PostgreSQL server running BETYdb or [installing your own](Local-install.md).
+Using dplyr requires having access to a PostgreSQL server running BETYdb or [installing your own](#local_installation).
 
-Comprehensive documentation for the `dplyr` interface to databases is provided in the [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html)
+Comprehensive documentation for the `dplyr` interface to databases is provided in the [dbplyr vignette](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html){target="_blank"}[^dbplyr]
+
+[^dbplyr]: For versions of `dplyr` later than version 0.5.0, `dbplyr` is the
+database backend for `dplyr`.
 
 ## Connect to Database
 
-```{r}
+```r
 library(dplyr)
 library(data.table)
 ## connection to database
@@ -22,7 +25,7 @@ bety <- src_postgres(host = d$host, user = d$user, password = d$password, dbname
 
 ## Query Miscanthus yield data
 
-```{r}
+```r
 
 species <- tbl(bety, 'species') %>% 
   select(id, scientificname, genus) %>% 
@@ -119,7 +122,7 @@ grass_yields <- yields %>%
   left_join(planting_rate, by = 'treatment_id') %>% 
   left_join(irrigation_all, by = 'treatment_id', copy = TRUE) %>% 
   collect %>% 
-  mutate(age = year(date)- year(planting_date),
+  #mutate(age = year(date)- year(planting_date),
          nrate = ifelse(is.na(nrate), 0, nrate),
          SE = ifelse(statname == "SE", stat, ifelse(statname == 'SD', stat / sqrt(n), NA)),
          continent = ifelse(lon < -30, 'united_states', ifelse(lon < 75, 'europe', 'asia')))

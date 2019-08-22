@@ -1,6 +1,6 @@
 # rOpenSci traits package
 
-The [rOpenSci traits package](https://github.com/ropensci/traits/) is an R client for various sources of species trait data. 
+The [rOpenSci traits package](https://github.com/ropensci/traits/){target="_blank"} is an R client for various sources of species trait data. 
 The traits package provides functions that interface with the BETYdb API. 
 
 These instructions are from the traits package documentation, which is released with a MIT-BSD license.
@@ -92,7 +92,7 @@ salix %>%
 #> 4                 Salix viminalis Vcmax 43.04 19.99 61.29     8
 ```
 
-[BETYdb](https://www.betydb.org/) is the _Biofuel Ecophysiological Traits and Yields Database_. You can get many different types of data from this database, including trait data. 
+[BETYdb](https://www.betydb.org/){target="_blank"} is the _Biofuel Ecophysiological Traits and Yields Database_. You can get many different types of data from this database, including trait data. 
 
 Function setup: All functions are prefixed with `betydb_`. Plural function names like `betydb_traits()` accept parameters and always give back a data.frame, while singular function names like `betydb_trait()` accept an ID and give back a list. 
 

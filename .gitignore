@@ -1,3 +1,7 @@
-_book/
-node_modules/
-npm-debug.log
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# bookdown
+_book

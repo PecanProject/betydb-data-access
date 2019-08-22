@@ -1,14 +1,19 @@
 # SQL queries
 
-The BETYdb repository has a large number of example SQL queries if you search for the terms ['select' and 'join' in its issues](https://github.com/pecanproject/bety/issues?utf8=%E2%9C%93&q=is%3Aissue+select+where+join).
+The BETYdb repository has a large number of example SQL queries if you search
+for the terms ['select' and 'join' in its
+issues](https://github.com/pecanproject/bety/issues?utf8=%E2%9C%93&q=is%3Aissue+select+where+join){target="_blank"}.
 
-SQL is the most flexible way of querying data from BETYdb. 
-The full l[ist of tables](https://www.betydb.org/schemas) and [schema](https://www.betydb.org/schemas?partial=relationships) on the website is up to date with the current database, but the tables below are stable.
+SQL is the most flexible way of querying data from BETYdb.  The full [list of
+tables](https://www.betydb.org/schemas){target="_blank"} and
+[schema](https://www.betydb.org/schemas?partial=relationships){target="_blank"}
+on the website is up to date with the current database, but the tables below are
+stable.
 
 These are the core tables required to query traits and yields:
 
 
-![](betydb_schema.png)
+![](assets/betydb_schema.png)
 
 
 We have created 'views' to make it easier to query data from multiple tables. 
@@ -43,7 +48,7 @@ SELECT 'yields'::character(10) AS result_type,
     yields.n,
     yields.statname,
     yields.stat,
-    yields.notes,
+    yields.notes
    FROM ((((((yields
      LEFT JOIN sites ON ((yields.site_id = sites.id)))
      LEFT JOIN species ON ((yields.specie_id = species.id)))
