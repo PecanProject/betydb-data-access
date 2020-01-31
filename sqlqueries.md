@@ -8,7 +8,7 @@ SQL is the most flexible way of querying data from BETYdb.  The full [list of
 tables](https://www.betydb.org/schemas){target="_blank"} and
 [schema](https://www.betydb.org/schemas?partial=relationships){target="_blank"}
 on the website is up to date with the current database, but the tables below are
-stable.
+fairly stable - any changes are relatively minor and the table relationships are not expected to change.
 
 These are the core tables required to query traits and yields:
 
