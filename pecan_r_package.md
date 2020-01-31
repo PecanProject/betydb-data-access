@@ -3,9 +3,9 @@
 
 ## PEcAn.DB functions
 
-Like the [R dplyr package], the [PEcAn.DB](https://github.com/PecanProject/pecan/tree/master/db) package requires the user to have read access to a PostgreSQL server running BETYdb.
+Like the [R dplyr package], the [PEcAn.DB](https://github.com/PecanProject/pecan/tree/develop/base/db) package requires the user to have read access to a PostgreSQL server running BETYdb.
 Unlike the dplyr package, the PEcAn.DB package is less secure, more difficult to install.
-The primary reason to use this package is if you are using the [PEcAn ecosystem modeling framework](https://pecanproject.org).
+The primary reason to use this package is if you are using the [PEcAn ecosystem modeling framework](https://pecanproject.github.io).
 The easiest way to install the BETYdb server and run these queries is to use the PEcAn virtual machine.
 This can be done on your computer or through Amazon Web Services.
 
